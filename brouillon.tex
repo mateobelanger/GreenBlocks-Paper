@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lipsum} % for dummy text
+
+\begin{document}
+
+\chapter{Methodology}
+
+\section{Introduction}
+
+In the evolving landscape of blockchain technology, environmental concerns have emerged as a significant point of discussion. The energy consumption of blockchain networks, and their associated carbon emissions, has attracted both academic and popular scrutiny. To address these concerns, this study aims to attribute blockchain-related emissions at the granular user level. By doing so, we provide an avenue for users to understand and take responsibility for their individual contributions to the total emissions of blockchain networks.
+
+This chapter will delve into the methodology used to attribute carbon emissions to individual blockchain addresses, thus providing a quantitative measure of each address's environmental impact.
+
+\section{Background}
+
+Blockchain networks differ in their mechanisms and purposes. Broadly, they can be categorized into two primary types:
+
+\begin{enumerate}
+    \item \textbf{General Purpose Chains (GPCs):} These chains allow the deployment of versatile smart contracts, with Ethereum being a prominent example. Their operations and transactions involve 'gas' as a metric to quantify computational effort.
+    \item \textbf{Value Transfer Chains (VTCs):} Focused primarily on transferring value, these chains, exemplified by Bitcoin, do not deploy smart contracts in the same manner as GPCs. Their operational metrics differ from GPCs.
+\end{enumerate}
+
+Given these distinctions, our methodology is designed to accommodate the unique characteristics of both types of chains.
+
+\section{Emission Attribution Framework}
+
+\subsection{Emission Rate}
+
+For each blockchain \( s \), there's an associated emission rate \( E_s(\tau) \), representing the CO\textsubscript{2} equivalent emitted per unit activity at time \( \tau \).
+
+\subsection{Responsibility Share}
+
+The responsibility share of an address on a chain is determined by three metrics:
+\begin{itemize}
+    \item Balance: \( \frac{B(\tau)}{B_{\text{total},s}(\tau)} \)
+    \item Transactions: \( \frac{T(\tau)}{T_{\text{total},s}(\tau)} \)
+    \item Gas (for GPCs only): \( \frac{G(\tau)}{G_{\text{total},s}(\tau)} \)
+\end{itemize}
+
+\subsection{Weighting Factors}
+
+Chain-specific weighting factors (\( \alpha_s, \beta_s, \) and \( \delta_s \)) account for the differing importance of each metric. For VTCs, gas is not considered, making \( \delta_s = 0 \).
+
+\subsection{Attributed Emissions}
+
+Combining the elements above, we derive the emissions attributable to a specific address on a chain at time \( \tau \) using:
+
+\[ A_s(\tau) = E_s(\tau) \times \left[ \alpha_s \times \frac{B(\tau)}{B_{\text{total},s}(\tau)} + \beta_s \times \frac{T(\tau)}{T_{\text{total},s}(\tau)} + \delta_s \times \frac{G(\tau)}{G_{\text{total},s}(\tau)} \right] \]
+
+\subsection{Cumulative Emissions}
+
+The cumulative emissions for an address up to time \( t \) across all chains are given by:
+
+\[ C(t) = \sum_{s \in S} \int_{0}^{t} A_s(\tau) d\tau \]
+
+\section{Conclusion}
+
+This methodology presents a systematic approach to disaggregate the carbon emissions of blockchain networks and attribute them to individual users based on their activity. By offering this granular perspective, we empower users with knowledge, fostering a more eco-conscious blockchain community. The subsequent chapters will apply this methodology to actual data, providing insights into the environmental footprint of blockchain users.
+
+\end{document}
