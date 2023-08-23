@@ -1,27 +1,73 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+\bibliographystyle{ieeetr}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage{amsmath}
+\usepackage[colorlinks=false]{hyperref}
 \usepackage{blindtext}
 \usepackage{graphicx} % Required for inserting images
 \usepackage[english]{babel}
-\usepackage[legalpaper, margin=1in]{geometry}
+\usepackage{pdfpages}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+%\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
+%
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
 \title{GreenBlocks - SMT PdM}
-\author{mbelanger.poly }
+\author{mbelanger.poly}
 \date{August 2023}
+
 
 \begin{document}
 
-\maketitle
+\includepdf[pages={1-2}]{cover.pdf}
+
+\tableofcontents
 
 \section{Introduction}
+\blindtext
+\cite{nakamoto_bitcoin_2008}
+\cite{aysan_blockchain-based_2021}
+\cite{de_vries_revisiting_2022}
+
+
+
+
+\subsection{Background and Motivation}
+\blindtext
+\subsection{Problem Statement}
+\subsection{Research Questions and Ojbectives}
+\subsection{Scope and Limitations}
+\subsection{Structure of the Thesis}
+
+
 \section{Litterature Review}
+\subsection{Evolution of Blockchain Technology}
+\subsection{Environmental Impact of Blockchains}
+\subsubsection{Energy Consumption and Related Emissions}
+\subsubsection{Current Measurement Methodologies and Datasets}
+\subsection{User-Level Emissions Attribution}
+
+
 \section{Methodology}
-\subsection{Calculating User's emissions share}
-\subsubsection{Overview of the attribution strategy}
+\subsection{Overview of the attribution strategy}
+\subsection{User-Level Emission Atrribution Model}
+\subsubsection{Historical Blockchain Emissions Data}
+\subsubsection{User attribution}
+\subsubsection{Responsibility share}
+\subsubsection{Weighting factors}
+\subsubsection{Cumulative Emissions}
+\subsection{Data Sources and Collection}
+
+
 \subsubsection*{General Form}
 \begin{equation}
 \text{Footprint}_{chain}(t) = \int_{0}^{t} \left[ \text{EmissionRate}_{chain}(\tau) \cdot \left( \alpha_{chain} \text{BalanceShare}(\tau) + \gamma_{chain} \text{Transactions}(\tau) \right) \right] d\tau
 \end{equation}
-
 
 
 
@@ -40,11 +86,12 @@
 - \( \int_{0}^{t} \): Continuous summation of emissions from the inception of the address to time \(t\). \\
 - \( i \) and \( j \) denote specific chains in GPC and VTC categories respectively. For instance, \( GPC_1 \) could represent Ethereum, while \( GPC_2 \) could represent Cosmos, and similarly for VTCs.
 
-\subsubsection*{Variables} \\
-- \(\text{BalanceShare}(\tau)\): Proportion of the total token supply owned by the address at time \(\tau\). \\
-- \(\text{Transactions}(t)\): Number of transactions signed by the address up to time $t$ (used for VTCs). \\
+\subsubsection*{Variables} 
+- \(\text{BalanceShare}(\tau)\): Proportion of the total token supply owned by the address at time \(\tau\). 
+- \(\text{Transactions}(t)\): Number of transactions signed by the address up to time $t$ (used for VTCs). 
 - \(\text{GasSpent}(\tau)\): Gas spent by the address at time \(\tau\). (used for GPCs)
 \subsubsection*{Weighting factors} 
+
 Weighting factors $\alpha$, $\beta$ and $\gamma$ capture the significance of each associated variables to the total chain emissions. These values are not only specific to blockchain types, but also individual blockchains. \\ 
 
 
@@ -144,8 +191,7 @@ Breaking this down:
 
 This formula provides a more nuanced understanding of emissions in VTCs by giving a weight to transactions similar to the treatment in GPCs.
 
-\section{Adding generic representation of chains (for same type}
-Certainly! To make the formula generic across different VTCs and GPCs like Ethereum, Cosmos, and others, we need to account for the unique characteristics and historical emissions of each chain. We'll incorporate chain-specific variables and weighting factors to represent these differences.
+\subsection{Adding generic representation of chains (for same type)}
 
 \textbf{Generalized Emissions Calculation}
 
@@ -178,7 +224,7 @@ Where:
 - \( G(\tau) \): Represents gas used in transactions at time \( \tau \) (relevant for GPCs).
 - \( T(\tau) \): Represents number of transactions at time \( \tau \) (relevant for VTCs).
 
-### Verbose Explanation:
+\subsubsection{Verbose Explanation}:
 
 The formulas allow for the calculation of CO2 emissions for both general-purpose chains (like Ethereum and Cosmos) and value transfer chains. Each chain has its own set of historical emissions data and potentially different weighting factors. 
 
@@ -189,7 +235,33 @@ For value transfer chains:
 - The emissions are derived from the balance and the number of transactions. Again, different VTCs may have unique emissions rates and weighting factors, represented by the subscript \( j \).
 
 By incorporating chain-specific variables, the model can be applied across various blockchains, each with its unique characteristics and historical data.
-\end{document}
+
+
+
+\section{Implementation: GreenBlocks Platform}
+
+\begin{figure}[h!]
+    \centering
+    \centerline{\includegraphics[scale=0.125]{figures/greenblocks_functionnal.png}}
+    \caption{GreenBlocks Platform - Functionnal Architecture} 
+    \label{fig:functionnal_architecture}
+\end{figure}
+\change{Review figure width}
+\blindtext
+\subsection{System Architecture and Components}
+\subsection{User Interface Layer}
+\subsection{Middleware Layer}
+\subsection{Backend Layer}
+\subsection{Data Layer}
+\subsection{Development Process}
+\section{Discussion}
+\subsection{Comparative Analysis: Different User Profiles}
+\subsection{Limitations and Future Work}
+
+\section{Conclusion}
+
+\section{References}
+\bibliography{bibliography.bib}
 
 
 \end{document}
