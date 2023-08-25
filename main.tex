@@ -189,20 +189,20 @@ The emission rate \(E_s(\tau)\) represents the overall amount of tCO2-equivalent
 
 \todo{Detail combination of papers and dataset access}
 
-\subsection{User attribution factors}
+\subsection{User attribution parameters}
 
-The responsibility share for an address, owned by a user, is determined based on three factors, in two categories of behavior. Active behavior represents value derived from interacting with the blockchain, while passive behavior represents value derived from holding assets. The three factors are:
+The responsibility share for an address, owned by a user, is determined based on three factors, in two categories of behavior. Active behavior represents value derived from interacting with the blockchain, while passive behavior represents value derived from holding assets. The three factors are, for an address $addr$ on chain $s$ and at period $\tau$:
 
 \begin{samepage}
 \begin{description}
     \item[Active Behavior] \hfill
     \begin{itemize}
-        \item[\( \frac{T(\tau)}{T_{\text{total},s}(\tau)} \)] Number of transactions as a percentage of total transactions for period $\tau$ (for VTCs)
-        \item[\( \frac{G(\tau)}{G_{\text{total},s}(\tau)} \)] Gas spent as percentage of total gas in blocks for period $\tau$ (for GPCs)
+        \item[\( \frac{T_{\text{addr}, s}(\tau)}{T_{\text{total},s}(\tau)} \)] Number of transactions as a percentage of total transactions for period $\tau$ (for VTCs)
+        \item[\( \frac{G_{\text{addr},s}(\tau)}{G_{\text{total},s}(\tau)} \)] Gas spent as percentage of total gas in blocks for period $\tau$ (for GPCs)
     \end{itemize}
     \item[Passive Behavior] \hfill
     \begin{itemize}
-        \item[\( \frac{B(\tau)}{B_{\text{total},s}(\tau)} \)] Average Balance as a percentage of total token supply on chain $s$ for period $\tau$.
+        \item[\( \frac{B_{\text{addr},s}(\tau)}{B_{\text{total},s}(\tau)} \)] Average Balance as a percentage of total token supply on chain $s$ for period $\tau$.
     \end{itemize}
 \end{description}
 \end{samepage}
@@ -216,14 +216,14 @@ These weights are eastimated by comparing historical time series of trading volu
 
 \subsection{Attributed Emissions}
 
-Combining the parameters above, the carbon emissions \(A_s(\tau)\) attributed to an address on blockchain $s$ at time $\tau$ is:
+Combining the parameters and weights above, the carbon emissions \(A_s(\tau)\) attributed to an address on blockchain $s$ at time $\tau$ is generalized to:
 
 \begin{equation}
     A_{s}(\tau) = E_{s}(\tau) \times 
         [
-        \alpha_{s}\frac{B(\tau)}{B_{\text{total},s}(\tau)} + 
-        \beta_{s} \cdot  \frac{G(\tau)}{G_{\text{total},s}(\tau)} + 
-        \gamma_{s} \cdot \frac{T(\tau)}{T_{\text{total},s}(\tau)}
+        \alpha_{s}\frac{B_{\text{addr},s}(\tau)}{B_{\text{total},s}(\tau)} + 
+        \beta_{s}  \frac{G_{\text{addr},s}(\tau)}{G_{\text{total},s}(\tau)} + 
+        \gamma_{s} \frac{T_{\text{addr},s}(\tau)}{T_{\text{total},s}(\tau)}
         ]
 \end{equation}
 
@@ -233,10 +233,20 @@ simplified to:
 
 
 \begin{equation}
-    A_{s}(\tau) = E_{s}(\tau) \times [\alpha_{s} \cdot B(\tau) + \beta_{s} \cdot G(\tau) + \gamma_{s} \cdot T(\tau)]
+    A_{s}(\tau) = E_{s}(\tau) \times [\alpha_{s} B(\tau) + \beta_{s} G(\tau) + \gamma_{s} T(\tau)]
 \end{equation}
 
-With 
+Since we have $\beta_{s} = 0$ for VTCs and $\gamma_{s} = 0$ for GPCs, the attributed emissions on chain $s$ of type $|VTC, GPC|$ are:
+
+\begin{equation}
+    A_{VTCs}(\tau) = E_{s}(\tau) \times [\alpha_{s} B(\tau) + \beta_{s} G(\tau)]
+\end{equation}
+
+\begin{equation}
+    A_{GPCs}(\tau) = E_{s}(\tau) \times [\alpha_{s} B(\tau) + \beta_{s} G(\tau)]
+\end{equation}
+
+With $\alpha_{s} + \beta_{s} + \gamma_{s} = 1$ and $\alpha_{s}, \beta_{s}, \gamma_{s} \geq 0$.
 
 
 
