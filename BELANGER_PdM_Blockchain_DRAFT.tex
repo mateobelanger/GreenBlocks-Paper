@@ -254,34 +254,79 @@ Thus from equation \eqref{eq:attribution_share} we have the chain-specific emiss
 
 
 \begin{equation}
-    S(\tau) \propto [B(\tau) + \begin{cases}
+    S(\tau) \propto \left[B(\tau) + \begin{cases}
             T(\tau) & \text{for VTC} \\
             G(\tau) & \text{for GPC}
-        \end{cases}]
+        \end{cases}\right]
     \label{eq:attribution_share_chain_type}
 \end{equation}
 
 \subsection{Weighting factors}
 
+Introducing a second attribution parameter raises the question of how to weigh the two factors. The attribution share is proportional to the sum of the two factors, but the relative importance of each is not clear. To address this, we derive weights for each factor based on the principle of proportional benefits.
 
-\improvement{Add formalisation of the weighting factors measurment. Maybe add a figure to illustrate the concept}
+Blockchain networks and user behaviors evolve over time. As such, the relative importance users place on transactional versus asset holding utility can shift. To account for these dynamics, the weighting factors $\alpha$ and $\beta$ are derived by analyzing historical trends in transaction fees and market capitalization. This is done for each supported chain.
+
+\begin{description}
+    \item[Transaction Fees $F$]: As users invest more in transaction fees, it's an indicator that they're deriving value from the active functionalities of the blockchain. A rise in these fees underscores a user trend prioritizing transactional abilities. For \ac{VTC}s this is the average transaction fee per block, for \ac{GPC}s it is the average gas price per block.
+    \item[Market capitalization $M$]: Indicates user trust in the blockchain as a secure store of value. Growth in market cap highlights increasing passive utility perceived by users.
+\end{description}
+
+\subsubsection{Quantifying Shifts in User Priorities}
+
+By tracking the relative changes in transaction fees and market cap over time, the model adapts to users' shifting priorities. First the relative change for each metric is calculated across the emission attribution interval, limited by the granularity of historical data available.
+
+\begin{align}
+    \bar{\Delta F} & = \frac{1}{N}\sum_{i=1}^{N}\frac{F(\tau_i) - F(\tau_{i-1})}{F(\tau_{i-1})} \\
+    \bar{\Delta M} & = \frac{1}{N}\sum_{i=1}^{N}\frac{M(\tau_i) - M(\tau_{i-1})}{M(\tau_{i-1})}
+\end{align}
+
+\improvement{Maybe add a figure to illustrate the concept}
+
+
+Where \( N \) represents the number of time intervals.
+
+The ratio of these changes is the relative importance of transactional benefits to passive benefits. This is the basis for the attribution weights.
+
+\begin{equation} \label{eq:weights_ratio}
+    \bar{R} = \frac{\bar{\Delta F}}{\bar{\Delta M}}
+\end{equation}
+
+The relationship ratio $\bar{R}$ represents the relative importance between transaction fees and market capitalization. To convert this into proportional weights summing to 1, the transformation of equation \eqref{eq:ration_normalization} is used.
+
+\begin{equation} \label{eq:alpha_weight}
+    \alpha = \frac{\bar{R}}{1 + \bar{R}}
+\end{equation}
+
+Subsequently, \( \beta \) is:
+\begin{equation} \label{eq:beta_weight}
+    \beta = 1 - \alpha
+\end{equation}
+
+
+\subsubsection{Limitations}
+Using average relative changes over long intervals may fail to capture more nuanced shifts in user priorities over shorter timescales. This approach also assumes user behaviors are consistent across all blockchain users, whereas in reality different segments likely have distinct preferences. These limitations are discussed further in Section \ref{se:limitations}.
+
+
+
+
 
 \subsection{Attributed Emissions}
 
-Combining chain emission rate \eqref{eq:emission_rate}, the attribution parameters \eqref{eq:attribution_share_chain_type} and corresponsing weights (()), we get the the CO2e emissions \(A(\tau)\) attributed to an address on a given blockchain for the period $\tau$ general form:
+Multiplying chain emission rate \eqref{eq:emission_rate} with the sum of attribution parameters \eqref{eq:attribution_share_chain_type} and corresponding weights \eqref{eq:alpha_weight} and \eqref{eq:beta_weight}, we get the CO2e emissions \(A(\tau)\) attributed to an address on a given blockchain for the period $\tau$ general form:
 
 
 \begin{align}
-    A(\tau) = E(\tau) \times \left[\beta \cdot B(\tau) + \gamma \begin{cases}
-                                                                        T(\tau) & \text{for VTCs} \\
-                                                                        G(\tau) & \text{for GPCs}
-                                                                    \end{cases}\right]
+    A(\tau) = E(\tau) \times \left[\beta \cdot B(\tau) + \alpha \cdot \begin{cases}
+                                                                              T(\tau) & \text{for VTCs} \\
+                                                                              G(\tau) & \text{for GPCs}
+                                                                          \end{cases}\right]
 \end{align}
 
 \begin{align}
     A(\tau) = E(\tau) \times \left[\begin{cases}
-                                           \beta \cdot B(\tau) + \gamma T(\tau)  & \text{for VTCs} \\
-                                           \beta \cdot B(\tau) +  \gamma G(\tau) & \text{for GPCs}
+                                           \beta \cdot B(\tau) + \alpha T(\tau)  & \text{for VTCs} \\
+                                           \beta \cdot B(\tau) +  \alpha G(\tau) & \text{for GPCs}
                                        \end{cases}\right]
 \end{align}
 
@@ -319,7 +364,8 @@ The cumulative emissions $C(t)$ for a user across a collection of owned adresses
     C(t) = \sum_{s \in S} \int_{0}^{t} A_s(\tau) d\tau
 \end{equation}
 
-This aggregates the attributed emissions across chains over time. The next section concludes this methodology overview.
+This aggregates the attributed emissions across chains over time. The next section details the data sources used for each model components deined in the present section.
+
 
 \section{Data Sources and Collection}
 \section{Validation and Robustness Analysis}
@@ -371,7 +417,7 @@ This aggregates the attributed emissions across chains over time. The next secti
 \subsubsection{Validation Results}
 \subsubsection{Sensitivity Analysis Findings}
 
-\section{Limitations and Future Work}
+\section{Limitations and Future Work} \label{se:limitations}
 \section{Further Opportunities for Blockchain and Sustainability}
 
 \chapter{Conclusion}
