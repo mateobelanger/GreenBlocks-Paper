@@ -1,0 +1,219 @@
+Accounting for carbon emissions caused by cryptocurrency and token systems
+
+
+Introduction
+The electricity consumption and related carbon emissions of cryptocurrencies such as Bitcoin are subject to extensive discussion in public, academia, and industry. Various estimations have compared Bitcoin’s carbon footprint to the emissions produced by countries over the past years (Stoll et al., 2019).
+2 As cryptocurrencies continue their journey into mainstream finance, incentives to participate in the
+networks and consume energy to do so remain significant.
+As climate risks and carbon exposure of companies increasingly move into focus (Krueger et al., 2020),
+stakeholders along the crypto value chain are facing challenges on how to allocate the share of carbon
+emissions they need to account for. So far, the focus of research has mainly been on calculating the
+electricity consumption and carbon footprint of the entire network of a cryptocurrency. First guidance on how to allocate the carbon footprint of the Bitcoin network to single investors has been proposed (de Vries et al., 2021)3 , however, a holistic framework capturing a wider range of cryptocurrencies and
+tokens remained absent until CCRI and Southpole jointly published a report putting forth an approach
+to allocate crypto-related emissions across the value chain to holdings as well as transactions (CCRI and SouthPole, 2022).
+This white paper builds on CCRI and South Pole (2022) by providing detailed guidance on how to
+allocate emissions caused by cryptocurrencies and tokens in different kinds of networks. In general, any
+activity within a network, either holdings or transactions, can be the cause of emissions. Based on the
+consensus mechanism of the blockchain network, different drivers of emissions can be identified;
+depending on the respective share of these drivers, emissions can be allocated respectively. Following
+CCRI and South Pole (2022), we coin this approach as “hybrid allocation”.
+
+For Proof of Work (PoW) networks, we propose the combination of two key drivers of electricity
+consumption (and carbon emissions, respectively), namely block rewards and transaction fees. This
+hybrid approach combines two approaches (holding-based and transaction-based allocation) and
+allocates emissions based on holding and transaction volumes. This allows capturing the specificities of
+many different PoW cryptocurrencies and their tokens with one consistent approach, by accounting for
+their underlying mining revenue structures. It can be applied to applications running on these networks
+as well as second-layer approaches such as the Lightning network.
+For Proof of Stake (PoS) networks, we propose the differentiation between sources of electricity
+consumption (and carbon emissions, respectively). Given the extensive research and empirical data
+collection through measurements that have been conducted for Proof of Stake networks (CCRI, 2022b, 2022c, 2022d, 2022e)4
+, we may identify marginal electricity consumption of transactions as well as the
+base electricity consumption of hardware without any transactions which can be allocated to transactions
+and holdings, respectively. This allows capturing the realities behind PoS networks in a hybrid allocation
+approach.
+The remainder of this white paper is structured as follows: First, we outline guiding principles for
+designing a framework to account for carbon emissions caused by cryptocurrency and token systems.
+Second, we define the terminology used in this white paper. Third, we give an overview of different
+emissions accounting approaches. Fourth, we describe the proposed hybrid allocation approach with its
+properties and describe how it can be applied in practice to both PoW and PoS. Fifth, we revisit the
+electricity consumption of Bitcoin and Ethereum (pre- and post-Merge) holdings and transactions by
+illustratively applying different accounting approaches. Lastly, we conclude and provide avenues for
+further research.
+
+
+Overview of emissions accounting methods
+While the network-level carbon footprint for the Bitcoin network and increasingly also for other
+cryptocurrencies has been studied for more than five years, the question of how to allocate carbon
+emissions to entities with exposure to cryptocurrencies and tokens remains only sparsely covered. Three
+approaches appear reasonable and feasible:
+● Holding-based: Distribution of total carbon footprint based on the share of the single holding
+to the overall market capitalization. For this approach, it is assumed that block validation and
+mining new coins is the driver for electricity consumption and corresponding emissions. If this
+assumption is supposed to hold valid, electricity consumption should be (largely) independent
+of the transactions performed.
+● Transaction-based: Allocation of total carbon footprint based on the share of transactions.
+Alternatively, the share of the transaction fee or of transaction size can be utilized. For this
+approach, it is assumed that transactions are the driver for electricity consumption and
+corresponding emissions. If this assumption is supposed to hold valid, electricity consumption
+should fall (close) to zero if no transactions are performed.
+● Hybrid approach: Combination of the holding-based and the transaction-based method. For
+PoW networks, based on the split of block reward vs. transaction fees since miners are
+incentivized by both parts. The share of the total carbon footprint which arises from block
+rewards is allocated according to the holding-based approach. The share of the carbon footprint
+incentivized by transactions is allocated accordingly based on rewards due to transaction fees.
+For PoS networks, the marginal electricity consumption of transactions may serve to identify
+the share that needs to be allocated to transactions (and holdings, respectively). The shares that
+are applied to holdings and transactions are network-specific and dynamic over time to account
+for changes in the underlying drivers. 
+
+Applying the hybrid approach
+Based on the requirements outlined above, a hybrid accounting method appears most promising. It offers
+a high degree of consistency as no binary decisions (which could be taken tailored in one or the other
+direction depending on the user’s incentive) are required. As a result, cryptocurrencies and tokens with
+similar incentive structures are treated similarly in the accounting and allocation process. This is also
+favorable in terms of continuity. Users of the hybrid approach can anticipate how changes in the
+incentive structure of the protocol will affect the accounting and allocation process since the underlying
+methodology persists over time. In terms of completeness, the hybrid approach makes it possible to
+cover a wide range of cryptocurrencies and tokens as it enables to account for the specificities of 
+5
+different systems over an entire spectrum and can also include activity on the application and the second
+layer.
+This section explores key questions to ensure the practical applicability of a hybrid approach that
+combines holding-based and transaction-based allocation. 
+
+Why should one account for both holdings and transactions?
+For both transactions and holdings, claims exist that the respective activity is not contributing to the
+electricity consumption of the network: With regard to holdings, some claim that the pure act of holding
+coins and storing this information in memory requires only very low amounts of electricity consumption.
+Additionally, some coins might have been minted at an early phase of the network in which the mining
+was comparatively low computationally expensive and thus should not account for the ongoing process
+of securing the network. With regard to transactions, some claim that the pure act of verifying new
+transactions is not computationally expensive and even if no transaction occurred the network’s
+electricity consumption might not significantly decrease. To unpack this conflict, it is helpful to
+understand the drivers of the underlying electricity consumption.
+
+In Proof of Work networks, incentivization of the miners to spend money on electricity is a key element.
+Miners receive a reward for solving a mining puzzle in the form of a block reward and transaction fees
+from included transactions. For transactions, it is clear that the entity executing the transaction is
+responsible for the transaction fee (and the thereby resulting incentivization). Consequently, the share
+of transaction fee in total miner revenue reflects the share in electricity consumption which transactions
+need to account for. For holdings, it is clear that they massively profit from the ongoing securing of the
+network as diminished faith in the network would lead to a major price decrease of holdings. Thus,
+holdings need to account for a certain share of the electricity consumption which should be equally
+spread across the coins independent of their age to maintain their fungible nature which is an integral
+part of any currency (coins also equally profit or suffer from price variations). Still, it might remain less
+obvious why the incentive of the block reward is the responsibility of entities that hold the respective
+currency. Assuming constant demand for the respective currency, inflation (the creation of new coins)
+devalues the holdings of holders, implicitly leading to a value transfer of the entity holding
+cryptocurrency to the miner. Thus, the value of existing holdings and their faith in the network
+incentivize the miner to participate in the mining process and earn the block reward. In light of the
+argumentation above, we argue to account for both holdings and transactions, as both contribute to the
+miner’s earnings and, therefore, their incentive; the distribution between block reward and transaction
+fee is, therefore, a suitable approach.
+
+In Proof of Stake networks, the vast majority of electricity consumption is eliminated due to the nonexistence of the computationally intensive hash puzzle, but rather only idle as well as the processing of
+blocks and transactions are sources of electricity consumption. Consequently, emissions from the 
+6
+marginal electricity consumption from transactions should be allocated entirely to entities that execute
+these transactions, given that they are the reason for the existence of these transactions.5 The other
+sources of electricity consumption (i.e., idle of machines and execution of the network client software),
+we propose to attribute entirely to holdings, as these sources of electricity ensure that the holders of the
+respective currency can actually spend their coins in exchange for other currencies. If the network
+stopped running, the respective holdings would be worthless.
+
+How would the hybrid approach work in practice?
+After identifying which share of the network-level carbon footprint should be allocated to holdings and
+which share should be allocated to transactions, we need to determine the responsibility in terms of
+carbon emissions for specific entities. The part of the holding-based approach may be calculated by
+dividing the holding volume by the overall number of coins of the network at a given time, potentially
+adjusted for lost coins6
+. Thus, if an entity is holding 1% of all coins of a network, this entity needs to
+account for 1% of the share that has been identified to be allocated to holdings. For the transaction-based
+part, we would need to differentiate between PoW and PoS. In PoW, we may aim at the monetary
+incentives caused by transactions. To do so, we attribute emissions of one transaction to the share of its
+transaction fees. Thus, if an entity is responsible for 1% of all transaction fees, this entity needs to
+account for 1% of the share that has been identified to be allocated to transactions. For PoS, we may
+aim at transaction complexity; that usually stems from a form of gas consumption (e.g., in Ethereum).
+That seems realistic, as more complex transactions (e.g., executing Smart Contracts) are more
+computationally expensive than other transactions. If an entity cannot identify its transaction fees or gas
+consumption, one may also resort to the number of transactions as a second-best proxy. Consequently,
+if an entity is responsible for 1% of all transactions, this entity needs to account for 1% of the share that
+has been identified to be allocated to transactions. We suggest not focusing on the monetary value a
+transaction processes since we are not aware that either in PoW or PoS networks, the value directly
+influences the incentives for the miner or the computational effort
+
+
+
+The relevance of the hybrid approach in practice: Revisiting the electricity consumption of
+cryptocurrency transactions
+The relevance of the hybrid approach becomes specifically apparent when looking at calculation
+examples. There is an ongoing debate about the electricity consumption and carbon footprint of single
+cryptocurrency transactions, focusing mostly on Bitcoin and Ethereum. For example, Digiconomist7
+claims that one single Bitcoin consumes up to 797.28 kWh of electricity. While the creation, verification
+and distribution of the transaction in the network hardly utilize any computational power, the number is
+based on a purely transaction-based approach, dividing all emissions of the network by the amount of
+transactions in the same time, disregarding the responsibility of cryptocurrency holders and their impact
+on the carbon footprint of the network. 
+
+The absence of a framework that accounts both for the responsibility of entities executing transactions
+and holding cryptocurrency did not allow for a more precise electricity consumption and carbon
+footprint allocation to transactions. By using the hybrid approach outlined above, we are able to provide
+a more comprehensive picture of the electricity consumption and carbon footprint of transactions for
+cryptocurrencies.
+Data sources
+We utilize the Cambridge Bitcoin Electricity Consumption Index (CBECI) and the CCRI Crypto
+Sustainability Indices8
+as a source for the electricity consumption of Bitcoin and Ethereum, respectively.
+To conduct this analysis, we utilize the CCRI Crypto Sustainability API9 which allows to also allocate
+electricity consumption and carbon emission to single holdings and transactions. The Crypto
+Sustainability API builds on data of the respective blockchains which we obtain by setting up nodes and
+as well as analyzing block and transaction information from them. For the sake of simplicity, we do not
+translate the electricity consumption into a carbon footprint for the analysis shown over the remainder
+of this section.
+Transaction (fee) share as weighting factor
+For PoW, the share of transaction fees as a proportion of the overall miner reward determines the
+distribution of the electricity consumption between holdings and transactions executed. For PoS, we
+resort to the share of the total network-level power demand that is needed for processing transactions.
+We select Bitcoin and Ethereum (pre- and post-Merge) as illustrative examples for this analysis, as they
+show vastly different transaction fee shares as displayed in Figure 2.
+
+While both networks have seen an increased demand for transactions (and therefore a higher share of
+the transaction fees), the share has reduced significantly since July 2021. As of March 2023, the
+transaction fee share for Bitcoin is about 3 %, for Ethereum PoS has about 2 % of transaction share.
+These metrics provide clarity on the responsibility of transactions as an incentive for the miner to
+increase their mining activities: While there have been times in the past in which the transaction fees
+made up to 70 % of the overall mining reward in Ethereum (summer 2020)10, these numbers do not
+warrant to rely on a purely transaction-based metric for the electricity consumption of transactions.
+Electricity allocation
+To derive a more precise estimate for the responsibility of a single transaction within the Bitcoin and
+Ethereum network, we calculate the electricity consumption for each day in 2021 for executing a bitcoin
+/ ether transaction with a I) holding-based approach, II) transaction-based approach and III) the hybrid
+approach outlined in this manuscript. For comparison, we also calculate the electricity consumption
+associated with the holding of one bitcoin / ether for one day with the respective methodologies.
+Analogously, we also calculate the electricity consumption for each day in Q4 2022 for executing an
+ether transaction and holding one ether in order to also provide an example for a PoS network. Table 1
+displays the values of the respective calculations. The average electricity consumption of the Bitcoin
+network amounted to 103.57 TWh in 2021, and to 15.59 TWh for Ethereum in 2021. The average
+transaction fee share for Bitcoin amounts to 6.01 % in 2021, for Ethereum it amounts to 26.6 % in 2021
+
+This white paper presents an approach to account for carbon emissions caused by cryptocurrency and
+token systems. Here we present an approach that best fits the guiding principles of consistency,
+continuity, and completeness. Furthermore, the approach appears to be in line with common carbon
+accounting standards that base the allocation on emission drivers.
+Numerous potential allocation approaches have been discussed in the past. Besides the transaction and
+holding-based approach that form the foundation of the hybrid approach presented here, players in the
+crypto space have developed further methods. The Green Bitcoin Project, for instance, suggests a model
+that only accounts for emissions directly linked to the minting of new coins. Others have suggested
+similar approaches that, for instance, use average electricity consumption to mine new coins since the 
+12
+first coin has been mined (Global Digital Finance, 2021). Such alternative approaches might be
+beneficial for certain stakeholders, however, appear not compliant with common carbon accounting
+standards, and might therefore be misleading. Given the outlined data and the high differences in
+estimates, it becomes of utmost importance to agree on a common accounting methodology.
+Irrespective of the chosen approach, data availability remains a key challenge and, therefore, also has
+implications for approach selection or simplification to ensure applicability. Most research so far has
+focused on Bitcoin. And even for Bitcoin, results from electricity consumption and carbon emissions
+chart a wide range of results. However, data availability is improving over time and an increasing
+number of data points on the electricity consumption of different networks become publicly available.
+(see for example CCRI Crypto Sustainability Indices11). 

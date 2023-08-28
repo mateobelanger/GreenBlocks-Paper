@@ -1,0 +1,281 @@
+Bitcoin's growing e-waste problem
+Author links open overlay panelAlex de Vries a b, Christian Stoll c d
+Show more
+Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.resconrec.2021.105901
+Get rights and content
+Highlights
+•
+Bitcoin's annual e-waste generation adds up to 30.7 metric kilotons as of May 2021.
+
+•
+This level is comparable to the small IT equipment waste produced by a country such as the Netherlands.
+
+•
+On average Bitcoin generates 272 g of e-waste per transaction processed on the blockchain.
+
+•
+Bitcoin could produce up to 64.4 metric kilotons of e-waste at peak Bitcoin price levels seen in early 2021.
+
+•
+The soaring demand for mining hardware may disrupt global semiconductor supply chains.
+
+
+Abstract
+Bitcoin's increasing energy consumption has triggered a passionate debate about the sustainability of the digital currency. And yet, most studies have thus far ignored that Bitcoin miners cycle through a growing amount of short-lived hardware that could exacerbate the growth in global electronic waste. E-waste represents a growing threat to our environment, from toxic chemicals and heavy metals leaching into soils, to air and water pollutions caused by improper recycling. Here we present a methodology to estimate Bitcoin's e-waste and find that it adds up to 30.7 metric kilotons annually, per May 2021. This number is comparable to the amount of small IT and telecommunication equipment waste produced by a country like the Netherlands. At peak Bitcoin price levels seen early in 2021, the annual amount of e-waste may grow beyond 64.4 metric kilotons in the midterm, which highlights the dynamic trend if the Bitcoin price rises further. Moreover, the demand for mining hardware already today disrupts the global semiconductor supply chain. The strategies we present may help to mitigate Bitcoin's growing e-waste problem.
+
+Previous article in issueNext article in issue
+Keywords
+BitcoinElectronic wasteSemiconductor supply chainSustainabilityProof of work
+1. Introduction
+Global waste is expected to grow by 70% by 2050 from 2016 (Schrader-King and Liu, 2018). In terms of the environmental impact of waste, plastics have received the most attention as microplastics in the world's oceans already outnumber the stars in the Milky Way (UN News, 2017). Though it is less discussed, electronic waste (e-waste) – which is the waste produced by discarding electrical or electronic equipment – represents a growing threat to our environment and includes issues from toxic chemicals and heavy metals leaching into soils to air and water pollution caused by improper recycling. Of the 53.6 million metric tons (Mt) of e-waste generated globally in 2019, only 17.4% was collected and recycled (Forti et al., 2020). The amount of e-waste is expected to double by 2050 (United Nations University, 2019), and this prediction does not include the effect Bitcoin mining might have. Most research on the environmental impacts of Bitcoin (and similar cryptocurrencies) has focused on energy demand and carbon emissions and has thus far ignored that Bitcoin miners cycle through a growing amount of short-lived hardware that could exacerbate the growth in global e-waste.
+
+Bitcoin mining started with the initial release of the digital currency in 2009. Mining is an essential activity in the Bitcoin network to validate transactions and ownership that involves adding new blocks to a chain. Each mining node bundles new transactions before solving a computationally expensive puzzle to find a ‘proof-of-work’ (PoW) for a block (Nakamoto, 2008). The first miner who finds a PoW that satisfies predetermined conditions broadcasts the block to all nodes in the network. The receiving nodes express their acceptance of the new block by building on top of it. The process repeats after each block addition. The successful miner receives newly created Bitcoins and fees for transaction validation, which provide incentives to participate in the process. Given that network participants invest time and energy into extracting resources, the process resembles metal mining, hence the name adopted for the activity (Nakamoto, 2008).
+
+The increasing energy consumption of Bitcoin mining has triggered a passionate debate within academic literature and among the general public regarding the sustainability of the digital currencies. Bitcoin mining has been found to consume as much energy as small countries, which translates into a significant carbon footprint. However, studies have charted a wide range of results, as shown in Fig. 1. Stoll et al. (2019) found annual emissions ranging from 22.0 to 22.9 million metric tons of carbon dioxide (MtCO2). Krause and Tolaymat (2018) provided an estimated range from 3 to 15 MtCO2 for the first half of 2018. McCook (2018) estimated 63 MtCO2 per August 2018. Foteinis (2018) estimated the combined footprint of Bitcoin and Ethereum to be 43.9 MtCO2. One study even claimed that Bitcoin mining could cause emissions incompatible with the goal of the Paris Agreement to limit global warming to below +2 °C (Mora et al., 2018). These numbers become even more impressive given that the actual use of the Bitcoin network has remained limited. Over the course of 2019, the network processed 120 million transactions (Blockchain, 2020), while traditional payment service providers processed about 539 billion transactions (Capgemini, 2019). Dividing emissions estimates by the number of transactions yields a carbon footprint in the range between 233.4 and 363.5 kg of CO2 per Bitcoin transaction (de Vries, 2019). It is noteworthy that such annual estimates as depicted in Fig. 1 are typically based on results at a certain day assuming those daily conditions persisted for a year to facilitate comparisons with other emitting activities or national emissions on country level.
+
+Fig. 1
+Download : Download high-res image (257KB)
+Download : Download full-size image
+Fig. 1. Estimated carbon emissions over time of the bitcoin network. Digiconomist (2021) uses a fixed carbon intensity of 475 g per kilowatt-hour (gCO2/kWh) of electrical energy to calculate the carbon footprint of the Bitcoin network.
+
+Over time, Bitcoin miners have turned to increasingly specialized hardware equipment with higher computing power (Bedford Taylor, 2017). Whereas miners initially used central processing units (CPUs) to find PoWs, they quickly realized that graphic processing units (GPUs) were better equipped for the task. In 2013, application-specific integrated circuits (ASICs) entered mining and quickly replaced GPUs as the standard hardware. As implied by the name, ASICs perform one specific task: finding the required proofs at optimal efficiency. In fact, ASICs are so specialized that they only fit one mining algorithm. Bitcoin ASIC-based mining devices cannot be used to mine any alternative digital currency. This hyper-specialization of devices also implies that miners rapidly cycle through vast amounts of increasingly powerful mining devices.
+
+1.1. Research objective
+In this study, we demonstrate a methodology for estimating Bitcoin's e-waste. Firstly, we develop a framework to assess the current state of the network's e-waste generation. Secondly, we utilize the initial public offering (IPO) filing of a major hardware manufacturer to calibrate our framework. Lastly, we discuss strategies to mitigate the e-waste challenge of Bitcoin and the implications of the results in relation to the sustainability of digital currencies.
+
+With our results, we aim to inform and broaden the debate on the environmental costs of cryptocurrencies. This debate should become more inclusive of externalities beyond the energy consumption of cryptocurrency mining devices and cryptocurrencies besides Bitcoin (Gallersdörfer et al., 2020). As Bitcoin continues to dominate the cryptocurrency market – with a market share of almost 70% per the start of 2021 (CoinMarketCap, 2021) – this study focuses solely on Bitcoin. Our results may serve as a reference point for emerging cryptocurrencies beyond Bitcoin for how much e-waste they can potentially generate. Our results may also help stakeholders better understand and mitigate the environmental impacts of digital currencies.
+
+1.2. Challenges in estimating Bitcoin's e-Waste
+Generally, assessing e-waste with accurate estimates is difficult due to a lack of high-quality data (Wang et al., 2013). Most common estimation methods collect data through industry visits, surveys, and sales reports (Islam and Huda, 2019). The widely cited Global e-waste Monitor, a collaborative effort formed by the United Nations University, evaluates production, sales, and trade data along with appliance characteristics and expert knowledge to calculate e-waste (Forti et al., 2020). Similar inputs cannot easily be collected from the Bitcoin mining industry. Bitmain is the largest manufacturer of Bitcoin mining devices, with an estimated market share of 76% (Stoll et al., 2019); it only publicly disclosed sales information once before its planned IPO in 2018. As the IPO was canceled, there has been no need for Bitmain to continue disclosing its sales, and there is currently no reason to assume it will do so again in the (near) future. Likewise, obtaining reliable and representative survey responses from the industry may prove increasingly challenging because of a growing number of illegal facilities. The Bitcoin mining activities in Iran represent a growing percentage of all Bitcoin mining activities. The country powered almost 4% of all Bitcoin mining activities in April 2020 (University of Cambridge, 2020a). This share could amount up to 17% per May 2021. The annual energy consumption of Bitcoin miners in Iran amounts to 20 terawatt-hours (TWh; Tassev, 2021), while Bitcoin miners globally consume around 117 TWh annually as of May 2021 (Digiconomist, 2021). Within Iran, it has been suggested that more than 86% of the electricity used to power Bitcoin mining is obtained illegally (Tassev, 2021). This may introduce serious sample selection bias, specifically a survivorship bias, since any survey will oversample the licensed miners. This trend in illegal mining operations may be amplified by aggressive policies towards Bitcoin mining in other countries. China, for instance, is estimated to house most of the Bitcoin mining network (University of Cambridge, 2020a), but regulators in China's Inner Mongolia region have already moved to ban Bitcoin mining over environmental concerns (Barrett, 2021), and other provinces are taking similar actions (Reuters, 2021).
+
+Despite these challenges, the Bitcoin mining industry may offer a unique opportunity to obtain a real-time estimate of the network's e-waste generation, because we can observe live data that allows us to estimate both the amount of active equipment in the network and the lifespan of devices used. Unlike other industries, developments in the total amount of active equipment can easily be observed as we can estimate the total amount of computations all active mining devices generate at any given moment. While a granular breakdown of which devices operate in the network is not immediately available, we can use public information on the characteristics of available devices to determine the likely amount of active equipment.
+
+1.3. Mining device life cycle
+Application-specific integrated circuit chips like those used for Bitcoin mining devices are designed such that they are hardwired to perform a single repeated function. This makes them far more efficient at their specific task than the general-purpose chips used in CPUs and GPUs. In performance comparisons, it was found that an ASIC Cloud could perform 6270 times more operations per second on Bitcoin than a CPU Cloud and 1057 times more than a GPU Cloud (Khazraee et al., 2017). To understand how this has made CPUs and GPUs obsolete for mining Bitcoin, the following example is useful. In this example, all miners are competing for the same reward, and the network's protocol self-adjusts the difficulty of finding a valid proof to keep block production time constant; this means that the rewards do not grow as more mining devices enter the network. Instead, as the chance of mining a new block depends on the proportional share of computational power in the network, any increase in the total computational power of the network will marginally dilute the share of every individual device and thus reduce individual earning capacity (de Vries, 2019). As mining devices primarily require electricity to operate, miners can only obtain a competitive advantage by increasing their efficiency (i.e. using less energy per unit of computational power). This dynamic has resulted in a race to develop and deploy more efficient mining hardware, which causes the earning capacity of individual devices to decline. Because their operating costs stay the same, older and/or inefficient devices will be forced to leave the network once they operate at a loss. As CPUs and GPUs simply are not cost-effective at mining Bitcoin, they have been rendered obsolete for this purpose.
+
+A similar dynamic ultimately determines the fate of ASIC-based mining devices as advances in ASIC chip efficiency result in more powerful devices that eventually crowd out older, less efficient technology (Fig. 2). Because the technical lifetime of ASIC mining devices typically exceeds the period of time during which the device can perform its task profitably (McCook, 2018), the moment they become unprofitable determines their lifespan and the point at which they become electronic waste. The fact that ASIC chips are single-purpose and not customizable prevents them from being repurposed for another task or even another type of cryptocurrency mining algorithm.
+
+Fig. 2
+Download : Download high-res image (285KB)
+Download : Download full-size image
+Fig. 2. Bitcoin e-waste generation cycle. System dynamics to develop and deploy more efficient mining devices.
+
+The rate at which these devices become obsolete has not been examined in detail. De Vries 2019) assumed that mining equipment becomes obsolete every 1.5 years based on a small selection of devices. In general, advances in ASIC-based device efficiency have historically outpaced Koomey's law, which describes the efficiency improvements of computing and shows that computations per unit of energy consumed double every 1.57 years (Koomey et al., 2011). Fig. 3 compares the expected efficiency gains in Bitcoin ASIC-based mining devices in relation to Koomey's law since 2014 against the actual efficiency of mining devices (see Supplemental Data: Sheet 3). The comparison shows that the speed of efficiency improvements of Bitcoin ASIC mining devices largely exceeded expectations in terms of required energy input per hash, measured in Gigahash per Joule (GH/J). These rapid improvements mean that older devices quickly lose their competitive edge, putting them at risk of being displaced by newer device types.
+
+Fig. 3
+Download : Download high-res image (269KB)
+Download : Download full-size image
+Fig. 3. Expected versus actual efficiency improvements in bitcoin ASIC-based mining devices over time. Expected efficiency gains in Bitcoin ASIC-based mining devices based on Koomey's law since 2014 versus the advertised efficiency of various Bitcoin ASIC-based mining devices released over time (University of Cambridge, 2021).
+
+While it is a downside that ASIC-based mining devices cannot be repurposed after becoming obsolete for their single purpose, this property, along with our ability to assess the profitability of any device type in real-time using public data, provides us with another unique opportunity to estimate the lifespan of these devices. Their end of use and end of life is explicitly marked by the moment the equipment becomes unprofitable at mining. At this point, they will be disposed of and become e-waste. What happens to these machines depends on the respective location, as manufacturers like Bitmain offer no recycling programs. China has historically housed most of the Bitcoin network but formally collects only 16% of all e-waste generated. Other destinations such as Iran, Kazakhstan, and Malaysia perform even worse. None of these countries has a comprehensive e-waste regulation. In middle- and low-income countries, e-waste is mostly handled by the informal sector, which is known to cause severe damage to both the environment and human health (Forti et al., 2020). Given Bitcoin's substantial footprint in middle- and low-income countries, Bitcoin mining devices are likely to end up in this informal sector as well.
+
+2. Materials and methods
+To gauge the lifetime of Bitcoin mining devices, we used data from the Cambridge Center for Alternative Finance (University of Cambridge, 2021), which keeps track of available device types (along with different iterations of the same device). We combined this with publicly available product specifications that reveal computational power, power efficiencies, and equipment weight of a given device. We used this data to evaluate the duration of profitable operation per mining device, assuming that devices become e-waste once they turn unprofitable. To do this, we needed to define a profitability threshold based on three factors: first, the estimated computational power of the entire network in terahashes per second (TH/s; trillions of hashes per second); second, the total amount of coins mined per day (including transaction fees); and third, the energy costs associated with mining. This allowed us to obtain the break-even energy efficiency in Joule per Terahash (J/TH) for the entire network at any point in time. So long as the energy efficiency of a specific device type remains below this threshold, it can profitably participate in the mining process. Expressed mathematically, we assumed a device to operate profitably when
+(1)
+With
+ = 
+ device energy efficiency, in Joule per Terahash [J/TH]
+
+* = Daily average break-even energy efficiency of the network [J/TH]
+
+
+This calculation of the break-even efficiency requires an assumption on the price of electricity, which was assumed to amount to a static USD 5 cents per kilowatt-hour (kWh) used for Bitcoin (BTC) mining, in line with the assumptions used to create the Cambridge Bitcoin Electricity Consumption Index (University of Cambridge, 2020b) and supported by a survey among miners (Blandin et al., 2020). Additionally, we applied a generic performance adjustment factor of 1.05, as introduced by De Vries (2020), to the costs of mining because Cambridge only lists the advertised (minimum) power efficiencies of device types. Lastly, we also applied a power usage effectiveness (PUE) factor of 1.10 in line with Cambridge's “best guess” approach (University of Cambridge, 2020b). The break-even efficiency of the network for a specific date in time is given by
+(2)
+With
+ = Total network rewards + fees for a given day, in Bitcoin [BTC]
+
+ = Market price, in US Dollar per Bitcoin [USD/BTC]
+
+ = Cost per kWh of electricity consumed, in US Dollar per kilowatt-hour [USD/kWh]
+
+ = Estimated network hashrate, in Terahash per second [TH/s]
+
+ = Power usage effectiveness factor
+
+ = Performance adjustment factor
+
+
+Applying the resulting profitability threshold (
+) for each device (
+) on Cambridge's list reveals the lifespan (
+) of a device.
+(3)
+With
+ = 
+ device lifespan [years]
+
+ = Release date of device 
+
+ = Date where 
+ for the first time of device 
+
+
+The release date of a given device serves as a proxy for its average start date. As the earning capacity of a device rapidly declines over time, we assume that demand (and sales) peak within months after a release. To examine this earning capacity in detail we define
+(4)
+
+With
+ = Amount of Bitcoins mined by device 
+ on day 
+ [BTC]
+
+ = Total network rewards + fees for a given day 
+ [BTC]
+
+ = Hashrate of device 
+ [TH/s]
+
+ = Estimated network hashrate on day 
+ [TH/s]
+
+
+The maximum amount of Bitcoins a device can mine during its lifetime is given by
+(5)
+
+With
+ = Total amount of Bitcoins mined by device 
+ between release date 
+ and break-even date 
+ [BTC]
+
+
+We use these variables to show and compare the developments in the average percentage of possible lifetime Bitcoins mined after a device has been released. At any point in time, the average lifetime of these devices can be determined using
+(6)
+
+With
+ = Estimated average lifetime [years]
+
+ = 
+ device lifespan [years]
+
+ = Number of devices in the dataset
+
+
+The amount of equipment in the network for a given evaluation day 
+ can subsequently be calculated as
+(7)
+
+With
+ = Estimated equipment amount on day 
+, in kilogram [kg]
+
+ = 
+ device weight [kg/TH/s]
+
+ = Estimated network hashrate on day 
+ [TH/s]
+
+ = Number of devices in the dataset
+
+
+This equation can be used to calculate a lower bound estimate for the amount of active equipment in the network by multiplying the computational power in the network with the lowest amount of equipment weight per unit of computational power available in the market. A similar approach is commonly used to determine the lower limit of the network's power requirements (Stoll et al., 2019). Lastly, the network's annual e-waste generation (assuming a continuous level of active mining equipment) for a given evaluation day 
+ is given by
+(8)
+
+With
+ = E-waste generation per annum on day 
+ [kg]
+
+ = Estimated equipment amount on day 
+ [kg]
+
+ = Estimated average lifetime [years]
+
+
+The approach is in line with the Leaching model presented by Wang et al. (2013). The Leaching model derives the e-waste generation as a fixed share of the total product stock divided by the respective average product lifespan. The model can be applied to products, which are characterized by a short lifespan in a saturated market. In the Results section below, we will show that the average lifespan of Bitcoin mining devices is short enough to meet this criterion.
+
+3. Results
+To gauge the e-waste generation of Bitcoin, we firstly determined the lifetime of Bitcoin mining devices based on their ability to operate profitably. Secondly, we used this information to derive the amount of active equipment in the Bitcoin network over time since July 2014 as well as the resulting e-waste.
+
+3.1. The lifetime of mining devices
+Fig. 4 shows the results for the lifetime of Bitcoin mining devices (see Methods for details). The average time to become unprofitable sums up to less than 1.29 years. While this concerns an unweighted average, we can refer to the case study on Bitmain's Antminer S9 featured in Box 1 to show that weighting the average lifetime by sales volume does not significantly change the results.
+
+Comparing the average lifetime of mining devices over time, the duration before the examined devices turn unprofitable remains fairly constant. As depicted in Fig. 5, the average lifetime oscillated within a range between 1.12 and 2.15 years from 07/2016 until 07/2020. Fig. 5 furthermore shows that with a growing number of devices in the dataset, volatility in the average lifetime declined.
+
+Fig. 4
+Download : Download high-res image (125KB)
+Download : Download full-size image
+Fig. 4. Lifespan of Bitcoin ASIC-based mining devices. Time until a device becomes electronic waste (in years) for obsolete Bitcoin ASIC-based mining devices as of May 2021 (for devices released between 2014 and 2021). See Supplemental Data: Sheet 6 for details.
+
+Fig. 5
+Download : Download high-res image (111KB)
+Download : Download full-size image
+Fig. 5. Average lifetime of Bitcoin ASIC-based mining devices over time. Changes in the average lifetime of examined Bitcoin ASIC-based mining devices over time as the available dataset expands due to an increasing number of devices reaching break-even efficiency (see Supplemental Data: Sheet 11).
+
+Box 1
+Case Study Bitmain's Antminer S9
+
+Within the time period considered in this study, the Bitmain's Antminer S9 stands out for various reasons. The Antminer S9 has been one of the most power-efficient – and therefore popular – mining devices over the period 2016–2019, and helped Bitmain to capture an estimated market share of 78% in 2018 (Stoll et al., 2019). The device also marks the maximum duration with 3.39 years before becoming unprofitable. For around two years (from 2017 to 2019), it was the dominant devices used for mining, with a market share of more than 50% (Coin Metrics, 2020).
+
+Fortunately, the Antminer S9 is also a rare case where sales data is available to further examine the difference between maximum and average lifetime of the device. To do so, we refer to an analysis by Stoll et al. (2019) of multiple initial public offering (IPO) filings (including Bitmain). These documents (Bitmain, 2019) provide detailed sales estimates for Antminer S9 devices up until 2018. To complement Bitmain's sales in 2019, we resorted to the IPO filings of Canaan Inc. (Canaan Inc., 2019), which show that during the first three quarters of 2019, Canaan sold almost the same amount of devices of its A8 series as during the second half of 2018 (265,756 and 291,237 units, respectively). The power efficiency of the A8 series (0.10 J/GH) is comparable to the power efficiency of Bitmain's Antminer S9 series (at most 0.098 J/GH). Hence, we assumed the sales numbers for Bitmain's Antminer S9 series over the first three quarters of 2019 were in the same range as Bitmain's sales of this device type in the second half of 2018. Combining these numbers with the findings from Stoll et al., we estimate Antminer S9 sales from 2016 through the third quarter of 2019. Fig. 6 charts the results, which reveal that the sales of this device type peaked in 2018. If we assume that the Antminer S9 became unprofitable in October 2019, these devices were profitable for 1.33 years, which is closely in line with the unweighted average of 1.29 years highlighted before (see Supplemental Data: Sheet 9 for details).
+
+Fig. 6
+Download : Download high-res image (179KB)
+Download : Download full-size image
+Fig. 6. Estimated sales for Bitmain's Antminer S9 series. Estimated Antminer S9 series (including S9i, S9j, S9k, Hydro, SE) sales (Bitmain) since the second half of 2016 up until the third quarter of 2019, along with developments in average Bitcoin price (USD) during the indicated periods.
+
+The Antminer S9 example highlights that the impact of Bitcoin's market price increases on the average lifetime of a device may be limited. When the Antminer S9 was first introduced in 2016, the Bitcoin price hovered around $600. By the time this device became unprofitable in late 2019, the price of one Bitcoin had increased more than elevenfold, exceeding $7000 per coin. As Bitcoin prices increased, so did the demand for (and sales of) Antminer S9 devices. Ultimately, only a small portion of all these Antminer S9 devices that were sold early in the cycle benefited from an otherwise unusually long period of profitability.
+
+
+3.2. Active equipment and e-waste
+Using Eq. (7) (see Materials and Methods), we can establish a lower bound to the amount of active Bitcoin mining devices. On May 14, 2021, the computational power in the network amounted to 179,485,396 Terahashes per second (TH/s; trillions of hashes per second, see Supplemental Data: Sheet 2), while the lowest equipment weight per TH/s amounted to 120 g (see Supplemental Data: Sheet 1). Consequently, the network contained at least 21.54 metric kilotons of mining equipment (and about 1.5 million devices in case of this thought experiment).
+
+Accounting for the mix of active device types, we find that the network grew from just 1 metric kiloton of mining devices in July 2014 to a peak of 39.75 metric kilotons in May 2021. This amount represents roughly 2.9 million mining devices. Based on the economic lifetime of 1.29 years, we calculate an e-waste output of 30.7 metric kilotons annually per May 2021. The estimated amount of e-waste is almost three times as high as previously estimated by De Vries in 2019 (10.95 metric kilotons), and it equates to at least 272 g of e-waste per Bitcoin transaction (112.5 million in 2020; Blockchain, 2020) on average. Fig. 7 charts our results for the total active mining equipment and resulting e-waste between 2014 and 2021.
+
+Fig. 7
+Download : Download high-res image (287KB)
+Download : Download full-size image
+Fig. 7. Total active mining equipment and electronic waste generation in the Bitcoin network over time. Estimated active mining equipment and e-waste generation (in metric kilotons) in the Bitcoin network since July 2014.
+
+3.3. Limitations
+In this study, we assumed that Bitcoin mining devices will become e-waste when they can no longer operate profitably, which is expected because the nature of these specialized devices makes it impossible to repurpose them for any other task. However, we note that it is theoretically possible for these devices to regain the ability to operate profitably at a later point in time should Bitcoin prices suddenly increase and drive up mining income. As such, miners might choose to temporarily store their devices rather than disposing them immediately. These devices may also make their way to secondary markets. Following the mining crackdown in China in 2021, for instance, Bitmain stopped the sale of mining device temporarily in order to reduce supply and support secondary sellers to market their stocks (CoinTelegraph, 2021). Nonetheless, there are several factors that generally prevent substantial extension of the lifetime of mining devices. Firstly, miners and secondary sellers will incur storage costs for sizeable amounts of equipment that are not being used. Secondly, rapid advances in the computational efficiency of newer device types will quickly diminish any opportunity for older models to operate profitably again.
+
+At the same time, we assumed that mining devices will continue to run until they reach their break-even point. While this may be true for a perfectly rational economic agent, in reality, market participants may also dispose of a device earlier as their profit margins become increasingly narrow. Additionally, the profit margins as calculated in this study only consider energy costs relating to the devices and the equipment used for cooling. Even though other costs such as labor are generally considered to be negligible when it comes to Bitcoin mining (Hayes, 2015), these costs would only result in a higher e-waste generation estimate if applied to the models in this study.
+
+A key assumption in this study is the price miners pay for electricity as this is the most important factor in determining their ability to operate profitably. Although there is strong support for the chosen rate of USD 5 cents per kWh on average (Blandin et al., 2020), there is significant variation in electricity rates across different regions around the world. While the impact of this is likely to be limited – given that the majority of Bitcoin mining activities is concentrated in a few location, as discussed in the introduction, we performed a sensitivity analysis to examine how a change in the assumptions on electricity prices and power usage effectiveness could impact our results (Fig. 8). The analysis indicates that reducing the electricity price assumption by half a cent (i.e., 10% of the original assumption) has the largest impact on the e-waste generation estimate, reducing it by 10%. We observed that the model is less sensitive to increasingly disadvantageous assumptions. A similar size increase of half a cent per kWh would hardly increase the estimated e-waste generation (Supplemental Data: Sheet 7).
+
+Fig. 8
+Download : Download high-res image (288KB)
+Download : Download full-size image
+Fig. 8. Sensitivity analysis. Estimated device lifespan and total e-waste amount based on changes in the price paid per kWh of electricity and the power usage effectiveness of mining facilities.
+
+We also assume that the release date of a device can serve as a proxy for the average start date of a given device type. This would logically lead to an overestimation of the average lifetime of a device, as it's not possible for every device to be bought on the release date. Even so, the amount of Bitcoins a device can possibly mine diminishes fast. Fig. 9 shows that after just three months (<20% of the average lifetime) a device typically has already lost 35% of its lifetime earning potential and about 80% after one year. This makes it likely that the interest for any device type will peak relatively soon after it has been released. Fig. 8 has already shown that lowering the average lifetime of 1.29 years to a year would have a limited impact on the final e-waste estimate. Furthermore, if it was possible to introduce proper device weighting in the dataset, the case of the Antminer S9 (Box 1) anchors our estimate.
+
+Fig. 9
+Download : Download high-res image (215KB)
+Download : Download full-size image
+Fig. 9. Average device performance after release. Average percentage of lifetime Bitcoins mined by examined obsolete Bitcoin ASIC-based mining devices over time (measured in days after the release date). See Supplemental Data: Sheet 16. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Lastly, we note that while we considered e-waste as a result of Bitcoin mining devices, miners may produce additional e-waste from the use of, for example, cooling equipment, cables, and lamps. While we expect some correlation between this other equipment and the total amount of mining devices in the Bitcoin network, the provided methods can only be used to determine e-waste generation due to the disposal of these mining devices specifically. Unlike Bitcoin mining devices, these other types of equipment may also still be repurposed if they are no longer used in a Bitcoin mining facility. Indirect effects of the Bitcoin ecosystem on e-waste generation were also not considered. Future research should also explore the impact of emerging businesses and solutions such as Bitcoin ATMs, which have their own e-waste footprint.
+
+4. Conclusion
+Bitcoins’ growing energy consumption and carbon footprint have received wide attention from the general public and kickstarted academic debate for the past few years. However, most research has overlooked the environmental impact of the usage and disposal of raw materials in the highly specialized mining equipment responsible for the energy consumption in the first place. We show in this study that the lifespan of Bitcoin mining devices remains limited to just 1.29 years. As a result, we estimate that the whole Bitcoin network currently cycles through 30.7 metric kilotons of equipment per year. This number is comparable to the amount of small IT and telecommunication equipment waste produced by a country like the Netherlands (30 metric kilotons in 2018; Baldé et al., 2020) and adds another layer to the previously identified environmental sustainability challenges faced by PoW-based digital currencies.
+
+5. Discussion
+Here we will discuss how this growing need for hardware has implications beyond e-waste generation and what might be done to mitigate the concerns.
+
+5.1. Growing demand and supply chain disruption
+The Bitcoin network's e-waste output will not stop at 31 metric kilotons annually. We expect the e-waste output of the Bitcoin network to continue to grow based on recent advances in Bitcoin prices at the start of 2021. Estimates suggest that a Bitcoin price of $47,000 could result in an annual energy consumption of 206 TWh (de Vries, 2021). Since this study considered the estimated computational power of the network, we only identified potential e-waste output as a result of currently active equipment. This number should increase if the production of new mining devices is ramped up to meet increased demand for this type of equipment. Taking the most efficient currently available mining device (the Antminer S19 Pro) as a reference, we can expect the network to be able to generate 64.35 metric kilotons of e-waste annually (see Supplemental Data: Sheet 12).
+
+In general, miner's profit is determined by revenues – in form of rewards for solving a computationally expensive puzzle and fees obtained for validating transactions – minus cost. Operational expenses of miners are largely driven by electricity consumption, and capital expenses mostly consist of mining devices. As electricity prices are rather stable in most places with significant mining activity, miners’ revenues determine the amount they are willing to spend on mining devices. If the market price of Bitcoin changes – and consequently the value of miners’ rewards measured in fiat currency, so does the willingness of miners to invest in additional hardware. Given these market dynamics, risk considerations as well as supply restriction may cause time lags between the actual and expected behavior (de Vries et al., 2021).
+
+The sector rapidly cycling through millions of mining devices may disrupt the global supply chain of various other electronic devices. It takes 149,476 silicon wafers to produce a million Antminer S19 Pro-devices. A ballpark estimate suggests that it may take up to one quarter of the combined annual capacity of Samsung and the Taiwan Semiconductor Manufacturing Company (the only companies capable of mass-producing chips in the 7-nanometer segment) to fulfill the needs of Bitcoin miners (see Supplemental Data: Sheet 12). The demand for mining devices could put significant additional pressure on these foundries as they already struggle to meet global demand for chips. This limited chip production capacity is already limiting the availability and driving up prices for electric vehicles, phones, and game consoles (Wu et al., 2021).
+
+A key challenge in this supply chain is that although there is no shortage of quartz to produce silicon, setting up advanced production lines can take years. For example, Intel has faced years of delays in establishing its 7-nanometer production lines and still does not expect to deliver its first product until 2023 (Hill, 2021). It is also extremely costly to construct a new fabrication plant, and the price tag of a new factory can easily amount to $20 billion (Reuters, 2017). Only a very limited number of companies can afford such an expense (Mokhoff, 2012).
+
+If cryptocurrencies continue their transition from geek money to mainstream, they may replace intermediaries active in the traditional financial system. The traditional financial system generates vast amounts of e-waste today, from servers over equipment in bank branches, to ATMs. The six billion payment cards that are produced annually – with a lifetime of three to four years – illustrate the large scale (Mastercard Newsroom, 2020). It appears, however, very unlikely that cryptocurrencies will ever replace the traditional financial system. They will rather complement it and, in some areas, both systems will approach each other as underlined by the recent announcements to establish Central bank digital currencies (CBDC) (European Central Bank, 2021).
+
+5.2. Solutions
+Multiple strategies may be considered to mitigate Bitcoins’ growing e-waste problem. As the disassembling and subsequent recycling of hardware components does not appear to be a viable strategy (due to the decentralized nature of the Bitcoin network), implementing an alternative consensus mechanism remains the most promising option. While Bitcoin has been running on the same mining algorithm since inception (SHA256; Asolo, 2018), other cryptocurrency communities have developed ASIC-resistant mining algorithms. To achieve ASIC resistance, cryptocurrencies contain special software features to complicate implementation on ASIC chips or frequently switch to new mining algorithms entirely (Cho, 2018). If network participants are forced to use more generic equipment like GPUs for mining, then these devices may be repurposed once they become unprofitable for mining. For example, such devices may still be used for personal computers, which have an estimated lifetime of around three years (Gaidajis et al., 2010). Thus, while the motivations behind ASIC resistance do not typically relate to e-waste but rather to goals of decentralizing the network, ASIC resistance may help to overcome Bitcoin's growing e-waste problem.
+
+Monero is a prime example of a cryptocurrency that employs regular changes to its mining algorithm. Interestingly, the development of computational power in the Monero network suggests that algorithm changes may not be a viable strategy to prevent the usage of ASIC-based mining devices (BitInfoCharts, 2020). More specifically, the strategy may effectively remove ASIC-based mining devices from the network, as illustrated by two steep drops in Monero's computational power following algorithm changes. At the same time, the fact that there have been multiple drops shows that this strategy cannot discourage the development of new ASIC-based mining devices and may even spur miners to cycle through equipment at a higher rate.
+
+In other words, it may be impossible to remove the incentive to build an ASIC miner in the first place; this is explicitly confirmed in a recent proposal by the community of the digital currency Ethereum, which suggests replacing Ethereum's mining algorithm with a new one called “ProgPow” to achieve ASIC resistance (Colvin, 2018). The proposal explicitly states that “a custom ASIC to implement this algorithm is still possible” and that an efficiency gain of 1.1–1.2x over regular GPUs should be expected. More research is therefore required to determine if a strategy that includes frequently changing mining algorithms can actually help to mitigate e-waste output or if this simply creates the world's most unsustainable game of whack-a-mole.
+
+A more desirable route from a sustainability perspective would be to replace the PoW system in its entirety. In fact, there are already more than 350 cryptocurrencies where PoW was abandoned partially or entirely in favor of less energy-hungry and hardware-heavy Proof-of-Stake (PoS) consensus algorithms (Cryptoslate, 2020). A PoS-based system removes the incentive to engage in a computational arms race (Saleh, 2018) and only requires a device with an Internet connection to participate. These devices can be any computer, phone, or tablet that can also be used for other purposes. As such, excesses in energy consumption or e-waste generation would be mostly eliminated. We, therefore, conclude that the only effective way to mitigate e-waste and the large amounts of energy these devices consume during their active lifetime would be to replace the PoW-system in its entirety with a more sustainable alternative; this would remove all incentives to develop and use specialized equipment.
+
+Nonetheless, a sustainable algorithm may only address future environmental impacts. Thus, further efforts are required to keep the e-waste of current devices out of landfills. Unfortunately, only 17.4% of all e-waste is recycled globally (Forti et al., 2020). Because generic components such as metal casings and aluminum heatsinks account for most of a typical ASIC miner's weight, it should be possible to recycle or even reuse parts after dismantling.
+
+Besides altering the network algorithms, policymakers may consider two options. Firstly, policymakers may raise awareness on the issues of e-waste. Investor concerns over the energy-hunger of the Bitcoin network, for instance, have shown how transparency on environmental impacts may lower demand, which results in lower prices and consequently fewer resources for miners to spend on electricity and hardware. Second, as for all types of e-waste, proper recycling is vital to mitigate the environmental impact of Bitcoin's e-waste. On a local level, policymakers should therefore enforce and improve recycling practices and seek global collaboration to limit the waste volume that goes into landfills or does not get collected at all.

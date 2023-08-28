@@ -52,11 +52,10 @@
 \improvement{Is this too long?}
 
 Executive summary.
-The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. However, different consensus mechanisms and design choices result in varying environmental footprints across blockchains. While the recent release of the first industry blockchain \acp{ESG} benchmark enables standardized comparisons between chains at an aggregate level, a granular methodology for user-level emissions accounting is lacking. \ac{ESG} \
+The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. A growing research corpus has established and compared the varying environmental footprints across blockchains, resulting from different consensus mechanisms and design choices. While the recent release of the first industry blockchain \acp{ESG} benchmark enables standardized comparisons between chains at an aggregate level, granular methodologies for user-level emissions accounting are still in infancy.
 
-This thesis introduces an attribution model designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research, in addition to measure blockchain users footprint, is the attempt to weigh responsibility factors based on the principle of proportional benefits. This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. We find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. This methodology allocates the overall chain emissions to specific users based on their interaction patterns. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters.
+Building upon state-of-the-art emissions acconuting research this thesis introduces an attribution model designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research, is the attempt to weigh responsibility factors based on the principle of proportional benefits. This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. We find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. This methodology allocates the overall chain emissions to specific users based on their interaction patterns. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters.
 
-\improvement{Unsure. Is the part clear?}
 
 Furthermore, a proof-of-concept tool (GreenBlocks) is built to showcase the attribution model, allowing users to estimate and offset their emissions through carbon credits. Based on the Ledger Live platform, this platform interacts seamlessly with leading blockchains and links with on-chain carbon market partners to retire offsets with maximal transparency.
 
@@ -83,9 +82,10 @@ XX\% from its peak \change{cite}, the blockchain ecosystem stands at a crossroad
 The dominant network, Bitcoin, which utilizes a computationally-intensive proof-of-work consensus mechanism, has attracted particular scrutiny for its high energy consumption. Recent estimates indicate the Bitcoin network alone may consume between 115 and 150 TWh annually, comparable to entire countries like the Netherlands \cite{devriesRevisitingBitcoinCarbon2022,neumuellerCambridgeBitcoinElectricity2021}. This growing apetite for energy competes with the just starting energy transition, putting electrical production and distribution networks under stress. Finally it also results in significant CO2 emissions, hardly compatible with global climate goals like the Paris Climate Accords.
 
 \subsubsection*{Limitations of current approaches}
-However, we must recognize the complexity and nuance when evaluating blockchain sustainability. Consensus protocols, design choices, and use cases vary greatly across different networks, leading to wide variability in energy needs and emissions. For instance, proof-of-stake networks like Cardano and Solana promise energy savings by factors of 1000x or more compared to proof-of-work \cite{kohliAnalysisEnergyConsumption2023}. Moreover, Ethereum recently completed its highly anticipated, technically and politically complex transition from proof-of-work to proof-of-stake, demonstrating that such migrations are viable for major networks. \cite{EthereumMergeYour2022} The nascent field of blockchain sustainability analysis must evolve more granular, differentiated perspectives.
+However, we must recognize the complexity and nuance when evaluating blockchain sustainability. Consensus protocols, design choices, and use cases vary greatly across different networks, leading to wide variability in energy needs and emissions. For instance, proof-of-stake networks like Cardano and Solana promise energy savings by factors of 1000x or more compared to proof-of-work \cite{kohliAnalysisEnergyConsumption2023}. Moreover, Ethereum recently completed its highly anticipated, technically and politically complex transition from proof-of-work to proof-of-stake, demonstrating that such migrations are viable for major networks. \cite{bloombergnewsEthereumMergeYour2022} The nascent field of blockchain sustainability analysis must evolve more granular, differentiated perspectives.
 
 Initial responses from the blockchain industry have focused on high-level aggregate comparisons and rankings between networks. For example, recent benchmarks like the Crypto Carbon Ratings Institute methodology provide standardized comparisons of the total lifecycle emissions across chains [5]. However, these overlook the diversity of users and fail to provide accountability at an individual level.
+\todo{include CCRI work on emissions accounting}
 
 This poses a critical gap, especially as blockchain technology expands into mainstream adoption. We lack a methodology to attribute network-wide emissions to specific users based on their unique activity patterns and values. Such granular carbon accounting can raise awareness of individual impact and empower ethical participation.
 
@@ -142,19 +142,88 @@ The main objectives of this work are:
 
 \section{Scope and Limitations}
 TO COMPLETE
+\todo{Focus on environmental sustainability, CO2e emissions. Not other externalities like e-waste, social impact, etc.}
 
 
 \section{Structure of the Thesis}
 TO COMPLETE
 
-\chapter{Litterature Review}
-\section{Economic Externalities}
+\chapter{Previous Work}
+
+\todo{Purpose and scope of literature review}
+
 \section{Blockchain Technology and Its Evolution}
 
+"Bitcoin: A Peer-to-Peer Electronic Cash System", the mysterious whitepaper \cite{nakamotoBitcoinPeertopeerElectronic2008}, published under the pseudonym Satoshi Nakamoto in 2008, was the first to propose a fully decentralized electronic cash system based on cryptographic proof instead of trust. It introduced the concept of proof-of-work mining to timestamp transactions and secure the network through computational power rather than centralized authorities. Proof-of-work was chosen to enable a distributed consensus mechanism and one-CPU-one-vote majority decision making resistant to sybil attacks. It also provides an economic incentive for miners to support the network. Overall, Bitcoin's proof-of-work system enabled the first widely adopted decentralized digital currency by solving the double-spend problem without requiring a trusted third party.\improvement{Reasons why proof-of-stake was chosen for bitcoin and why it works well. Reasons that prevented previous attempts to succeed.}
+
+The Ethereum whitepaper\cite{buterinEthereumNextgenerationSmart}, published by Vitalik Buterin in 2013, proposed enhancements to allow decentralized applications beyond just currency. It introduced smart contracts, which are executable codes hosted on the blockchain that can encode complex logic and state. Along with a Turing-complete programming language to write smart contracts, this enabled arbitrary applications to be built on its decentralized infrastructure. Ethereum also improved upon Bitcoin's proof-of-work with proposed upgrades like GHOST and differentiated gas costs based on computation complexity. While Bitcoin demonstrated a currency application, Ethereum expanded the potential of blockchains to diverse sharing economies, financial services, identity systems and beyond. Moving past Bitcoin's singular focus, Ethereum highlighted how decentralized consensus mechanisms like blockchain could provide a foundation for customizable peer-to-peer applications. \improvement{Differences in design choices and features. Opportunities for scaling blockchains horizontally to more usecases. This is the inception of blockchain technology as an ubiquitous infrastructure.}
+
+\cite{bloombergnewsEthereumMergeYour2022} \todo{add ethereum transition to PoS, should bitcoin do the same, why it didnt and is it likely to change}
+
+\cite{easleyMiningMarketsEvolution2019}\todo{add analysis of bitcoin tx fees, influence on the dynamics of users participation. Gradually becoming the only incentive for miners. Thus no transaction no security.}
+
 \section{Environmental Impact of Blockchains}
-\subsection{Energy Consumption and Related Emissions}
-\subsection{Current Measurement Methodologies and Datasets}
-\section{User-Level Emissions Attribution}
+\subsection{Bitcoin and Proof-of-Work}
+The environmental impact of Bitcoin, driven by its proof-of-work consensus mechanism, has become an important focus in research and public discussion. The main concern is Bitcoin's energy-intensive mining process and associated carbon emissions. As research has evolved, a nuanced understanding of Bitcoin's environmental footprint requires examining multiple factors, combining economic modeling and empirical data analysis. Estimates can adopt two different approach, top-down or bottom-up. Top-down approaches infer energy (and emissions) use from the evolving valuation of mined tokens, applying hypothesis on aggregate miners economics and behavior. Bottom-up approaches on the other hand are slightly more complex. They use empirical data on available hardware and transparent network hashrate data (the evolving mining difficulty factor specific to each chain) to work upwards to overall energy use and emissions. The following sections review the main findings from both approaches.
+
+\textbf{Bitcoin's Energy Consumption}
+
+De Vries (2018) \cite{devriesBitcoinGrowingEnergy2018} shed light Bitcoin mining's vast energy demands, estimating the network could consume over 73 TWh/year at peak performance, approaching entire countries' consumption. This stemmed from the immense computational power needed for mining, with energy expenditures of 300-900 kWh per transaction. De Vries' analysis used economic models, suggesting miners operate up to where electricity costs dominate marginal costs. De Vries used a top-down approach.
+
+Stoll et al. (2019) \cite{stollCarbonFootprintBitcoin2019} refined these estimates using a techno-economic approach, still considered top-down. They diverged from De Vries in deriving hardware efficiency data from mining manufacturer IPOs and using IP geolocation for localized emission factors. Their findings showed 45.8 TWh consumption in 2018, substantial but below De Vries' projection. Incorporating IP distribution scenarios offered valuable localization insights into Bitcoin's energy sources.
+
+\textbf{Beyond Energy: Environmental Externalities}
+
+While energy is the primary focus, De Vries (2021) \cite{devriesBitcoinGrowingEwaste2021} highlighted another issue: e-waste. Mining hardware obsolescence contributes over 30.7 metric kilotons/year of e-waste, underscoring Bitcoin's multifaceted environmental challenges beyond energy. De Vries' lifecycle analysis methodology offered more rigorous e-waste estimates than previous energy-focused models.
+
+\textbf{Impacts of Regulatory Shifts}
+
+
+Bitcoin's dynamic landscape, influenced by regulation, also affects its environmental impact. De Vries (2022)\cite{devriesRevisitingBitcoinCarbon2022}  revisited Bitcoin's carbon footprint after China's 2021 mining crackdown. This led renewable energy's share in mining to drop from 42\% to 25\%, as miners relocated to Kazakhstan and the US. Such shifts demonstrate Bitcoin's unstable regulatory landscape and the dramatic impact it can have on environmental performance.
+
+\textbf{Live Emission Monitoring}
+
+The Cambridge Bitcoin Electricity Consumption Index \cite{neumuellerCambridgeBitcoinElectricity2021} and accompanying Greenhouse Emissions's Index
+exemplifies cutting-edge emission monitoring, continually tracking Bitcoin's emissions using real-time, localized data and daily emission factors. This robust bottom-up approach captures the dynamics of cryptocurrency mining emissions and has been corroborated by other methodologies, including different bottom-up estimates \cite{mcdonaldEthereumEmissionsBottomup2022}.
+
+\section{Ethereum, the Succesful Case for a Transition to Proof-of-stake}
+
+Ethereum's recent shift from the energy-intensive "proof-of-work" consensus mechanism to the more sustainable "proof-of-stake" in september 2022 has been transformative for the cryptocurrency landscape. This transition, known as "the Merge", was long delayed due to the technical and political complexities putting in jeopary a succesful transition. Now achieved, it positions Ethereum as a leader in blockchain sustainability\footnote{https://ccdata.io/research/esg-rankings} and sets a precedent for other major cryptocurrencies to consider transition. With Ethereum's move expected to drastically reduce its carbon footprint, focus is turning to Bitcoin's potential trajectory. While the two platforms serve different primary functions, Ethereum's successful transition raises the question: Could Bitcoin be next to adopt a greener consensus mechanism?
+
+\textbf{Ethereum's Energy Use (PoW)}
+
+McDonald (2022)\cite{mcdonaldEthereumEmissionsBottomup2022} tackled Ethereum's energy footprint through a meticulous bottom-up approach. By compiling data on network hashrates, hardware efficiencies, and even datacenter overheads, McDonald thoroughly modeled Ethereum's consumption at ~60 TWh over seven years. Aligning with top-down estimates, this empirically-grounded, best-practice approach highlighted the need for more sustainable consensus mechanisms.
+
+\textbf{Exploring PoS' Potential}
+
+Exploring PoS as an energy-efficient PoW alternative has gained momentum. Platt et al. (2021)\cite{plattEnergyFootprintBlockchain2021} analyzed PoS chains' energy needs, pioneering a model weighing factors like validator counts and node power. Findings were promising: PoS chains consumed far less energy than PoW counterparts, with some even outperforming centralized systems like VisaNet.
+
+Ibanez (2023) built on this, validating the model's core findings while highlighting nuances in consumption across PoS systems. Crucially, their research emphasized PoS systems' relative efficiency compared to heavyweights like Bitcoin.
+
+\textbf{Ethereum's PoS Transition: A Case Study}
+
+Ethereum's 2022 merge to PoS marked a sustainability milestone. De Vries (2022)\cite{devriesCryptocurrenciesRoadSustainability2022} thoroughly examined this transition. The anticipated post-merge energy use reduction is monumental - nearly 99.95\%, potentially equivalent to a country like New Zealand's electricity. While challenges around e-waste and wealth concentration risks remain, Ethereum's move sets a precedent, demonstrating blockchains can scale sustainably.
+
+\section{Carbon Accounting - User-Level Emissions Attribution}
+
+
+Amid rising institutional concerns about cryptocurrencies' environmental impact, the Crypto Carbon Ratings Institute's (2023)\ revised white paper provides a timely, nuanced perspective. By thoroughly examining the carbon footprints of both PoW and PoS networks, the paper introduced in its most recent version an "hybrid allocation" approach for emissions accounting. This methodology recognizes that network energy use stems from both holdings and transactions.
+
+It expands on previous work by De Vries (2021) \cite{devriesTrueCostsDigital2021}, early attemps at an address balance emisssion attribution methdology for bitcoin. The CCRI's methodology now covers a wide range of networks, differentiating between PoS and PoW in the attribution strategy.
+
+\textbf{The Hybrid Allocation Approach}
+
+The "hybrid allocation" approach is a significant contribution, merging holding-based and transaction-based emissions accounting for a comprehensive view of blockchains' environmental impact. For PoW chains, the relationship between block rewards and transaction fees is used to weight both variables in the attribution formula. According to the authors, this proportion "determines the distribution of the electricity consumption between holding and transactions executed". For PoS chains, the marginal power demand resulting from processing transactions is used as a share of total demand.\todo{Reread and check with framework version slides if it is also the case} Real-world data sources like CBECI and their owen CCRI-API back this methodology.
+
+\subsection{Identifying a research gap}
+
+While aligning with the CCRI's recent approach to hybrid attribution, this research introduces the "Beneficiary Pays Principle" to weigh emissions responsibility based on users' perceived value from blockchain functions. This user-centric approach provides a differentiated perspective to the paper's focus on block rewards and fees.
+
+Moreover, the CCRI paper lacks a practical implementation of its methodology and beyond user-example results. This thesis addresses this gap by building a proof-of-concept application to demonstrate the attribution model's feasibility and value.
+
+\subsection{Traditionnal Individual Carbon Footprint}
+\subsection{Blockchain Adress Footprint}
+\section{Research Gap}
 
 
 \chapter{Methodology: User-Level Emissions Attribution Model}
@@ -212,7 +281,10 @@ A key diffentiator is the inclusion of historical balance as a responsibility fa
 
 \improvement{Put justifications in list form to emphasize each point}
 
-Specifically, continuous mining activity and block creation are critical to maintain an active market and allow holders to liquidate assets. This activity is incentivized through transaction fees. Higher fees increase miner rewards, resulting in greater security and liquidity that benefit holders.
+Specifically, continuous mining activity and block creation are critical to maintain an active market and allow holders to liquidate assets. In the bitcoin case, miner rewards are increasingly coming from transaction fees only, as block rewards shrink over-time in a process called \textit{halving} \footnote{https://www.investopedia.com/bitcoin-halving-4843769} To that effect miner activity is increasingly reliant on user's transaction fees. Higher fees increase miner rewards and impact profitability, resulting in an arms in mining (compute) capacity. This is a key factor in the security of the network and make bitcoin holder's asset security dependent on the active transactional behavior of other users \cite{easleyMiningMarketsEvolution2019}. In the Ethereum case since the switch to proof-of-stake consensus, reward attribution is more complex but still reliant on transaction fees, varying with the demand in blockspace. The demand in blockspace is here a combination of the number of transactions and their computational complexity, measured in gas.
+
+TO BLEND
+Holding assets does not induce direct additional emissions, but benefits from these functional units are dependent and proportional to continuous transactions being signed by other users. With fewer new transactions, lower fees are being paid to incentivize miners' work, thus lowering chain security and reducing the cost of an attack. With fewer transactions being signed and lower incentives, miners' profitability is diminished.  In the mid-term, this will result in fewer and lower investments in mining computing power, reducing the cost of an attack and the overall network security. The holder's benefit (securing value) is also derived from the inflow-outflow of tokens to centralized exchanges where they can be traded against fiat currencies, increasing the liquid aspect of the token and actualizing its value. \todo{blend this in the section}
 
 Therefore, despite no active behavior, holding blockchain assets creates latent demand for emissions-intensive mining. Considering this relationship, the attribution model argues for allocating part of emission responsibility to asset holders, or more generally how intensively a use is using the blockchain function of securing value.
 
@@ -305,7 +377,7 @@ The ratio of these changes is the relative importance of transactional benefits 
     \bar{R} = \frac{\bar{\Delta F}}{\bar{\Delta M}}
 \end{equation}
 
-The relationship ratio $\bar{R}$ represents the relative importance between transaction fees and market capitalization. To convert this into proportional weights summing to 1, the transformation of equation \eqref{eq:ration_normalization} is used.
+The relationship ratio $\bar{R}$ represents the relative importance between transaction fees and market capitalization. To convert this into proportional weights summing to 1, the transformation of equation \eqref{eq:alpha_weight} is used.
 
 \begin{equation} \label{eq:alpha_weight}
     \alpha = \frac{\bar{R}}{1 + \bar{R}}

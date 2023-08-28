@@ -1,0 +1,86 @@
+Commentary
+Revisiting Bitcoin’s carbon footprint
+Author links open overlay panelAlex de Vries 1 2, Ulrich Gallersdörfer 3 4, Lena Klaaßen 4 5, Christian Stoll 4 6 7
+Show more
+Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.joule.2022.02.005
+Get rights and content
+Under an Elsevier user license
+open archive
+Alex de Vries is a researcher at the School of Business and Economics at the Vrije Universiteit Amsterdam. In 2014 he founded digiconomist.net, which is best known for featuring the Bitcoin Energy Consumption Index since late 2016 and has played a major role in the global discussion regarding the sustainability of cryptocurrencies and blockchain technology.
+
+Ulrich Gallersdörfer is a research associate in the Department of Informatics at the Technical University of Munich. His research focuses on the intersection of blockchain technology and adjacent fields. He is a co-founder of CCRI, a company providing GHG emissions estimates for investments in cryptocurrencies, blockchain, and other technologies.
+
+Lena Klaaßen is a PhD student in the Climate Finance and Policy group at ETH Zurich. Her research focuses on energy finance for the low-carbon transition as well as the environmental impact of companies and technologies. She also co-founded CCRI, a company providing GHG emissions estimates for investments in cryptocurrencies, blockchain, and other technologies.
+
+Christian Stoll is a research affiliate at the Center for Energy and Environmental Policy Research at the Massachusetts Institute of Technology and at the Center for Energy Markets of the Technical University of Munich. His research focuses on the implications of climate change from an economic point of view.
+
+Previous article in issueNext article in issue
+Main text
+Introduction
+Although Bitcoin’s stature in mainstream finance has grown, its environmental impact remains uncertain. The increasing attention paid to climate risks and carbon emissions1 has triggered a heated debate about the sources of electricity used to mine Bitcoin. There are widespread estimates of the share of renewable electricity sources in the electricity mix that powers Bitcoin mining (see Data S1, sheet 18), ranging from 39% (according to a survey by the Cambridge Centre for Alternative Finance or CCAF) to over 58% (according to an industry initiative called the Bitcoin Mining Council) and even 73% (according to digital assets service provider Coinshares).
+
+Mining is the process of adding new blocks to the Bitcoin blockchain to validate transactions. It involves a process of trial-and-error that resembles a competitive numeric guessing game in which a correct “guess” completes a block and only the winner obtains rewards in the form of both newly minted Bitcoins and transaction fees. The Bitcoin software automatically adjusts the difficulty of guessing a correct number to maintain a constant time of 10 min between the creation of new blocks. In May 2021, approximately 2.9 million specialized hardware devices worldwide competed in this game, generating 160 quintillion guesses per second2 and consuming approximately 13 gigawatts (GW) of electricity (see Data S1, sheet 10 and 11).
+
+In the spring of 2021, the mining crackdown in China shook up global Bitcoin mining activity. Inner Mongolia became the first Chinese province to cite environmental concerns as justification for banning crypto mining in March 2021.3 Between May and June 2021, crypto mining bans were issued in other Chinese provinces such as Sichuan and Xinjiang, which had historically been hotspots for Bitcoin mining.4 By the end of June 2021, the crackdown eliminated crypto mining activities within China, which previously hosted the majority of Bitcoin miners.
+
+In this commentary, we show that this mining crackdown may have increased the carbon intensity of Bitcoin mining. Based on mining locations and regional carbon emission factors, we found that the carbon intensity of Bitcoin mining may have increased by 17% in August 2021 compared to the 2020 average. This potential increase highlights the need for stakeholders in the crypto industry to accelerate the development of strategies to overcome investors’ environmental, social, and governance (ESG) concerns.
+
+Bitcoin’s mining footprint
+The carbon footprint of Bitcoin mining can be estimated based on electricity sources used by miners. Previous research outlined different methods for approximating mining locations.4 Based on one of these approaches, the CCAF regularly generates a map that shows the global distribution of miners (see Data S1, sheet 8). It is based on Internet Protocol (IP) address information collected from four “mining pools”: BTC.com, Poolin, ViaBTC, and Foundry USA. Collectively, they represent 44% of total Bitcoin mining activity as of October 2021.5 Mining pools combine the computational power of connected mining devices. By joining pools and sharing rewards, miners can stabilize their revenue stream. In the process, they reveal their IP address, which can be used to establish their location.
+
+By matching the estimated mining location data to the carbon intensity of electricity generation at the location, it is possible to visualize how the electricity mix that fuels the Bitcoin network may have evolved. To this end, we considered a global breakdown of mining activities per country and a specification of mining activities within the United States obtained from the CCAF and Foundry USA, respectively.6 Figure 1 shows that the use of renewable electricity sources may have declined following the mining crackdown in China. We estimate that the share of renewable electricity sources that fuel the Bitcoin network may have decreased from an average of 41.6% in 2020 to 25.1% in August 2021.
+
+
+Download : Download high-res image (285KB)
+Download : Download full-size image
+Figure 1. Estimated electricity mix that fueled the Bitcoin network from September 2019 to August 2021
+
+The country-level electricity mixes used to calculate the overall electricity mix for the Bitcoin network are based on 2019 data due to the limited availability of more recent data. Data and sources can be found in Data S1, sheet 2.
+
+A possible explanation for this decline is that the Bitcoin network no longer had access to hydropower from the Chinese provinces of Sichuan and Yunnan. Before the crackdown in China, miners seasonally relocated to these provinces to take advantage of their abundant hydropower. After the wet season, they migrated back to coal-dependent provinces, such as Xinjiang and Inner Mongolia. Many miners were previously located in China; the seasonal fluctuation can be observed in Figure 1.
+
+After the mining crackdown in China, miners primarily migrated to other countries such as Kazakhstan and the United States. Consequently, the share of natural gas in the electricity mix nearly doubled from 15% to 30.8% according to our calculations, and the emission factor of coal-fired power generation potentially increased due to higher-emitting plants in Kazakhstan compared to China. Therefore, the average carbon intensity of electricity consumed by the Bitcoin network may have increased from 478.27 gCO2/kWh on average in 2020 to 557.76 gCO2/kWh in August 2021.
+
+Notably, the potential shift from coal resources in China to coal resources in Kazakhstan may have had a major impact on the average carbon intensity of electricity consumed by the Bitcoin network. While the emission factor for coal-generated electricity in China is in line with the global average, the Eurasia region (which includes Kazakhstan) has performed significantly worse (see Data S1, sheet 15). For instance, Kazakhstan mainly burns hard coal, which has the highest carbon content of all coal types. Moreover, it operates numerous subcritical coal-fired power plants—the least efficient form of coal-fired generation.
+
+Based on average emission factors (557.76 gCO2/kWh) and the Bitcoin network’s estimated electric load demand (13.39 GW as of August 2021), we estimate that Bitcoin mining may be responsible for 65.4 megatonnes of CO2 (MtCO2) per year. Figure 2 depicts the estimated global carbon footprint of Bitcoin mining, which is comparable to country-level emissions in Greece (56.6 MtCO2 in 2019) and represents 0.19% of global emissions.
+
+
+Download : Download high-res image (325KB)
+Download : Download full-size image
+Figure 2. Estimated global carbon footprint of the Bitcoin network, as of August 2021
+
+The country-level emission factors used to calculate the carbon footprint are based on data from 2019 due to the limited availability of more recent data. Data and sources can be found in Data S1, sheet 1.
+
+Since mining pool data from the CCAF represents a limited share of 44% of total Bitcoin mining activity, this limitation introduces uncertainties in estimating emissions. One-off events, such as the 2021 mining crackdown in China or the internet outage in Kazakhstan in 2022, provide empirical insights that can be used to validate the representativeness of the pool data. Before the mining crackdown in China in May 2021, pool data suggested 44% of the total Bitcoin mining activity was taking place in China. Shortly after the crackdown, at the beginning of July, the hashrate of the entire Bitcoin network had decreased by 45% (see Data S1, sheet 17) compared to May 2021. For Kazakhstan, pool data suggested 18% of total Bitcoin mining activity was taking place in the country as of August 2021, while the internet outage at the start of January 2022 resulted in an immediate decrease of 15% in the network hashrate.7 Therefore, estimated mining locations based on mining pool data from the CCAF can serve as a proxy for the actual mining locations, even though it may over- or underestimate mining activity in certain countries.
+
+The mining pool data likely overestimates the share of Bitcoin’s global computational power located in Ireland and Germany. This is because miners can disguise their activities with virtual private networks and other proxy services if they reside in countries hostile to crypto mining. The CCAF noted that there is little evidence of large mining operations within German and Irish borders. Germany and Ireland both have relatively clean electricity sources compared to other Bitcoin mining locations. Excluding and redistributing the share of Bitcoin’s total global computational power located in Germany and Ireland would increase the average emission factor by 3% to 573.51 gCO2/kWh (see Data S1, sheet 6).
+
+The average emission factor would likely increase further if a breakdown of mining activities in Canada was considered. Such a specification is currently not available, but it is known that the Black Rock Petroleum Company announced the deployment of up to 1 million Bitcoin mining machines on gas-producing sites in Alberta in July 2021. With a carbon intensity of 790 gCO2/kWh, the emission factor for Alberta is much higher than the Canadian average of 130 gCO2/kWh. Moreover, Quebec—which relies almost exclusively on renewable electricity sources—already limited the power available to crypto miners to 688 megawatts in 2019.
+
+Furthermore, emission factors remain a key source of uncertainty in estimates of cryptocurrency emissions.8 As there is often a time lag of 1 to 2 years until emission factors are published, emission factors over 2019 were used as a proxy for 2021 emission factors. This might slightly over- or underestimate the actual emission factors in 2021. There was, however, no clear upward or downward trend in emission factors over the last two years. The carbon intensity of global power generation grew in 2021 after a decline in 2020 due to surging electricity demand.9
+
+Stranded fossil assets revival
+The use of marginal emission factors over average emission factors could have a more significant impact on the estimates of cryptocurrency emissions. Marginal emissions reflect the change in emissions as a result of a change to the electric load on a grid. Mining activities increase power demand, which activates additional electricity generation resources. For example, in New York state, stranded fossil assets (i.e., assets that can no longer generate an economic return) have been reactivated to power Bitcoin mining operations. Environmentalists have warned that 30 fossil-fueled power plants in New York state could be resurrected for mining operations.10 Average emission factors do not properly capture this impact. As the majority of New York state’s power originates from low-carbon sources, applying average emission factors therefore underestimates the emissions related to Bitcoin mining in this example.
+
+Another US example can be found in Kentucky, which grants tax breaks to attract Bitcoin miners and thus saves coal companies and creates new jobs.11 According to our calculations, this has led Kentucky to become the highest-emitting American state in the Bitcoin network (see Figure 3). In addition, Pennsylvania subsidizes mining company Stronghold Digital Mining to burn coal refuse. Stronghold Digital Mining has expansion plans and aims to attain a 5% share in the Bitcoin network through this electricity source12 (Pennsylvania currently represents 0.04% of the global Bitcoin network). However, to account for cause-effect relationships in detailed electricity system modeling, it would be required to know exact mining locations and load information, but these data are currently unavailable. The estimates in this commentary were made using average emission factors rather than marginal emission factors.
+
+
+Download : Download high-res image (342KB)
+Download : Download full-size image
+Figure 3. Estimated carbon footprint of the Bitcoin network in the United States, as of August 2021
+
+The emission factors used to calculate the carbon footprint are based on 2019 data due to the limited availability of more recent data. Data and sources can be found in Data S1, sheet 1.
+
+In the short term, reactivating or prolonging the lifetime of stranded fossil fuel plants or assets to serve the additional load required by crypto mining operations is likely to continue. Recent attempts to utilize flare gas in Russia and the United States are other examples of how Bitcoin mining may generate revenue for companies active in the fossil fuel industry. From an environmental perspective, however, flare gas utilization to generate electricity results in the same amount of carbon emissions as flaring. For instance, in the United States, the Environmental Protection Agency requires a minimum flare combustion efficiency of 98%. Therefore, flare gas utilization projects would only yield climate benefits if the electricity generated from them replaces electricity generated from higher carbon fuels such as coal or if they reduce waste gases from venting and leakage.
+
+Conclusion
+The decreasing usage of renewable electricity sources for Bitcoin mining following the crackdown in China highlights the need for stakeholders in the crypto industry to accelerate efforts to decarbonize the industry. Some Bitcoin stakeholders had already signed the Crypto Climate Accord, a private sector-led initiative launched in April 2021 that represents a commitment to increase the use of renewable electricity to 100% by 2030. Such commitments may need to be strengthened with compliance mechanisms to support their credibility.
+
+However, even if the Bitcoin mining industry manages to increase the use of renewable electricity, the use of the latter for Bitcoin mining is not without its own controversy. In November 2021, the Swedish Financial Supervisory Authority and Environmental Protection Agency called for a ban on cryptocurrency mining over concerns that the use of renewable electricity for mining could delay the energy transition of essential services.13 Furthermore, research on Bitcoin mining has shed light on a variety of ESG issues.14 While they do not significantly contribute to the carbon emissions generated by the Bitcoin network, issues such as electronic waste generation cannot immediately be addressed merely by increasing the use of renewable electricity.
+
+A rapid solution to Bitcoin’s carbon footprint is not within sight. While other blockchain systems rely on more energy-efficient consensus mechanisms, the likelihood of changing the proof of work mechanism in Bitcoin is negligible due to its enormous complexity. Even Ethereum, which established a goal to switch from proof of work to proof of stake since its inception 6 years ago, still has not fully migrated to the more energy-efficient alternative. While Bitcoin accounts for roughly two thirds15 of the total energy demand of all cryptocurrencies, however, more energy-efficient consensus mechanisms have also elicited environmental concerns. For cryptocurrencies to succeed in mainstream finance, users, investors, and other stakeholders must collectively shift incentives toward the use of more renewable electricity sources in networks to overcome environmental issues. If this transition succeeds, cryptocurrencies may provide valuable lessons for other industries and processes that face similar environmental issues.
+

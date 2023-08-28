@@ -1,0 +1,167 @@
+\documentclass{article}
+\bibliographystyle{ieeetr}
+\begin{document}
+\section{Litterature Review}
+\subsection{Bitcoin and Proof-of-Work}
+\subsubsection*{Bitcoin's Growing Energy Problem - 2018} \cite{devriesBitcoinGrowingEnergy2018}
+\begin{itemize}
+    \item Bitcoin mining is an energy-intensive process requiring large amounts of computations and electricity expenditure.
+    \item Bitcoin's total network hashrate was estimated to be around 26 exahashes/sec in early 2018, requiring over 25 TWh per year worth of electricity.
+    \item While the minimum electricity usage can be estimated based on hashrate and hardware efficiency, the actual consumption is likely higher once cooling systems and other facility overheads are considered.
+    \item Economic models suggest Bitcoin mining will expand until electricity costs make up the majority of miner's marginal costs. Using this approach, the paper forecasts Bitcoin could potentially consume over 67 TWh/year in the future.
+    \item Analyzing ASIC production estimates suggests Bitcoin's electricity hunger could surpass even economic model forecasts, reaching over 73 TWh/year consumption as early as end of 2018.
+    \item At the network's processing rate of 200,000 transactions/day, electricity consumed per transaction is estimated between 300 to 900 kWh. This raises sustainability concerns and the need for efficiency improvements.
+\end{itemize}
+
+
+\subsubsection*{The Carbon Footprint of Bitcoin - 2019} \cite{stollCarbonFootprintBitcoin2019}
+\begin{itemize}
+    \item De Vries' 2018 paper provided initial alarming estimates of Bitcoin's energy consumption, projecting up to 7.7 GW based on economic modeling. Stoll, Klaaßen, and Gallersdörfer's 2019 work expanded on this using an empirical techno-economic model.
+    \item While De Vries relied on assumptions that 60\% of miner revenues go towards electricity, Stoll et al. derived hardware efficiency data from mining manufacturer IPOs. This enabled a more accurate translation of hashrate to energy use.
+    \item Stoll et al. also went beyond De Vries' national level emission factor averaging. By localizing IP addresses of mining pools and devices, they developed geographic distribution scenarios for more nuanced emissions estimation.
+    \item These improvements resulted in a 2018 estimate of 45.8 TWh, lower than De Vries' upper bound but still sizable. The multiple localization scenarios give a emissions range of 22-22.9 MtCO2.
+    \item Overall, Stoll et al.'s empirically-driven model provides greater rigor and transparency in quantifying Bitcoin's footprint. The IP-based distribution scenarios are a notable methodological advance from De Vries' work. Still, uncertainties remain around mining behaviors and clean energy use. Ongoing monitoring and reporting is essential for understanding blockchain externalities.
+    \item Warns Bitcoin's energy hunger is likely just the tip of the iceberg, with other proof-of-work chains adding further externalities.
+    \item The paper also provides a useful overview of Bitcoin's energy consumption and the mining process. It also provides a good overview of the literature on Bitcoin's energy consumption.
+\end{itemize}
+
+\subsubsection{Bitcoin's Growing E-waster problem - 2021} \cite{devriesBitcoinGrowingEwaste2021}
+\begin{itemize}
+    \item De Vries previously focused on Bitcoin's energy usage and carbon emissions. This paper newly examines the e-waste impact of constantly replacing mining hardware.
+    \item It provides the first rigorous estimate of Bitcoin's e-waste generation: 30.7 metric kilotons/year as of May 2021. This adds a concerning sustainability dimension beyond just energy.
+    \item The paper develops a novel methodology leveraging mining device lifespans and efficiency data. This provides greater rigor than prior energy usage models.
+    \item Localizing mining operations remains a challenge. De Vries acknowledges miners using VPNs and illegal sources of power add uncertainty.
+    \item Rapid efficiency gains in new ASICs shorten profitability periods, driving continuous e-waste output. De Vries links this to disruption of semiconductor supply chains.
+    \item The paper recommends switching to more sustainable consensus protocols like proof-of-stake to mitigate e-waste issues. This aligns with our view.
+    \item Importantly, De Vries stresses Bitcoin e-waste is likely just the tip of the iceberg, with other cryptocurrencies adding externalities.
+\end{itemize}
+
+\subsubsection{Revisiting Bitcoin's Carbon Footprint - 2022} \cite{devriesRevisitingBitcoinCarbon2022}
+\begin{itemize}
+    \item The paper re-examines Bitcoin's carbon footprint following China's 2021 mining crackdown which impacted mining locations.
+    \item It leverages IP-based geolocation data from major mining pools to estimate the post-crackdown geographic distribution of miners.
+    \item Their analysis suggests the share of renewable energy powering Bitcoin mining may have declined from 42\% to 25\% after the crackdown.
+    \item With miners migrating from China to Kazakhstan and the US, they estimate the average carbon intensity increased 17\% to 558 gCO2/kWh.
+    \item This highlights the risk of miners reviving fossil fuel assets and that renewable energy claims require verification.
+    \item The paper further notes challenges around using average vs marginal emissions factors and uncertainties in emission factor data.
+    \item Overall, the crackdown analysis provides a timely case study showing the fluidity of Bitcoin's environmental impact based on mining behaviors.
+    \item This underscores the need for accountability to accelerate decarbonization and track progress.
+\end{itemize}
+
+\subsubsection{Cambridge Bitcoin Greenhouse Gas Emissions Index}\cite{neumuellerCambridgeBitcoinElectricity2021}
+
+\begin{itemize}
+    \item The Cambridge index represents the first live model for estimating Bitcoin's greenhouse gas (GHG) emissions. It builds on their prior work quantifying Bitcoin's energy usage and introduces a methodology for deriving associated emissions based on mining locations.
+    \item The model defines rigorous intervals for addressing data limitations. The historical period relies on basic global assumptions, while the assessed interval incorporates granular data on mining distribution. A predicted period assumes continuity until new data is available.
+    \item Novel is the use of province/state-level data on mining and electricity generation for China and the US where possible. This captures the impacts of seasonal migration and regional grid variations.
+    \item Their technique computes a daily emissions factor weighted by mining geography. This is multiplied by estimated energy use to derive a transparent emissions range with upper, lower, and best guess estimates.
+    \item While limitations exist, the index establishes best practices for blockchain emissions modeling using on-chain data. It moves beyond reliance on static averages to capture the fluid dynamics of crypto-mining.
+\end{itemize}
+
+\subsection{Ethereum and the switch to Proof-of-Stake}
+
+\subsubsection{Ethereum Emissions: A Bottom-up Estimate - 2022 (PoW)} \cite{mcdonaldEthereumEmissionsBottomup2022}
+\begin{itemize}
+    \item THe paper takes a bottom-up approach to estimating Ethereum's energy use and emissions before the merge to proof-of-stake.
+    \item It builds up an estimate starting from network hashrate, hardware efficiency, datacenter overhead, and other measured/researched components.
+    \item This provides greater rigor than prior top-down estimates based on miner revenue and cost assumptions.
+    \item Their model finds Ethereum used ~60 TWh from 2015-2022, with 18 MtCO2 emissions. Generally matches previous studies.
+    \item Mapping block metadata provides localized emissions factors, improving on estimates using global averages.
+    \item Model parameters like hardware mix and efficiency have the largest uncertainty. More miner data could refine this.
+    \item The bottom-up methodology demonstrates best practices recommended by researchers like Koomey.
+    \item Overall, the paper provides a transparent and empirical model for quantifying proof-of-work emissions.
+    \item Estimates are in accord with most previous top-down estimates of energy and emissions like the de Vries studies and Cambridge Ethereum Emissions Index.
+\end{itemize}
+
+\subsubsection{The Energy Footprint of Blockchain Consensus Mechanisms Beyond Proof-of-Work - 2021} \cite{plattEnergyFootprintBlockchain2021}
+
+\begin{itemize}
+    \item Platt et al. take an initial step towards comparing the energy requirements of proof-of-stake (PoS) blockchain systems as an alternative to proof-of-work. They develop a mathematical model to estimate consumption based on validator counts, node power draw, and throughput.
+    \item The paper builds on previous work analyzing individual PoW chains like Bitcoin. It newly models multiple major PoS networks like Cardano and Hedera using a common framework. This enables the first rigorous cross-chain PoS efficiency comparison.
+    \item Validator numbers are obtained on-chain, while node power ranges represent industry hardware recommendations. Throughput data comes from recent observations and informal projected capacities. Emissions factors are incorporated by mapping validator IPs.
+    \item For permissionless chains, node power between 5-168W is assumed based on single-board to rackmount servers. Permissioned chains assume 168-328W for high-performance servers. An inverse throughput-energy relationship is predicted. Cardano is modeled in greatest detail via historical data regression.
+    \item Results confirm PoS is orders of magnitude more efficient than Bitcoin's PoW, supporting further adoption. But significant PoS chain differences emerge - permissioned networks show lower energy use per transaction owing to fewer validators and higher throughput.
+    \item The paper demonstrates PoS networks can reach the efficiency of centralized systems. But more research is needed on real-world configurations, transaction types, and high loads.
+    \item PoW systems, especially Bitcoin, consume energy at least three orders of magnitude higher than even the most energy-consuming PoS system.
+    \item Some PoS systems, including permissioned ones, consume less energy (like Hedera) than traditional centralized payment systems like VisaNet. Ethereum 2.0 has half the energy efficiency of VisaNet
+
+\end{itemize}
+
+
+\subsubsection{The Energy consumption of Proof-of-Stake system: Replication and expansion}\cite{ibanezEnergyConsumptionProofofStake2023}
+\begin{itemize}
+    \item The paper replicates and expands on Platt et al.'s 2021 work analyzing the energy consumption of proof-of-stake (PoS) blockchain systems.
+    \item They show that the model proposed by Platt is replicable. Overall,we confirm the core finding of Platt etal[4]that, regardless of the nuances and differences across PoS-based DLTs,16 all of the PoS-based DLTs analysed have an energy consumption that is negligible compared to that of major PoW blockchains.
+    \item With the energy consumption of PoS systems being an underresearched area, we replicate, expand and update embryonary work modelling it and comparing different PoS-based DLTs with
+          each other and with other non-PoS systems. In doing so, we suggest and implement a number of improvements to an existing PoS energy consumption model. We find that there may be significant differences in the energy consumption of PoS systems analysed and confirm that, regardless of these differences, their energy
+          consumption is several orders of magnitude below that of Bitcoin Core.
+    \item SOme PoS systems, including permissioned ones, consume less energy than traditional centralized payment systems like VisaNet.
+          There's a substantial divergence in energy consumption among PoS systems. This difference can be attributed to the number of validators, throughput, and whether the system is permissioned or permissionless.
+          The type of hardware used by validators and its configuration significantly impacts the energy footprint.
+
+\end{itemize}
+
+
+
+\subsubsection{Cryptocurrencies on the road to sustainability: Ethereum paving the way for Bitcoin - 2022} \cite{devriesCryptocurrenciesRoadSustainability2022}
+
+\begin{itemize}
+    \item This aricle examines the sustainability impact of Ethereum's merge to proof-of-stake (PoS) consensus in September 2022.
+    \item It builds on de Vries' prior work quantifying the energy and carbon footprint of proof-of-work chains like Bitcoin.
+    \item Switching to PoS is expected to reduce Ethereum's energy use by ~99.95\%, eliminating vast externalities.
+    \item De Vries provides original analysis showing the merge could save 0.2\% of global electricity and avoid carbon emissions comparable to New Zealand.
+    \item He notes Ethereum will still face challenges like e-waste from old mining devices and wealth concentration risks of PoS.
+    \item But the merge is a pivotal case study for the viability of scaling blockchain sustainably through consensus innovation.
+    \item This supports our view that promoting PoS adoption is critical to align blockchain technology with climate goals.
+    \item Our attribution model provides complementary upside by creating micro-incentives for individuals to prefer energy-efficient chains.
+    \item By quantifying impacts for end users, we hope to further accelerate the shift to sustainable networks like post-merge Ethereum.
+\end{itemize}
+
+\textbf{Observations}
+Ethereum's transition to PoS marks a pivotal step towards sustainability in the crypto world, though many, like Bitcoin, remain tethered to the energy-intensive PoW. The decentralized nature of blockchain presents inherent energy inefficiencies. However, Ethereum's success in adopting PoS, despite challenges, suggests that with the right push, other cryptocurrencies might follow suit. This backdrop strengthens the importance of our GreenBlocks tool in promoting sustainable practices by making users aware of their individual carbon footprints.
+
+
+\subsection{State of the art datasources}
+
+\subsubsection{Crypto Carbon Ratings Institute - Accounting for carbon emissions caused by
+    cryptocurrency and token systems}
+
+\textbf{Summary}
+The white paper delves into the pressing issue of carbon emissions resulting from cryptocurrency networks. The authors build upon prior research from CCRI and South Pole (2022) to offer a comprehensive framework for allocating emissions in both Proof of Work (PoW) and Proof of Stake (PoS) networks. Their proposed ``hybrid allocation'' approach integrates both holdings and transactions as key drivers of emissions. They argue that both holdings and transactions contribute significantly to the incentivization of miners, and as such, their associated emissions must be accounted for.
+
+\textbf{Key Observations:}
+\begin{enumerate}
+    \item \textbf{Historical Perspective:} Prior to this paper, research primarily focused on the electricity consumption and carbon footprint of the entire cryptocurrency network. Recent strides have been made in allocating the carbon footprint of the Bitcoin network to individual investors (de Vries et al., 2021). This paper expands on that foundation by considering a broader range of cryptocurrencies and tokens.
+    \item \textbf{Hybrid Allocation Approach:} The paper introduces a ``hybrid allocation'' approach, which combines both holding-based and transaction-based emissions accounting. This is particularly significant as it recognizes that both holding and transacting activities on a blockchain contribute to its overall energy consumption.
+    \item \textbf{Data-Driven Analysis:} The white paper uses real-world data, such as the Cambridge Bitcoin Electricity Consumption Index (CBECI) and the CCRI Crypto Sustainability Indices, to demonstrate the efficacy and relevance of their proposed approach.
+    \item \textbf{Importance of Consensus Mechanisms:} The methodology takes into account the specific consensus mechanisms of blockchain networks. While PoW networks focus on block rewards and transaction fees, PoS networks consider the marginal electricity consumption of transactions.
+\end{enumerate}
+
+\textbf{Relation to Our Work:}
+\begin{enumerate}
+    \item \textbf{Beneficiary Pays Principle:} Our work introduces the concept of proportional benefits, weighing responsibility factors based on the value users place on different blockchain functionalities. This principle c This principle contrasts with the paper's allocation based on ration between block rewards and transaction fees.
+    \item \textbf{Practical Application:} Our work goes a step further by introducing ``GreenBlocks,'' a tool allowing end-users to estimate and offset their emissions, something the white paper does not offer.
+\end{enumerate}
+
+\textbf{Progression of Ideas:}
+\begin{enumerate}
+    \item \textbf{Foundational Work:} The paper builds on the earlier efforts of Stoll et al. (2019) and de Vries et al. (2021) that tackled Bitcoin's carbon footprint and its allocation to individual investors, respectively.
+    \item \textbf{Broadening the Scope:} While prior studies limited their focus to Bitcoin, this paper expands the discussion to encompass various cryptocurrencies, recognizing the diverse energy consumption patterns across different networks.
+    \item \textbf{Introduction of the Hybrid Approach:} Building on CCRI and South Pole's (2022) work, the paper introduces a novel hybrid approach, bridging the gap between holding-based and transaction-based allocation methods.
+\end{enumerate}
+
+\textbf{Potential Additions/Extensions:}
+\begin{enumerate}
+    \item \textbf{Beneficiary Pays Principle:} Our work introduces the concept of proportional benefits, weighing responsibility factors based on the value users place on different blockchain functionalities. This principle contrasts with the paper's allocation based on ration between block rewards and transaction fees.
+
+    \item \textbf{Integration with Carbon Markets:} The development of tools like ``GreenBlocks'' can be an instrumental step forward, linking the theoretical framework to practical solutions for users to offset their carbon footprints.
+    \item \textbf{Incorporating Other Consensus Mechanisms:} As the blockchain landscape evolves, newer consensus mechanisms may emerge. Future research could incorporate these into the emissions accounting framework.
+\end{enumerate}
+
+\textbf{Synthesis:}
+The white paper makes a significant contribution to the field of carbon emissions accounting in the context of cryptocurrencies. By introducing the hybrid allocation approach, it offers a more holistic and nuanced perspective on emissions allocation. However, the paper's broad strokes approach can be complemented with a more granular, user-focused analysis, as proposed in our thesis. By doing so, we can bridge the gap between high-level network emissions and individual user responsibility, paving the way for sustainable blockchain adoption.
+
+
+
+\bibliography{bibliography.bib}
+\end{document}

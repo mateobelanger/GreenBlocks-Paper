@@ -1,0 +1,131 @@
+Commentary
+Bitcoin's Growing Energy Problem
+Author links open overlay panel
+Alex de Vries 1
+Show more
+Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.joule.2018.04.016
+Get rights and content
+Under an Elsevier user license
+open archive
+
+
+￼
+		Download : Download high-res image (298KB)
+		Download : Download full-size image
+
+The electricity that is expended in the process of mining Bitcoin has become a topic of heavy debate over the past few years. It is a process that makes Bitcoin extremely energy-hungry by design, as the currency requires a huge amount of hash calculations for its ultimate goal of processing financial transactions without intermediaries (peer-to-peer). The primary fuel for each of these calculations is electricity. The Bitcoin network can be estimated to consume at least 2.55 gigawatts of electricity currently, and potentially 7.67 gigawatts in the future, making it comparable with countries such as Ireland (3.1 gigawatts) and Austria (8.2 gigawatts). Economic models tell us that Bitcoin's electricity consumption will gravitate toward the latter number. A look at Bitcoin miner production estimates suggests that this number could already be reached in 2018.
+		Previous article in issue
+		Next article in issue
+Main Text
+Introduction
+When Bitcoin was introduced in 2008, Satoshi Nakamoto presented a solution for the double-spending problem in digital cash. As with any digital information, a digital token may be reproduced relatively easily. If this were to happen in Bitcoin it would lead to inflation in the digital currency and devalue it relative to other currencies. In turn, this would compromise user trust in the currency.1 Nakamoto's solution involved “timestamping transactions by hashing them into an ongoing chain of hash-based proof-of-work.” The proof-of-work was specifically said to involve “scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits.”2 The number of attempts to find such a hash, made every second, is what we call the hashrate. Once a node finds a hash that satisfies the required number of zero bits, it transmits the block it was working on to the rest of the network. The other nodes in the network then express their acceptance by starting to create the next block for the blockchain using the hash of the accepted block. The finder of the block is rewarded for the efforts with a special transaction. Creators of a block are currently allowed to send 12.5 newly created coins to an address of their choosing. This is a fixed reward that halves every four years (210,000 blocks). On top of the fixed reward a variable amount of transaction fees is received as well. The reward provides an incentive to participate in this type of network. The more computational power one has, the bigger the share of all distributed rewards that go to that miner. To keep the flow of rewards stable, the network self-adjusts the difficulty of hash calculations, so new blocks are only created once every 10 min on average. Nakamoto compared the creation of new coins in this way with gold mining (hence the term Bitcoin mining), and noted that “in our case, it's CPU time and electricity that is expended.”
+The electricity that is expended in the process of mining Bitcoin has become a topic of heavy debate over the past few years. It is a process that makes Bitcoin extremely energy-hungry by design, as the currency requires a huge amount of hash calculations for its ultimate goal of processing financial transactions without intermediaries (peer-to-peer). We cannot observe this hashrate directly, but it is possible to derive this number from the observable difficulty and the actual time required to mine new blocks for the blockchain. As per mid-March 2018, about 26 quintillion hashing operations are performed every second and non-stop by the Bitcoin network (Figure 1). At the same time, the Bitcoin network is only processing 2–3 transactions per second (around 200,000 transactions per day). This means that the ratio of hash calculations to processed transactions is 8.7 quintillion to 1 at best. The primary fuel for each of these calculations is electricity.
+￼
+		Download : Download high-res image (768KB)
+		Download : Download full-size image
+Figure 1. The Estimated Number of Terahashes per Second (Trillions of Hashes per Second) Performed by the Bitcoin Network
+Source: Blockchain.info.
+Network Power Usage
+Trying to measure the electricity consumed by the Bitcoin mining machines producing all those hash calculations remains a challenge to date. Even though we can easily estimate the total computational power of the Bitcoin network, it provides only little information on the underlying machines and their respective power use. A hashrate of 14 terahashes per second can either come from a single Antminer S9 running on just 1,372 W, or more than half a million Playstation-3 devices running on 40 MW (as a single Playstation-3 device has a hashrate of 21 megahashes per second and a power use of 60 W). It is also not possible to observe the exact number of connected devices. The Bitcoin network is estimated to have around 10,000 connected nodes, but a single node in the network can represent either one or many machines.
+Still, estimating the power consumption of the Bitcoin network using the efficiency for different hardware has been a common approach for years. In particular, the information on the total network computational power can be used in determining a lower bound for Bitcoin's electricity consumption. With publicly available Bitcoin mining machines achieving advertised efficiencies of 0.098 joule per gigahash (Table 1), and the total Bitcoin network producing 26 quintillion hashes per second, we find that this lower bound should be around 2.55 GW.
+Table 1. Examples of Recent Bitcoin ASIC Miner Machine Types
+Machine
+Hashrate (TH/s)
+Power Use (W)
+Power Efficiency (J/GH)
+Antminer S9
+14
+1,372
+0.098
+Antminer T9
+12.5
+1,576
+0.126
+Antminer T9+
+10.5
+1,332
+0.127
+Antminer V9
+4
+1,027
+0.257
+Antminer S7
+4.73
+1,293
+0.273
+AvalonMiner 821
+11
+1,200
+0.109
+AvalonMiner 761
+8.8
+1,320
+0.150
+AvalonMiner 741
+7.3
+1,150
+0.160
+Bitfury B8 Black
+55
+5,600
+0.11
+Bitfury B8
+47
+6,400
+0.13
+
+Source: Bitmain, Bitfury, and Canaan.
+
+Cooling and Other Electricity Costs
+Even though the previous approach is very useful since it provides a minimum level for Bitcoin's electricity consumption, it always leaves us with a very bare consumption estimate, first of all because the network doesn't contain a single type of machine, but also because it doesn't take cooling requirements into account. A majority of the total Bitcoin network hashrate originates from mining machines that are clustered together in mining facilities. This was observed in 2017 when 48 miners participated in a study by Hileman and Rauchs. Eleven of these were designated as large mining operations, and were estimated to contribute to more than half of the global Bitcoin network hashrate.3 These facilities are likely to have more power expenditures. With each of the machines generating as much heat as a portable heater, the additional electricity expenditure to simply get rid of all this heat can potentially be significant, depending on factors such as climate and chosen cooling technology.
+Mining facilities tend to keep their operations behind closed doors, so little is known about their power usage effectiveness (PUE). Bitfury claims to have built a data center that achieves a PUE of 1.02 with the help of immersion cooling, but this has not been independently verified. Certainly not every mining operation uses this cooling technology. For example, Bitmain's mining facility in the Inner Mongolian desert (China) makes use of an evaporative cooling system. This was shown by a small group of journalists who were granted access to this facility in the fall of 2017, which was responsible for about 4%4 of the Bitcoin network hashrate at the time (6 exahashes per second). Unfortunately, they produced conflicting reports regarding the facility's exact electricity use. Quartz reported the facility was running on 40 MW,5 while Tech in Asia reported on 33.33 MW (800 MWh per day).6 It was reported that the facility was using 21,000 Bitcoin mining machines, which were “almost exclusively” Antminer S9 machines.4 Along with 4,000 L3+ (Litecoin) mining machines (running at 800 W each) we would expect a total energy use of around 32 MW, suggesting a worst-case PUE of 1.25. In any case, this facility would only be representative of less than 1% of the global network hashrate today. For the majority of the network no information is available at all. At this time, it therefore cannot be ruled out that hashrate simply does not reflect a large part of the electricity consumed in Bitcoin mining.
+Expected Electricity Consumption
+Hashrate-based approaches also offer no insight in future electricity consumption. To obtain an idea about this, we instead can approach Bitcoin's electricity consumption from an economic angle. Doing so is possible because Bitcoin can be considered a “virtual commodity with a competitive market of producers,”7 as asserted by Adam Hayes. In his paper Hayes explains that, if this is true, we expect that “miners will produce [hash calculations] until their marginal costs equal their marginal product.” The marginal product of mining (“the number of Bitcoins found per day on average multiplied by the dollar price of Bitcoin”) can be observed from the Bitcoin blockchain, as it includes information on which blocks have been mined at what time, as well as the included reward for each. On March 16, 2018, this marginal product was equal to US$15.34 million. We find this number based on an average price of $8,351 times 1,837 coins (12.5 coins per block every 10 min on average plus 37 coins in fees for the full day).
+The marginal costs of mining are expected to tend to the latter amount, as rational agents would undertake mining while the marginal costs are lower. At the same time, they would presumably decide to remove themselves from the mining pool if they would be operating at a marginal loss. These market forces drive the industry toward an equilibrium whereby firms will earn zero economic profit.
+The next step is to determine the structure of these marginal costs in equilibrium. Hayes argues that these are primarily made up of electricity costs, as hardware costs and small costs (such as maintenance) can be ignored. The reason Hayes ignores hardware costs is that these represent a sunk cost component in each unit of mining effort, which are therefore not relevant in the decision to mine (only prospective costs are). Although true, this seems to be something of an oversimplification, as the acquisition of new machines will always be considered in the long run. This could be the result of increasing revenues, or simply because machines reach the end of their technical lifetime.
+To be able to take hardware costs into account, we first need to put a figure on it. We know that, in equilibrium, not even Bitmain (the largest manufacturer of new Bitcoin mining machines with a claimed market share of 70%8), should be able to generate a profit. However, we don't know much about the costs of hardware other than that the retail price of an Antminer S9 is currently around $1,900 per machine (after peaking above $2,700 per machine at the end of December 2017), and of course the retail price doesn't equal the production cost. Bitmain's profit margins, however, are not provided by the company. We do know that Bitmain is able to sell the S9 at a retail price of $1,200 per machine and still turn in a profit, as this was indicative of the retail price of an S9 machine for most of 2017 (April through October). Since the retail price of an S9 bottomed out at $1,161 per machine at the start of June 2017, we can at least take this as an upper bound for the production costs.
+In April 2017, an attempt to figure out Bitmain's profitability was made by Bitcoin developer and entrepreneur Jimmy Song, who looked into the production cost of an Antminer S9 to this purpose. Song concluded that the production cost of an Antminer S9 was “roughly $500.” To reach this figure, Song first motivates how Bitmain is likely paying its supplier Taiwan Semiconductor Manufacturing Company (TSMC) about $8,000 per wafer of TSMC's 16-nm process, from which it can get 5,158 chips. Given that each S9 requires 189 chips, each wafer can make enough chips for a little over 27 machines. This results in almost $300 worth of chips per S9. Song adds that chip fabrication is “generally the most expensive part of the miner build,” and uses expert judgment to arrive at the remaining production costs at $200.9 On a retail price of $1,161 this would still imply a profit margin of 56.9%. Such a margin is not uncommon for Bitmain, which had a profit margin of 50% on the earlier Antminer S5 model according to company co-founder Micree Zhan.8
+To calculate how these production costs compare with electricity costs it is a prerequisite to establish the expected lifetime of an Antminer machine. The longer the expected lifetime, the bigger the share of electricity costs in the total lifetime costs will be. Knowing that the Antminer S9 was first sold mid-2016 and remains one of Bitmain's primary products almost 2 years later, we will consider a lifetime of up to 2 years. The costs of electricity are assumed to be 5 US cents per kWh on average, which is a conservative pick based on the knowledge that Bitmain was already paying just 4 cents per kWh for its facility in Inner Mongolia.4, 6
+When combining the resulting electricity costs over a 2-year period with the production costs from before, we find that electricity costs make up a little more than 70% of the total lifetime costs of an Antminer S9. Using stricter lifetime assumptions (Table 2), electricity costs continue to make up the majority of the machine's total lifetime costs, so henceforth we will assume an electricity cost share of 60%. We can subsequently use this number to obtain a ballpark estimate for the electricity consumption of the Bitcoin network in an equilibrium where not even Bitmain is capable of earning a profit. Assuming an electricity price of 5 cents per kWh, and 60% of the marginal product ($15.34 million) going to electricity in equilibrium, we would thus expect a total electricity consumption of 7.67 GW.
+Table 2. Estimated Lifetime Costs for an Antminer S9 under Various Lifetime Assumptions and a Production Cost of US$500 (Assuming Electricity Costs 5 US Cents per Kilowatt-Hour)
+Machine
+Expected Lifetime (Years)
+Estimated Production Costs (US$)
+Lifetime Electricity Use (kWh)
+Lifetime Electricity Costs (US$)
+Total Lifetime Costs (US$)
+Electricity Costs/Total Costs (%)
+Antminer S9
+2
+500
+24,037
+1,202
+1,702
+70.6
+Antminer S9
+1.5
+500
+18,028
+901
+1,401
+64.3
+Antminer S9
+1
+500
+12,019
+601
+1,101
+54.6
+Thanks to its simplicity, the aforementioned approach became the foundation of the Bitcoin Energy Consumption Index,10 but knowing where Bitcoin's electricity consumption is heading does not provide us a with final estimate for the network's current consumption. It is important to note that the index assumes it may currently take around a year before the expected electricity consumption is actually reached. Especially after strong price increases, one needs to allow for a sufficient amount of time for the production of new hardware.
+Bitcoin Miner Production
+Bitcoin miner manufacturers tend to be very secretive about their production output, but Morgan Stanley managed to work around this problem by looking at the TSMC instead. TSMC supplies the chips for Bitmain, making it possible to come up with a chip-based production potential. Specifically, Morgan Stanley estimated that TSMC had orders from Bitmain “for 15–20k wafer-starts per month” for the first quarter of 2018. This figure was independently confirmed by Ark Invest analyst James Wang, who wrote that “Bitmain is buying ∼20k 16 nm wafers a month” specifically (used for building the Antminer S9 and T9).11
+With each 16-nm wafer capable of supplying chips for about “27–30 Bitcoin mining rigs”, Bitmain could produce around half a million of its most efficient Bitcoin mining machines per month.12 Assuming 20,000 wafers per month and 27 machines per wafer, and given that these production rates are maintained throughout the year, Bitmain could produce up to 6.5 million Antminer S9 machines in 2018. These machines would have a combined electricity consumption of 8.92 GW. This exceeds the expected electricity consumption of 7.67 GW from before, which therefore seems to be within Bitmain's production potential for 2018. It is worth noting that these machines might not all be finalized and delivered in 2018, but at the same time Bitmain, with a claimed market share of 70%,8 is not the only contributor to the industry's total production potential this year.
+The aforementioned also marks the first time that Bitcoin miner production has been estimated with the help of upstream (chip) production numbers. Given the ongoing secrecy of Bitcoin miner manufacturers, this could prove to be a valuable addition to the toolkit for substantiating trends in Bitcoin's electricity consumption.
+Limitations
+Lastly, it is important to keep in mind that all of the methods discussed assume rational agents. There may be various reasons for an agent to mine even when this isn't profitable, and in some cases costs may not play a role at all when machines and/or electricity are stolen or abused. In one case a researcher misused National Science Foundation-funded supercomputers to mine $8,000–$10,000 worth of Bitcoin. The operation ended up costing the university $150,000.13 More recently, a mining facility in Russia (with 6,000 devices) was shut down after “not paying for several million kilowatt-hours of electricity.”14
+Less malicious reasons for an agent to mine Bitcoin at a loss might include motivations such as being able to obtain Bitcoin completely anonymously, libertarian ideology (supporting a payment network that does not rely on a central authority), or speculative reasons. None of these situations would be properly captured by any of the discussed methods.
+Conclusion
+This paper has outlined various methods that are currently used in determining the current and future electricity consumption of the Bitcoin network. These methods tell us that the Bitcoin network consumes at least 2.55 GW of electricity currently, and that it could reach a consumption of 7.67 GW in the future, making it comparable with countries such as Ireland (3.1 GW) and Austria (8.2 GW).15 Additionally, economic models tell us that Bitcoin's electricity consumption will gravitate toward the latter figure. A look at Bitcoin miner production estimates suggests that this figure could already be reached in 2018. With the Bitcoin network processing just 200,000 transactions per day, this means that the average electricity consumed per transaction equals at least 300 kWh, and could exceed 900 kWh per transaction by the end of 2018. The Bitcoin development community is experimenting with solutions such as the Lightning Network to improve the throughput of the network, which may alleviate the situation. For now, however, Bitcoin has a big problem, and it is growing fast.

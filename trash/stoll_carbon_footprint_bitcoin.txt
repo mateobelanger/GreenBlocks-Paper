@@ -1,0 +1,243 @@
+The Carbon Footprint of Bitcoin
+Author links open overlay panelChristian Stoll 1 2 5, Lena Klaaßen 3, Ulrich Gallersdörfer 4
+Show more
+Add to Mendeley
+Share
+Cite
+https://doi.org/10.1016/j.joule.2019.05.012
+Get rights and content
+Under an Elsevier user license
+open archive
+Highlights
+•
+Bitcoin's annual electricity consumption adds up to 45.8 TWh
+
+•
+The corresponding annual carbon emissions range from 22.0 to 22.9 MtCO2
+
+•
+This level sits between the levels produced by the nations of Jordan and Sri Lanka
+
+
+Context & Scale
+Blockchain technology has its roots in the cryptocurrency Bitcoin, which was the first successful attempt to validate transactions via a decentralized data protocol. This validation process requires vast amounts of electricity, which translates into a significant level of carbon emissions. Our approximation of Bitcoin’s carbon footprint underlines the need to tackle the environmental externalities that result from cryptocurrencies.
+
+Blockchain solutions are increasingly discussed for a broad variety of use cases beyond cryptocurrencies. Although not all blockchain protocols are as energy intensive as Bitcoin’s protocol, environmental aspects, the risk of collusion, and concerns about control must not be ignored in the debate on anticipated benefits. Our findings for the first stage of blockchain diffusion and the externalities we discuss may help policy-makers in setting the right rules as the adoption journey of blockchain technology has just started.
+
+Summary
+Participation in the Bitcoin blockchain validation process requires specialized hardware and vast amounts of electricity, which translates into a significant carbon footprint. Here, we demonstrate a methodology for estimating the power consumption associated with Bitcoin’s blockchain based on IPO filings of major hardware manufacturers, insights on mining facility operations, and mining pool compositions. We then translate our power consumption estimate into carbon emissions, using the localization of IP addresses. We determine the annual electricity consumption of Bitcoin, as of November 2018, to be 45.8 TWh and estimate that annual carbon emissions range from 22.0 to 22.9 MtCO2. This means that the emissions produced by Bitcoin sit between the levels produced by the nations of Jordan and Sri Lanka, which is comparable to the level of Kansas City. With this article, we aim to gauge the external costs of Bitcoin and inform the broader debate on the costs and benefits of cryptocurrencies.
+
+Graphical Abstract
+
+Download : Download high-res image (119KB)
+Download : Download full-size image
+
+Previous article in issueNext article in issue
+Introduction
+In 2008, Satoshi, the pseudonymous founder of Bitcoin, published a vision of a digital currency which, only a decade later, reached a peak market capitalization of over $800 billion.1, 2 The revolutionary element of Bitcoin was not the idea of a digital currency in itself but the underlying blockchain technology. Instead of a trusted third party, incentivized network participants validate transactions and ensure the integrity of the network via the decentralized administration of a data protocol. The distributed ledger protocol created by Satoshi has since been referred to as the “first blockchain.”3
+
+Bitcoin’s blockchain uses a Proof of Work consensus mechanism to avoid double spending and manipulation. The validation of ownership and transactions is based on search puzzles of hash functions. These search puzzles have to be solved by network participants in order to add valid blocks to the chain. The difficulty of these puzzles adjusts regularly in order to account for changes in connected computing power and to maintain approximately 10 min between the addition of each block.4
+
+During 2018, the computing power required to solve a Bitcoin puzzle increased more than 4-fold until October and heightened electricity consumption accordingly.5, 6 Speculations about the Bitcoin network’s source of fuel have suggested, among other things, Chinese coal, Icelandic geothermal power, and Venezuelan subsidies.7 In order to keep global warming below 2°C—as internationally agreed in Paris COP21—net-zero carbon emissions during the second half of the century are crucial.8 To take the right measures, policy-makers need to understand the carbon footprint of cryptocurrencies.
+
+We present a techno-economic model for determining the electricity consumption of the Bitcoin network in order to provide an accurate estimate of its carbon footprint. Firstly, we narrow down the power consumption, based on mining hardware, facilities, and pools. Secondly, we develop three scenarios representing the geographic footprint of Bitcoin mining, based on pool server IP, device IP, and node IP addresses. Thirdly, we calculate the carbon footprint, based on the regional carbon intensity of power generation.
+
+In comparison to previous work, our analysis is based on empirical insights. We use hardware data derived from recent IPO filings, which are key to a reliable estimate of power consumption since the efficiency of the hardware in use is an essential parameter in this calculation. Furthermore, we include assumptions about auxiliary factors, which determine the power usage effectiveness (PUE). Losses from cooling and IT equipment have a significant effect but have been largely neglected in prior studies. Besides estimating the total power consumption, we determine the geographical footprint of mining activity based on IP addresses. This geographical footprint allows for a more accurate estimation of carbon emissions than earlier work.
+
+Previous academic studies, such as predictions of future carbon emissions9 or comparisons of cryptocurrency and metal mining,10 are based on simplistic estimates of power consumption and lack empirical foundations. Consequently, the estimates produced vary significantly among studies, as depicted in Figure 1. For instance, De Vries published in Joule an estimate of 2.55 to 7.67 gigawatts as of March 2018, while his Digiconomist site suggested a number at the very upper end of this range at that time.6, 11
+
+
+Download : Download high-res image (233KB)
+Download : Download full-size image
+Figure 1. Power Consumption and Carbon Emission Estimates in Previous Studies
+
+The data reflect the power consumption at a specific date. Thus, the data are presented in power (W) rather than energy (J).
+
+(A) 100–500 MW power consumption as of January 1, 2017.34
+
+(B) 470–540 MW as of February 2017, 816–944 MW as of July 2017, and 1,620–3,136 MW with a best guess of 2,100 MW as of November 1, 2018.35
+
+(C) 2,550–7,670 MW as of March 2018, calculated by assuming miners spent 40% of all revenues on hardware and 60% on electricity.6
+
+(D) 948 MW as 2017 average and 3,441 MW as first 6 months 2018 average.10
+
+(E) 12,080 MW as of July 2018; only value that includes the power spent on manufacturing of the mining hardware, which represents 57% of this total power (and emissions) estimate; PUE of 1.25 considered.36
+
+(F) 7,687 MW average of daily estimates in November 2018; daily estimates range from 5,983 MW to 8,347 MW in November 2018; estimates calculated by assuming 60% of revenues are spent on operational costs including electricity, hardware, and cooling costs.11
+
+(G) 345 MW as of December 2016, 1,637 MW as of December 2017, and 5,232 MW as of November 2018; PUE of 1.05 considered.
+
+(H) 69 MtCO2 emissions as of 2017; calculation based on the flawed assumption that the number of transactions drives power consumption.9
+
+(I) 43.9 MtCO2 emissions as of February 2018, including Ethereum.28
+
+(J) 2.9–13.5 MtCO2 emissions range calculated using the median daily power consumption from January 2016 to June 2018 multiplied by CO2 emission factors of seven countries, assuming all miners would be based in one of these countries.10
+
+(K) 61 MtCO2 emissions as of July 2018, using a global average CO2 emission factor.36
+
+(L) 25.8 MtCO2 emissions as of November 2018, using an emission factor of 0.7 kg CO2 per kWh for 70% of the power consumption (based on China’s average emission factor), and assuming clean energy for the remaining 30%.11
+
+(M) 22.0–22.9 MtCO2 emissions as of November 2018; range reflects three footprint scenarios with a respective local carbon intensity of power generation.
+
+(N) Indexed hash rate (required computing power) since January 1, 2017; data retrieved from Blockchain.com (https://www.blockchain.com/charts).5
+
+See Figure 2 for absolute values.
+
+We show that, as of November 2018, the annual electricity consumption of Bitcoin had a magnitude of 45.8 TWh. We further calculate that the resulting annual carbon emissions range is between 22.0 and 22.9 MtCO2, a ratio that sits between the levels produced by Jordan and Sri Lanka12 and is comparable to the level of Kansas City.13 The magnitude of these carbon emissions, combined with the risk of collusion and concerns about control over the monetary system, might justify regulatory intervention to protect individuals from themselves and others from their actions.
+
+Results
+Mining Hardware
+Bitcoin prices for 2017 chart a curve shaped like an upturned hockey stick and boosted the investment made by network participants in mining hardware. First-generation miners used central processing units (CPUs) in conventional personal computers with computing power of less than 0.01 gigahashes per second (GH/s) and an efficiency of 9,000 joule per gigahash (J/GH). Over time, miners switched to graphic processing units (GPUs), with 0.2–2 GH/s and 1,500–400 J/GH in 2010 and, starting in 2011, moved to field-programmable gate arrays (FPGA) with 0.1–25 GH/s and 100–45 J/GH.14 Since 2013, application-specific integrated circuit (ASIC)-based mining systems, with up to 44,000 GH/s and less than 0.05 J/GH have prevailed.15 Figure 2 charts the market price (in US dollar per Bitcoin [USD/BTC]), network hash rate (in petahashes per second [PH/s]), and resulting profitability threshold (in J/GH), where miners’ income equals cost. Comparing this profitability threshold to the efficiencies of mining hardware shows that only ASIC-based mining systems operate profitably nowadays.
+
+
+Download : Download high-res image (379KB)
+Download : Download full-size image
+Figure 2. Bitcoin Market Price, Network Hash Rate, Profitable Efficiency, and Hardware Efficiencies of ASIC-Based Mining Systems Released by Major Mining Hardware Producers
+
+Values are charted at monthly intervals. Hash rate and market price were retrieved from Blockchain.com (www.blockchain.com/charts).5 Calculations of the profitable hardware efficiency are reported in Data S1: Sheet 3.6. We assume an average electricity price of USD 0.05/kWh as argued in previous estimates.11, 37 A detailed overview of ASIC-based mining systems releases can be found in Data S1: Sheet 4.1.
+
+From IPO filings disclosed in 2018, we determine the distribution of market share held by the three major mining hardware producers: Bitmain, Canaan, and Ebang. The hardware in use and its efficiency are key to a reliable estimate of power consumption. Based on the IPO filings, we conclude that, as of November 2018, Bitmain’s hardware provides 78% of the network’s computing power, while the hardware of Ebang provides 13% and of Canaan, 9% (see Data S1: Sheet 3.2; the IPO filings and the calculation of the distribution are embedded in Data S1: Sheet 3.4).
+
+Mining Facilities
+There is no typical size of cryptocurrency mining operations, but there is a wide scale ranging from students who do not pay for their electricity (some of whom applied to support this research)16 to gamers who leverage their graphics cards whenever they are not playing (as reflected in Nvidia’s volatile sales allocated to crypto),17 all the way up to dedicated, large-scale crypto-mining farms (for instance, in abandoned olivine mines in Norway).18
+
+Depending on the scale of the mining operation, auxiliary efficiency losses may occur in addition to losses caused by mining hardware. The two main categories of auxiliary losses are cooling and IT equipment. We classify miners into three groups according to the scale of their operation: small (S) miners consume less than 0.1 MW of electricity (comparable to providing less than 0.9 PH/s or twenty of the most efficient ASIC-based mining systems), medium (M) miners consume 1 MW or less (and provide less than 9 PH/s), and large (L) miners consume more than 1 MW. This classification is based on personal communications with medium and large-scale miners.
+
+For large-scale miners, we use a PUE of 1.05. For medium-scale miners, we use a PUE of 1.10 because of less optimized cooling systems. For small-scale miners, we assume a PUE of 1.00, as there is no need for cooling systems, converters, load transformers, and adapters (see Data S1: Sheet 2 for a sensitivity analysis of these assumptions and Sheet 3.7 for interview notes with a mining company).
+
+We determine the distribution among these three categories using Slushpool data, displayed in Figure 3. Slushpool is a public mining pool, which provides live statistics on the computing power of connected users.19 By assuming that the distribution is the same for all public pools in the rest of the network, we determine that 15% are small-, 19% are medium-, and 65% are large-scale miners for these pools. Regarding private pools, we classify them as 100% large-scale miners since they are usually run by big institutions. This results in an overall PUE of 1.05.
+
+
+Download : Download high-res image (232KB)
+Download : Download full-size image
+Figure 3. Hash Rate Distribution of Slushpool Grouped by Individual Miners’ Computing Power
+
+Data generated in web scrawling of Slushpool pool statistics (https://slushpool.com/stats/?c=btc),19 which differentiates 27 size groups that we group in S, M, and L; data reported in Data S1: Sheet 3.7; source code available under https://github.com/UliGall/cfootprint_bitcoin.
+
+Mining Pools
+Miners combine their computing power and share the block rewards and transaction fees in order to reduce the time and variance of finding a new block. Back in January 2011, a miner with an up-to-date GPU (2 GH/s) could expect to find more than two blocks a day. In November 2018, because of the increasing difficulty of the search puzzle, the same miner could expect to find a block every 472,339 years. Even today’s most powerful ASIC-based mining system (44,000 GH/s) yields an expected discovery rate of one block every 21 years (the calculations can be found in Data S1: Sheet 4.3).
+
+The average time it takes to find a new block depends on the network’s current level of difficulty and computing power of the hardware in use. The average number of hashes to be computed in order to solve a block is given by the difficulty multiplied by the number of hashes per block (each block has 248/65,535 hashes). The difficulty adjusts every 2016 blocks to account for changes in connected computing power in order to maintain approximately 10 min between the addition of each block.4
+
+Solving a block is rewarded with new Bitcoins and the fees of all newly included transactions. The reward per block in new Bitcoins started at 50 for the first blocks and halves every 210,000 blocks. At the current number of blocks in November 2018 (552,100), the block reward equals 12.5 Bitcoins per block and as a result, 1,800 (= 12.5 × 24 h × 6/h) new Bitcoins are currently mined every day. As the time to solve one block remains constant and the reward continues to halve, the last of about 21 million Bitcoins will be mined in 121 years from now.
+
+Nowadays, nearly all network participants are organized in public pools or self-organized private pools. Thereby, more than two-thirds of the current computing power is grouped by Chinese pools, followed by the 11% of pools registered in the EU, as depicted in the chart in Figure 4. We consider “unknown pools” (with unknown origin of the hash rate) as private, as it only makes sense to mine without joining a pool if one has enough hash power to expect finding a block within a reasonable period of time in order to prefer income variance over pool fees.
+
+
+Download : Download high-res image (229KB)
+Download : Download full-size image
+Figure 4. Hash Rate Distribution among Mining Pools as of November 2018
+
+Data pulled from BTC.com (https://btc.com/stats/pool?percent_mode=latest#pool-history)38 and reported in Data S1: Sheet 4.2.
+
+Power Consumption
+Prior to estimating a realistic level of electricity consumption by Bitcoin, we narrow down the solution range by calculating a lower and an upper limit. The lower limit is defined by a scenario in which all miners use the most efficient hardware. The upper limit is defined as the break-even point of mining revenues and electricity costs. Figure 5 charts the range including our best-guess estimate, which follows the approach of the lower limit, but includes the anticipated energy efficiency of the network, based on hardware sales and auxiliary losses (see Experimental Procedures for details).
+
+
+Download : Download high-res image (221KB)
+Download : Download full-size image
+Figure 5. Power Consumption Corridor
+
+Values are charted at daily intervals. Data are reported in Data S1: Sheets 3.2–3.3. Sensitivities are shown in Data S1: Sheet 2.
+
+Figure 5 shows that the upper limit of power consumption is more volatile as it follows the market price of Bitcoin. The lower limit is more stable, as it is defined by hardware efficiency and hash rate. We estimate a power consumption of 345 MW at the end of 2016, 1,637 MW at the end of 2017, and 5,232 MW in November 2018, based on auxiliary losses and ASIC-based mining system sales. By multiplying the power consumption as of November 2018 with 8,760 h, we get an annual power consumption of 45.8 TWh.
+
+Mining Locations
+Below, we develop three scenarios examining the regional footprint of Bitcoin, which are based on the localization of pool server IP, device IP, and node IP addresses. First, the pool server IP method localizes IP address of pool servers where participants connect to the pool. Second, the device IP method localizes ASIC-based mining systems via an Internet of Things (IoT)-search engine. Third, the node IP method resorts to peer-to-peer nodes first seen relaying a block. Some miners may use services like TOR or VPN to disguise their locations, for instance, for legal reasons. However, as a good overall network connection increases the probability of having a new block accepted in the network, it is generally advantageous to propagate blocks through the fastest connection.
+
+Based on pool regional statistics on BTC.com and Slushpool that localize IP addresses of pool servers, we find evidence that miners tend to allocate their computing power to local pools. BTC.com and Slushpool are the largest mining pools administrated in China and Europe, and in both pools, regional miners comprise the vast majority of participants. US-based miners tend to join the European pool. Combining these insights from pool server IP addresses with pool shares and assuming that those pools are representative for other pools within the region, we determine that there is 68% Asian, 17% European, and 15% North American computing power in the network. This approximation includes the assumption that the weighted distribution in terms of their regional origin within Chinese and European pools is representative for the remaining 21% of computing power that cannot be localized (see Data S1: Sheets 3.1, 4.2, and 4.5). The downside of this first scenario is that it might overestimate the share of Chinese miners. The location of some participants might be misreported as Chinese due to default settings of the recommended mining software.
+
+Based on device IPs, we find a stronger US concentration than the pool server IP method. We identify the location of ASIC-based mining systems via the IoT-search engine Shodan. By searching for connected mining hardware, we can view the distribution on a national level. We are able to localize 2,260 devices of Bitmain, and the query results show a significant concentration in the US (19%). Venezuela (16%), Russia (11%), Korea (7%), Ukraine (5%), and China (4%) appear next on the list, and Figure 6 charts all the locations of internet nodes with connected Antminers. The methodology reveals locations that we could not detect with the pool server IP methodology that resorts to a higher aggregation level within the Bitcoin network.
+
+
+Download : Download high-res image (728KB)
+Download : Download full-size image
+Figure 6. Local Footprint of Device IP Addresses
+
+Map and data from IoT-search engine Shodan (https://www.shodan.io)39 as reported in Data S1: Sheet 4.7.
+
+With the third method, we derive IP addresses from peer-to-peer nodes first seen relaying a block. The full nodes and miners in the network communicate via a peer-to-peer network. Information (such as new transactions or blocks) is sent to connected peers via a gossip protocol in order to reach all nodes in a timely manner. Therefore, we monitor the IP addresses relaying new blocks recorded by Blockcypher.20 We record that 93% of all blocks are relayed on US soil. Hence, we conclude from the data that Blockcypher has too few connections within the network as it receives blocks from better-connected relayers’ nodes and not only from miners’ nodes. Obtaining valid IP addresses in future research would require a large set of well-connected nodes throughout the network (the source code is available under https://github.com/UliGall/cfootprint_bitcoin; node IP addresses are localized with ipinfo.io and reported in Data S1: Sheet 4.6.).
+
+Carbon Footprint
+We calculate Bitcoin’s carbon footprint based on its total power consumption and geographic footprint. To determine the amount of carbon emitted in each country, we multiply the power consumption of Bitcoin mining by average and marginal emission factors of power generation. Our best guess is based on average emission factors, which represent the carbon intensity of the power generation resource mix, while marginal emission factors account for the carbon intensity of incremental load change.
+
+We find that the annual global carbon emissions of Bitcoin range between 22.0 and 22.9 MtCO2, a ratio that sits between the levels produced by Jordan and Sri Lanka12 and is comparable to the level of Kansas City.13 22.0 MtCO2 is based on the footprint of the device IP method, and 22.9 MtCO2 assumes the footprint of the pool server IP method (we apply emission factors from the IEA21; the calculation can be found in Data S1: Sheet 3.1.). Compared to the global annual energy demand of approximately 13,760 Mtoe (∼160 PWh) or the global energy-related CO2 emissions of more than 30 GtCO2 in 2016,21 this might seem small. Still, Bitcoin’s CO2 equivalent ranks between numbers 82 and 83 on the list of biggest emitting countries.12
+
+Many have argued that clean surplus energy fuels Bitcoin to a significant degree. In the short run, which is relevant for our snapshot, curtailment rates of clean resources may be large in certain areas with Bitcoin mining activity. Especially in southwestern China, hydropower accounts for around 80% of the generated electricity in the provinces of Yunnan and Sichuan.22 Yunnan curtailed 31.2 TWh of hydropower in 2016, which equaled 11.6% of the total electricity generation in the province.23 However, mining activities can also be found in regions with coal-heavy power generation, such as in the province of Inner Mongolia.24 Pool regional statistics of BTC.com suggest a 58% versus 42% split between hydro-rich and coal-heavy regions in China. The ratio represents the computing power reported from Shenzhen (server location closer to hydro-rich regions) versus Beijing (server location closer to coal-heavy regions).25 If we weight the emission factors of Sichuan (265 g/kWh) and Inner Mongolia (947 g/kWh) accordingly,26 we obtain an adjusted emission factor of 550 g/kWh, which we use in our calculations to account for the special case of China.
+
+If we assume fossil fuels cover the additional load entirely, we find that annual emissions caused by Bitcoin mining could be as high as 51.0 MtCO2 (in a footprint scenario of device IP addresses and marginal emission factors of coal; all remaining combinations of footprint scenarios and marginal emission factors of gas and coal are depicted in Data S1: Sheet 1). On the contrary, assuming a higher share of clean power consumption decreases CO2 emissions.
+
+Some have argued that miners do not operate continuously. We assume that miners run their hardware continuously throughout the year. A comparison of break-even electricity prices for ASIC-based mining systems shows that this assumption is valid for most fixed-rate retail tariffs and especially for regions with high mining activity (see Data S1: Sheet 3.5). The steadiness of the hash rate distribution in Figure 3 supports this assumption. This is also the reason for ignoring potential additional sources of revenue from price volatility in the wholesale market or from the provision of load-balancing services, as these would not change the duration of mining operations.
+
+In the long run, we can envision Bitcoin miners to increasingly establish their operations near large sources of renewable energy, which also triggers further development of renewable generation resources at the respective sites.27 Therefore, long-run emissions factors of the Bitcoin network might be lower than the current grid average.
+
+Discussion
+Social Cost and Benefit
+Our approximation of Bitcoin’s carbon footprint underlines the need to tackle the environmental externalities that result from cryptocurrencies28 and highlights the necessity of cost/benefit trade-offs for blockchain applications in general. We do not question the efficiency gains that blockchain technology could, in certain cases, provide. However, the current debate is focused on anticipated benefits, and more attention needs to be given to costs. Policy-makers should not ignore the following aspects:
+
+Carbon
+As global electricity prices do not reflect the future damage caused by today’s emissions, economic theory calls for government intervention to correct this market failure in order to enhance social welfare. The issue of the social cost of carbon is of course not specific to cryptocurrency and, as mentioned in the previous section, cryptocurrencies cause a relatively small fraction of global emissions. Still, regulating this largely gambling-driven source of carbon emissions appears to be a simple means to contribute to decarbonizing the economy.29
+
+Concentration
+The case of Bitcoin shows that the risk of concentration must not be ignored. Irrespective of the decentralized nature of Bitcoin’s blockchain, the four largest Chinese pools now provide almost 50% of the total hash rate, and Bitmain operates three of these four pools. If one player controls the majority of computing power, it could start reversing new transactions, double-spend coins, and systematically destroy trust in the cryptocurrency. In the case of Bitcoin pool operators, continuous fee income has so far discouraged collusion, and pool operators are also unlikely to act maliciously in the future since the miners would instantaneously reallocate their hash rate. Nonetheless, the risk of concentrations must not be ignored in other blockchain use cases.
+
+Control
+With their idea, Satoshi intended for Bitcoin to increase privacy and reduce dependency on trusted third parties.2 However, protecting individuals from themselves and others from their actions might justify the downsides of central control, as the potential benefit of anonymity spurs illegal conduct such as buying drugs, weapons, or child pornography. Therefore, a use-case-specific degree of central governance is essential. Today, most intermediate parties serve useful functions, and a decentralized socio-economic construct such as blockchain should only replace them if it can ensure the same functionality or if efficiency gains outweigh their value. Therefore, cryptocurrency systems are unlikely to replace fully the existing financial systems. Nonetheless, they may be superior for specific applications.30
+
+Beyond Bitcoin
+Bitcoin’s power consumption may only be the tip of the iceberg. Including estimates for three other cryptocurrencies adds 30 TWh to our annual estimate for Bitcoin.31, 32 If we assume correlation to market capitalization and consider only mineable currencies (unlike second layer tokens or coins with other consensus mechanisms), the remaining 618 currencies could potentially add a power demand over 40 TWh.1 This more than doubles the power consumption we estimate for Bitcoin.
+
+While other blockchain platforms (e.g., the second largest cryptocurrency, Ethereum) work on switching from Proof of Work to other, less energy-consuming consensus mechanisms, such as Proof of Stake, it is likely that Bitcoin will continue to use the established algorithm. Miners, who have a large influence on the development of Bitcoin, are not interested in removing the algorithm, which is central to their own business. Therefore, it is likely that Bitcoin will remain the largest energy consumer among public blockchain systems and will continue to consume a considerable amount of energy.
+
+Besides cryptocurrencies, there are other uses for blockchain. Bitcoin has managed to establish a global, decentralized monetary system but fails as a general purpose blockchain platform. For instance, smart contracts are seen to disrupt traditional business models in finance, trade, and logistics. Like many earlier disruptive technologies, blockchain is merely the foundation and enabler of novel applications.33 Alternative protocols will help to reduce the power requirements of future blockchain applications, and many blockchain-based systems will certainly be private, permissioned blockchains, which do not need a Proof of Work like Bitcoin. Notwithstanding, our findings for the first stage of blockchain diffusion underline the need for further research on externalities in order to support policy-makers in setting the right rules for the adoption of these technologies.
+
+Validity of Results
+As of November 2018, Bitcoin’s annual power consumption sits between 35.0 and 72.7 TWh, as argued in the section “Power Consumption.” Estimating a more precise number requires assumptions on mining hardware and operations. Our results show that the efficiency of the hardware in use is an essential parameter in this calculation. Our estimated hardware efficiency of 0.11 J/GH is based on IPO filings of major hardware manufacturers, which we consider to be the most reliable reference point at present. Nonetheless, the IPO filings that we used have a cutoff date, and sales per model are not always explicitly stated. At the extremes, if we assume that only the least- or most-efficient systems are sold in all cases where the numbers are not explicitly stated, we obtain a power consumption of 37.0 and 56.2 TWh, respectively. Regarding operations, we determine a PUE of 1.05, based on pool statistics and industry insights. If we vary this assumption and use ideal operations (PUE of 1.0) or least-efficient mining operations that appear realistic (PUE of 1.1), the estimated power consumption of 45.8 TWh differs by ±5%. Varying the size distribution of miners changes the resulting PUE within these two extremes: if we assume that all public pools beside Slushpool consist of only S, M, or L miners, we obtain PUEs of 1.015, 1.083, and 1.049, respectively.
+
+Our best-guess power consumption of 45.8 TWh may result in carbon emissions between 0 and 51.0 MtCO2 (100% clean surplus electricity versus 100% coal-fired power generation). The extreme cases illustrate that the assumed carbon intensity of power consumption has a major effect on results. Estimating a more precise number requires assumptions on locations of mining activities and regional carbon intensities of electricity. Our best guess is based on average emission factors to account for the carbon intensity of incremental load change as well as for clean energy in the power generation resource mix. Assuming a less balanced share between fossil-fueled and clean Bitcoin mining, or a different power consumption in the first place, may change the results accordingly. Here, we demonstrate three methods to develop scenarios representing the geographic footprint of Bitcoin mining. Although these methods are associated with high uncertainty, the results of the carbon footprint of Bitcoin vary within a relatively narrow range from 22.0 to 22.9 MtCO2.
+
+Experimental Procedures
+This section provides the formulas for calculating the range of power consumption and the approach to derive a best-guess estimate.
+
+Lower Limit
+The lower limit is defined by a scenario in which all miners use the most efficient hardware. We calculate the lower limit of the range by multiplying the required computing power—indicated by the hash rate—by the energy efficiency of the most efficient hardware:
+(Equation 1)
+with
+
+Upper Limit
+The upper limit is defined by the break-even point of revenues and electricity cost. Rational behavior would lead miners to disconnect their hardware from the network as soon as their costs exceed their revenues from mining and validation:
+(Equation 2)
+with
+
+Best Guess
+The best-guess estimate follows the approach of the lower limit but includes the anticipated energy efficiency of the network, as well as further losses from cooling and IT components:
+(Equation 3)
+with
+
+The realistic energy efficiency of the network can be determined using the market shares of mining hardware producers and the energy efficiency of the hardware in operation:
+(Equation 4)
+with
+
+If some of the computing power cannot be assigned to one of the major mining hardware producers, we assume this computing power originates from hardware, which generates zero profit. By equalizing PLL and PBG, we derive:
+(Equation 5)
+
+In terms of the average losses from cooling and equipment, we differentiate between three types of mining facilities according to size and weight them by their share in terms of computing power:
+(Equation 6)
+with
+
+We derive the energy consumption by multiplying the power consumption by a respective time period:
+(Equation 7)
+with
+
+The resulting carbon footprint of the Bitcoin network depends on the carbon intensity 
+ of the power mix:
+(Equation 8)
+with
+
+In order to incorporate local differences in the carbon intensity of the power mix, we differentiate among regions and weight them by computing power share:
+(Equation 9)
+with
+
+In the scenario with pool IP addresses, we determine the share of each region based on the geographical distribution of BTC.com (representing the Chinese pools) and Slushpool (representing the European pools). For the hash rate of the remaining network with unknown origin, we assume the distribution to be in line with the weighted average of BTC.com and Slushpool:
+(Equation 10)
+with
