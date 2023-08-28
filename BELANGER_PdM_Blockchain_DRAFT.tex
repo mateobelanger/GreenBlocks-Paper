@@ -54,7 +54,7 @@
 Executive summary.
 The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. However, different consensus mechanisms and design choices result in varying environmental footprints across blockchains. While the recent release of the first industry blockchain \acp{ESG} benchmark enables standardized comparisons between chains at an aggregate level, a granular methodology for user-level emissions accounting is lacking. \ac{ESG} \
 
-This thesis introduces an attribution model designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research is the attempt to weigh responsibility factors based on the principle of proportional benefits. This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. We find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. This methodology allocates the overall chain emissions to specific users based on their interaction patterns. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters.
+This thesis introduces an attribution model designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research, in addition to measure blockchain users footprint, is the attempt to weigh responsibility factors based on the principle of proportional benefits. This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. We find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. This methodology allocates the overall chain emissions to specific users based on their interaction patterns. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters.
 
 \improvement{Unsure. Is the part clear?}
 
@@ -93,6 +93,18 @@ This poses a critical gap, especially as blockchain technology expands into main
 
 To address this, the novel approach in this thesis involves an attribution model that weighs factors like asset holdings, transactions, and computations based on their estimated importance to users on each chain. By considering relative user perspectives, we can map emissions more accurately to individual entities like protocols, DAOs, or end-users. This unconventional yet powerful approach unlocks new potentials for transparency, responsibility, and sustainability.
 
+\begin{figure}[hbt!]
+    \centering
+    \centerline{\includegraphics[scale=0.25]{figures/carbon_footprint_calculator.png}}
+    \caption[YO]{Tradionnal carbon footprint calculator form - CoolClimate\footnotemark}
+    \label{fig:carbon_footprint_calculator}
+\end{figure}
+
+\footnotetext{https://coolclimate.org/calculator}
+
+Limited User engagement towards footprint calculators, tedious process and error prone \cite{saloOpportunitiesLimitationsCarbon2019,mulrowStateCarbonFootprint2019}.
+
+\todo{This is the user experience that will be improved with blockchain data transparency and attribution. Link wiht further use sustainability use cases. Blockchain based footprints makes possible automating the process and vastly increases accuracy as it is no more a self assesment. Cite issues of carbon footprint calculator accuracy because of self assesment.}
 \section{Problem Statement}
 
 As blockchain technology progresses into mainstream integration, the lack of transparency and accountability for emissions at an individual user level poses a critical gap. For example, retail investors drawn to crypto assets may be unaware of the passive environmental impacts associated with their portfolios over time. There is also increasing offering of decentralized applications (web3) with usage beyond those of investing. Granular carbon accounting and attribution to individual wallets can raise awareness and enable offsetting as a means for users to take responsibility of their actions.
@@ -137,7 +149,8 @@ TO COMPLETE
 
 \chapter{Litterature Review}
 \section{Economic Externalities}
-\section{Evolution of Blockchain Technology}
+\section{Blockchain Technology and Its Evolution}
+
 \section{Environmental Impact of Blockchains}
 \subsection{Energy Consumption and Related Emissions}
 \subsection{Current Measurement Methodologies and Datasets}

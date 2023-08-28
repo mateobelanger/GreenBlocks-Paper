@@ -1,240 +1,67 @@
-\documentclass[12pt,a4paper]{report}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{lipsum} % for dummy text
-
-\begin{document}
-
-\chapter{Methodology}
-
 \section{Introduction}
+\section{Background and Motivation}
+\improvement{Compartiment in subsections to improve narrative flow}
+\subsubsection*{Origins, promise and challenges of blockchain technology}
+The advent of blockchain technology since the launch of Bitcoin in 2009 has sparked a revolution in systems of value transfer, transparency, and decentralization \cite{nakamotoBitcoinPeertopeerElectronic2008}. However, the early meteoric rise of cryptocurrencies and underlying blockchain networks has raised critical concerns regarding their environmental sustainability. With the benefit of hindsight, we can view this period as Gartner's Peak of Inflated Expectations. Now, with notorious founders imprisoned, increasing regulatory scrutiny, and the total cryptocurrency market capitalization down
+XX\% from its peak \change{cite}, the blockchain ecosystem stands at a crossroads. This is an opportunity to refocus on the core propositions of blockchain technology and ensure its long-term viability.
 
-In the evolving landscape of blockchain technology, environmental concerns have emerged as a significant point of discussion. The energy consumption of blockchain networks, and their associated carbon emissions, has attracted both academic and popular scrutiny. To address these concerns, this study aims to attribute blockchain-related emissions at the granular user level. By doing so, we provide an avenue for users to understand and take responsibility for their individual contributions to the total emissions of blockchain networks.
 
-This chapter will delve into the methodology used to attribute carbon emissions to individual blockchain addresses, thus providing a quantitative measure of each address's environmental impact.
+The dominant network, Bitcoin, which utilizes a computationally-intensive proof-of-work consensus mechanism, has attracted particular scrutiny for its high energy consumption. Recent estimates indicate the Bitcoin network alone may consume between 115 and 150 TWh annually, comparable to entire countries like the Netherlands \cite{devriesRevisitingBitcoinCarbon2022,neumuellerCambridgeBitcoinElectricity2021}. This growing apetite for energy competes with the just starting energy transition, putting electrical production and distribution networks under stress. Finally it also results in significant CO2 emissions, hardly compatible with global climate goals like the Paris Climate Accords.
 
-\section{Background}
+\subsubsection*{Limitations of current approaches}
+However, we must recognize the complexity and nuance when evaluating blockchain sustainability. Consensus protocols, design choices, and use cases vary greatly across different networks, leading to wide variability in energy needs and emissions. For instance, proof-of-stake networks like Cardano and Solana promise energy savings by factors of 1000x or more compared to proof-of-work \cite{kohliAnalysisEnergyConsumption2023}. Moreover, Ethereum recently completed its highly anticipated, technically and politically complex transition from proof-of-work to proof-of-stake, demonstrating that such migrations are viable for major networks. \cite{EthereumMergeYour2022} The nascent field of blockchain sustainability analysis must evolve more granular, differentiated perspectives.
 
-Blockchain networks differ in their mechanisms and purposes. Broadly, they can be categorized into two primary types:
+Initial responses from the blockchain industry have focused on high-level aggregate comparisons and rankings between networks. For example, recent benchmarks like the Crypto Carbon Ratings Institute methodology provide standardized comparisons of the total lifecycle emissions across chains [5]. However, these overlook the diversity of users and fail to provide accountability at an individual level.
+
+This poses a critical gap, especially as blockchain technology expands into mainstream adoption. We lack a methodology to attribute network-wide emissions to specific users based on their unique activity patterns and values. Such granular carbon accounting can raise awareness of individual impact and empower ethical participation.
+
+\subsubsection*{Opportunities for user-level footprinting}
+
+To address this, the novel approach in this thesis involves an attribution model that weighs factors like asset holdings, transactions, and computations based on their estimated importance to users on each chain. By considering relative user perspectives, we can map emissions more accurately to individual entities like protocols, DAOs, or end-users. This unconventional yet powerful approach unlocks new potentials for transparency, responsibility, and sustainability.
+
+\begin{figure}[hbt!]
+    \centering
+    \centerline{\includegraphics[scale=0.25]{figures/carbon_footprint_calculator.png}}
+    \caption[YO]{Tradionnal carbon footprint calculator form - CoolClimate\footnotemark}
+    \label{fig:carbon_footprint_calculator}
+\end{figure}
+
+\footnotetext{https://coolclimate.org/calculator}
+
+Limited User engagement towards footprint calculators, tedious process and error prone \cite{saloOpportunitiesLimitationsCarbon2019,mulrowStateCarbonFootprint2019}.
+
+\todo{This is the user experience that will be improved with blockchain data transparency and attribution. Link wiht further use sustainability use cases. Blockchain based footprints makes possible automating the process and vastly increases accuracy as it is no more a self assesment. Cite issues of carbon footprint calculator accuracy because of self assesment.}
+\section{Problem Statement}
+
+As blockchain technology progresses into mainstream integration, the lack of transparency and accountability for emissions at an individual user level poses a critical gap. For example, retail investors drawn to crypto assets may be unaware of the passive environmental impacts associated with their portfolios over time. There is also increasing offering of decentralized applications (web3) with usage beyond those of investing. Granular carbon accounting and attribution to individual wallets can raise awareness and enable offsetting as a means for users to take responsibility of their actions.
+
+Moreover, this gap becomes even more complex for providers of decentralized apps or decentralized autonomous organizations (DAOs) comprising multiple smart contracts and user addresses. Without a methodology for attributing network-wide emissions based on collective usage patterns, a DAO cannot fully assess and mitigate its overall carbon footprint.
+
+Therefore, the overarching problem this thesis addresses is:
+
+"How can we design an attribution model that allocates the carbon emissions of any blockchain network to specific user entities or addresses in a transparent, accurate, and relevant manner based on their unique activity patterns?"
+
+
+\section{Research Questions and Ojbectives}
+
+To systematically address the problem of transparent and accurate carbon attribution for blockchain users and entities, this thesis pursues four key research questions:
 
 \begin{enumerate}
-    \item \textbf{General Purpose Chains (GPCs):} These chains allow the deployment of versatile smart contracts, with Ethereum being a prominent example. Their operations and transactions involve 'gas' as a metric to quantify computational effort.
-    \item \textbf{Value Transfer Chains (VTCs):} Focused primarily on transferring value, these chains, exemplified by Bitcoin, do not deploy smart contracts in the same manner as GPCs. Their operational metrics differ from GPCs.
+    \item How can blockchain emission factors be quantified at a granular, user-centric level, beyond aggregate network-wide estimates?
+    \item What are appropriate metrics and weighting systems to reflect the responsibilities of diverse blockchain users based on their activities?
+    \item How can we validate and demonstrate such an attribution model through a practical implementation?
+    \item What are the broader implications of user-centric emissions accounting for accelerating sustainability as blockchain technology matures?
 \end{enumerate}
 
-Given these distinctions, our methodology is designed to accommodate the unique characteristics of both types of chains.
+The main objectives of this work are:
 
-\section{Emission Attribution Framework}
-
-\subsection{Emission Rate}
-
-For each blockchain \( s \), there's an associated emission rate \( E_s(\tau) \), representing the CO\textsubscript{2} equivalent emitted per unit activity at time \( \tau \).
-
-\subsection{Responsibility Share}
-
-The responsibility share of an address on a chain is determined by three metrics:
-\begin{itemize}
-    \item Balance: \( \frac{B(\tau)}{B_{\text{total},s}(\tau)} \)
-    \item Transactions: \( \frac{T(\tau)}{T_{\text{total},s}(\tau)} \)
-    \item Gas (for GPCs only): \( \frac{G(\tau)}{G_{\text{total},s}(\tau)} \)
-\end{itemize}
-
-\subsection{Weighting Factors}
-
-Chain-specific weighting factors (\( \alpha_s, \beta_s, \) and \( \delta_s \)) account for the differing importance of each metric. For VTCs, gas is not considered, making \( \delta_s = 0 \).
-
-\subsection{Attributed Emissions}
-
-Combining the elements above, we derive the emissions attributable to a specific address on a chain at time \( \tau \) using:
-
-\[ A_s(\tau) = E_s(\tau) \times \left[ \alpha_s \times \frac{B(\tau)}{B_{\text{total},s}(\tau)} + \beta_s \times \frac{T(\tau)}{T_{\text{total},s}(\tau)} + \delta_s \times \frac{G(\tau)}{G_{\text{total},s}(\tau)} \right] \]
-
-\subsection{Cumulative Emissions}
-
-The cumulative emissions for an address up to time \( t \) across all chains are given by:
-
-\[ C(t) = \sum_{s \in S} \int_{0}^{t} A_s(\tau) d\tau \]
-
-\section{Conclusion}
-
-This methodology presents a systematic approach to disaggregate the carbon emissions of blockchain networks and attribute them to individual users based on their activity. By offering this granular perspective, we empower users with knowledge, fostering a more eco-conscious blockchain community. The subsequent chapters will apply this methodology to actual data, providing insights into the environmental footprint of blockchain users.
-
-
-
-\subsubsection*{General Form}
-\begin{equation}
-    \text{Footprint}_{chain}(t) = \int_{0}^{t} \left[ \text{EmissionRate}_{chain}(\tau) \cdot \left( \alpha_{chain} \text{BalanceShare}(\tau) + \gamma_{chain} \text{Transactions}(\tau) \right) \right] d\tau
-\end{equation}
-
-
-
-
-\subsubsection*{Value-Transfer Chains (VTC)}
-\begin{equation}
-    \text{Footprint}_{VTC}(t) = \int_{0}^{t} \left[ \text{EmissionRate}_{VTC}(\tau) \cdot \left( \alpha_{VTC_i} \text{BalanceShare}(\tau) + \gamma_{VTC_i} \text{Transactions}(\tau) \right) \right] d\tau
-\end{equation}
-
-\subsubsection*{General Purpose Chains (GPC)}
-\begin{equation}
-    \text{Footprint}_{GPC}(t) = \int_{0}^{t} \left[ \text{EmissionRate}_{GPC_j}(\tau) \cdot \left( \alpha_{GPC_j} \text{BalanceShare}(\tau) + \beta_{GPC_j} \text{GasSpent}(\tau) \right) \right] d\tau
-\end{equation}
-\subsubsection*{Symbols}
-- \(\text{EmissionsRate}_{type}(t)\): Historical emission rate for GPCs at time \(\tau\). \\
-- \( \int_{0}^{t} \): Continuous summation of emissions from the inception of the address to time \(t\). \\
-- \( i \) and \( j \) denote specific chains in GPC and VTC categories respectively. For instance, \( GPC_1 \) could represent Ethereum, while \( GPC_2 \) could represent Cosmos, and similarly for VTCs.
-
-\subsubsection*{Variables}
-- \(\text{BalanceShare}(\tau)\): Proportion of the total token supply owned by the address at time \(\tau\). \\
-- \(\text{Transactions}(t)\): Number of transactions signed by the address up to time $t$ (used for VTCs). \\
-- \(\text{GasSpent}(\tau)\): Gas spent by the address at time \(\tau\). (used for GPCs)
-\subsubsection*{Weighting factors}
-
-Weighting factors $\alpha$, $\beta$ and $\gamma$ capture the significance of each associated variables to the total
-chain emissions. These values are not only specific to blockchain types, but also individual blockchains. \newline
-
-- \( B(\tau) \): Represents balance (or stake) at time \( \tau \). \newline
-- \( G(\tau) \): Represents gas used in transactions at time \( \tau \) (relevant for GPCs). \newline
-- \( T(\tau) \): Represents number of transactions at time \( \tau \) (relevant for VTCs). \newline
-
-\subsubsection{Short-form Base Equation}
-Given:
-\begin{itemize}
-    \item $E_{GPC}(t)$ and $E_{VTC}(t)$: Historical emissions data of the GPC and VTC at time $t$.
-    \item $T(t)$: Number of transactions signed by the address up to time $t$ (relevant mainly for VTC).
-    \item $B(t)$: Historical balance of the address as a share of total token supply at time $t$.
-    \item $G(t)$: Amount of gas used in transactions by the address up to time $t$ (relevant mainly for GPC).
-\end{itemize}
-
-The aggregated CO2 equivalent emissions for an address up to time $t$ is:
-
-For General Purpose Chains (GPC):
-\begin{equation}
-    C_{GPC}(t) = \int_{0}^{t} [E_{GPC}(\tau) \times (\alpha_{GPC} \times B(\tau) + \beta_{GPC} \times G(\tau))] d\tau
-\end{equation}
-
-For Value Transfer Chains (VTC):
-\begin{equation}
-    [ C_{VTC}(t) = \int_{0}^{t} [E_{VTC}(\tau) \times (\alpha_{VTC} \times B(\tau) + \gamma_{VTC} \times T(\tau))] d\tau ]
-\end{equation}
-
-Where:
-\begin{itemize}
-    \item $\alpha_{GPC}$ and $\alpha_{VTC}$: Weighting factor for the balance as a share of total token supply for GPC and VTC respectively.
-    \item $\beta_{GPC}$: Weighting factor for the amount of gas used in GPC.
-\end{itemize}
-
-\subsubsection{User Aggregated Blockchain Fooptprint}
-
-Given:
-\begin{enumerate}
-    \item  \( n \) is the number of General Purpose Chain (GPC) addresses owned by an individual.
-    \item \( m \) is the number of Value Transfer Chain (VTC) addresses owned by the same individual.
-\end{enumerate}
-
-The total CO2 emissions attributed to this individual up to time \( t \) can be expressed as:
-
-\begin{equation}
-    [ C_{total}(t) = \sum_{i=1}^{n} C_{GPC_i}(t) + \sum_{j=1}^{m} C_{VTC_j}(t) ]
-\end{equation}
-
-Breaking this down: \\
-\boldmath
 \begin{description}
-    \item \( \sum_{i=1}^{n} C_{GPC_i}(t) \)
-          This is the sum of the emissions from all the GPC addresses owned by the individual. For each GPC address \( i \), we compute the emissions \( C_{GPC_i}(t) \) up to time \( t \) and then sum them together.
-    \item \( \sum_{j=1}^{m} C_{VTC_j}(t) \)
-          Similarly, this is the sum of emissions from all the VTC addresses owned by the individual. For each VTC address \( j \), we compute the emissions \( C_{VTC_j}(t) \) up to time \( t \) and then sum them together.
 
+    \item [Develop a User-Level Attribution Model] \hfill \\
+          Develop a robust emissions attribution methodology based on usage and responsibility.
+    \item [Greenblock: Pratical Application] \hfill \\
+          Implement and validate the model through a functional proof-of-concept application.
+    \item [Promote awareness and Responsibility] \hfill \\
+          of environmental impact among blockchain users.
+    \item [The Future of Sustainability and Blockchain] \change{to complete}
 \end{description}
-\unboldmath
-
-
-Thus, to get the total emissions for an individual, you'll compute the emissions for each of their blockchain addresses (both GPC and VTC) and then sum those values together.
-
-\section{Add gamma weighting factor for transactions}
-
-To provide a more detailed accounting, we can introduce a weighting factor for the number of transactions in VTCs, analogous to the \( \beta \) factor in GPCs. Let's denote this factor as \( \gamma \).
-
-The updated formula for VTC emissions, incorporating a transaction weighting factor, will then be:
-
-\[ C_{VTC}(t) = \int_{0}^{t} [E_{VTC}(\tau) \times (\alpha_{VTC} \times B(\tau) + \gamma_{VTC} \times T(\tau))] d\tau \]
-
-Where:
-
-- \( \gamma_{VTC} \) represents the weighting factor for the number of transactions related to the address at time \( \tau \) for VTCs. This factor captures the significance of the number of transactions to the total emissions in VTCs.
-
-
-\textbf{1. Value Transfer Chains (VTC):}
-
-\[ C_{VTC}(t) \]
-
-Where:
-
-\[ C_{VTC}(t) \] is the cumulative carbon emissions for a Bitcoin-like blockchain address at time \( t \).
-
-The formula is:
-
-\[ C_{VTC}(t) = \int_{0}^{t} [E_{VTC}(\tau) \times (\alpha_{VTC} \times B(\tau) + \gamma_{VTC} \times T(\tau))] d\tau \]
-
-Breaking this down:
-
-- \( \int_{0}^{t} \): Represents the continuous summation of emissions from the inception of the address to the current time.
-
-- \( E_{VTC}(\tau) \): Denotes the emissions rate specific to VTCs at an arbitrary time \( \tau \).
-
-- \( \alpha_{VTC} \times B(\tau) \): Estimates the emissions resulting from the historical balance of the address as a proportion of the total token supply at time \( \tau \).
-
-- \( \gamma_{VTC} \times T(\tau) \): This now represents the emissions from the number of transactions related to the address, weighted by the \( \gamma_{VTC} \) factor to reflect the significance of transaction numbers in VTCs.
-
-This formula provides a more nuanced understanding of emissions in VTCs by giving a weight to transactions similar to the treatment in GPCs.
-
-\subsection{Adding generic representation of chains (for same type)}
-
-\textbf{Generalized Emissions Calculation}
-
-1. **For General Purpose Chains (GPCs)**:
-
-Given: \\
-- \( E_{GPC_i}(\tau) \): Emissions rate specific to a GPC, say \( GPC_i \), at time \( \tau \). \\
-- \( \alpha_{GPC_i} \): Weighting factor for balance or stake for \( GPC_i \). \\
-- \( \beta_{GPC_i} \): Weighting factor for transactions and gas usage for \( GPC_i \). \\
-
-The formula is:
-
-\[ C_{GPC_i}(t) = \int_{0}^{t} [E_{GPC_i}(\tau) \times (\alpha_{GPC_i} \times B(\tau) + \beta_{GPC_i} \times G(\tau))] d\tau \]
-
-2. **For Value Transfer Chains (VTCs)**:
-
-Given:
-- \( E_{VTC_j}(\tau) \): Emissions rate specific to a VTC, say \( VTC_j \), at time \( \tau \).
-- \( \alpha_{VTC_j} \): Weighting factor for balance for \( VTC_j \).
-- \( \gamma_{VTC_j} \): Weighting factor for transactions for \( VTC_j \).
-
-The formula is:
-
-\[ C_{VTC_j}(t) = \int_{0}^{t} [E_{VTC_j}(\tau) \times (\alpha_{VTC_j} \times B(\tau) + \gamma_{VTC_j} \times T(\tau))] d\tau \]
-
-Where:
-
-- \( i \) and \( j \) are indices to denote specific chains in GPC and VTC categories respectively. For instance, \( GPC_1 \) could represent Ethereum, while \( GPC_2 \) could represent Cosmos, and similarly for VTCs.
-- \( B(\tau) \): Represents balance (or stake) at time \( \tau \).
-- \( G(\tau) \): Represents gas used in transactions at time \( \tau \) (relevant for GPCs).
-- \( T(\tau) \): Represents number of transactions at time \( \tau \) (relevant for VTCs).
-
-\subsubsection{Verbose Explanation}:
-
-The formulas allow for the calculation of CO2 emissions for both general-purpose chains (like Ethereum and Cosmos) and value transfer chains. Each chain has its own set of historical emissions data and potentially different weighting factors.
-
-For general-purpose chains:
-- The emissions are calculated based on both the stake (or balance) held in the chain and the gas used for transactions. Different chains may have different emissions rates and weighting factors, represented by the subscript \( i \).
-
-For value transfer chains:
-- The emissions are derived from the balance and the number of transactions. Again, different VTCs may have unique emissions rates and weighting factors, represented by the subscript \( j \).
-
-By incorporating chain-specific variables, the model can be applied across various blockchains, each with its unique characteristics and historical data.
-
-\end{document}
-
