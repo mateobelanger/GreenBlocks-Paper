@@ -1,7 +1,12 @@
 \documentclass[11pt]{report}
 \bibliographystyle{ieeetr}
-\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[a4paper, total={6in, 8.15in}]{geometry}
+\usepackage{caption} 
+\captionsetup[table]{skip=5pt}
 \usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{pdflscape}
 \usepackage{blindtext}
 \usepackage{parskip}
 \usepackage{enumitem}
@@ -13,6 +18,7 @@
 \usepackage{xargs}                      % Use more than one optional parameter in a new commands
 %\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
 %
+\interfootnotelinepenalty=10000
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
@@ -21,8 +27,8 @@
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 
 \usepackage{acro}
-\usepackage[colorlinks=false]{hyperref}
 \usepackage{pdfcomment}
+\usepackage{hyperref}
 
 \acsetup{
 	make-links 		= 	false,
@@ -34,6 +40,33 @@
 \DeclareAcronym{GPC}{short = {GPC}, long = {General-purpose chain}, pdfcomment = {General-purpose chain}}
 %\DeclareAcronym{ESG}{short = {ESG}, long = {Environmental Social \& Governance}, pdfcomment = {Environmental Social \& Governance}}
 \DeclareAcronym{CCRI}{short={CCRI}, long={Crypto Carbon Ratings Institute}, pdfcomment = {Crypto Carbon Ratings Institute}}
+
+\DeclareAcronym{ESG}{short = {ESG}, long = {Environmental Social \& Governance}, pdfcomment = {Environmental Social \& Governance}
+}
+
+\DeclareAcronym{LCA}{ short = {LCA}, long = {Life Cycle Assessment}, pdfcomment = {Life Cycle Assessment}
+}
+
+\DeclareAcronym{GHG}{ short = {GHG}, long = {Greenhouse Gas}, pdfcomment = {Greenhouse Gas}
+}
+
+\DeclareAcronym{CO2e}{ short = {CO2e}, long = {Carbon Dioxide Equivalent}, pdfcomment = {Carbon Dioxide Equivalent}
+}
+
+\DeclareAcronym{DAO}{ short = {DAO}, long = {Decentralized Autonomous Organization}, pdfcomment = {Decentralized Autonomous Organization}
+}
+
+\DeclareAcronym{PoW}{short = {PoW},long = {Proof-of-Work},pdfcomment = {Proof-of-Work}
+}
+
+\DeclareAcronym{PoS}{ short = {PoS}, long = {Proof-of-Stake}, pdfcomment = {Proof-of-Stake}
+}
+
+\DeclareAcronym{EVM}{ short = {EVM}, long = {Ethereum Virtual Machine}, pdfcomment = {Ethereum Virtual Machine}
+}
+
+\DeclareAcronym{Tx}{ short = {Tx}, long = {Transaction}, pdfcomment = {Transaction}
+}
 
 
 \parskip 2ex
@@ -210,7 +243,7 @@ Ethereum's 2022 merge to PoS marked a sustainability milestone. De Vries (2022)\
 
 Amid rising institutional concerns about cryptocurrencies' environmental impact, the Crypto Carbon Ratings Institute's (2023)\ revised white paper provides a timely, nuanced perspective. By thoroughly examining the carbon footprints of both PoW and PoS networks, the paper introduced in its most recent version an "hybrid allocation" approach for emissions accounting. This methodology recognizes that network energy use stems from both holdings and transactions.
 
-It expands on previous work by De Vries (2021) \cite{devriesTrueCostsDigital2021}, early attemps at an address balance emisssion attribution methdology for bitcoin. The CCRI's methodology now covers a wide range of networks, differentiating between PoS and PoW in the attribution strategy. Specifically, they use a combination of the Cambridge Index \cite{neumuellerCambridgeBitcoinElectricity2021}, de Vries "Revisiting Btcoin's carbon footprint" \cite{devriesRevisitingBitcoinCarbon2022} and Gallersdörfer's work \cite{gallersdorferEnergyConsumptionCryptocurrencies2020} for PoW chains (Bitcoin, ETH PoW in our case). For PoS networks (ETH PoS in our case) the methdology is reported in their own \textit{ETH Merge Report}\cite{ETHMergeReport}, it expands on the work of Platt et al. (2021)\cite{plattEnergyFootprintBlockchain2021} and Ibanez et al. (2023)\cite{ibanezEnergyConsumptionProofStake2023}.
+It expands on previous work by De Vries (2021) \cite{devriesTrueCostsDigital2021}, early attemps at an address balance emisssion attribution methdology for bitcoin. The CCRI's methodology now covers a wide range of networks, differentiating between PoS and PoW in the attribution strategy. Specifically, they use a combination of the Cambridge Index \cite{neumuellerCambridgeBitcoinElectricity2021}, de Vries "Revisiting Btcoin's carbon footprint" \cite{devriesRevisitingBitcoinCarbon2022} and Gallersdörfer's work \cite{gallersdorferEnergyConsumptionCryptocurrencies2020} for PoW chains (Bitcoin, ETH PoW in our case). For PoS networks (ETH PoS in our case) the methdology is reported in their own \textit{ETH Merge Report}\cite{ETHMergeReport}, it expands on the work of Platt et al. (2021)\cite{plattEnergyFootprintBlockchain2021} and Ibanez et al. (2023)\cite{ibanezEnergyConsumptionProofofStake2023}.
 
 \textbf{The Hybrid Allocation Approach}
 
@@ -417,32 +450,6 @@ Multiplying chain emission rate \eqref{eq:emission_rate} with the sum of attribu
                                        \end{cases}\right]
 \end{align}
 
-%\begin{equation}
-%    A_{s}(\tau) = E_{s}(\tau) \times
-%    [
-%        \alpha_{s}\frac{B_{\text{addr},s}(\tau)}{B_{\text{total},s}(\tau)} +
-%        \beta_{s}  \frac{G_{\text{addr},s}(\tau)}{G_{\text{total},s}(\tau)} +
-%        \gamma_{s} \frac{T_{\text{addr},s}(\tau)}{T_{\text{total},s}(\tau)}
-%    ]
-%\end{equation}
-
-
-% \begin{equation}
-%     A_{s}(\tau) = E_{s}(\tau) \times [\alpha_{s} B(\tau) + \beta_{s} G(\tau) + \gamma_{s} T(\tau)]
-% \end{equation}
-
-% Since we have $\beta_{s} = 0$ for VTCs and $\gamma_{s} = 0$ for GPCs, the attributed emissions on chain $s$ of type $|VTC, GPC|$ are:
-
-% \begin{equation}
-%     A_{VTCs}(\tau) = E_{s}(\tau) \times [\alpha_{s} B(\tau) + \beta_{s} G(\tau)]
-% \end{equation}
-
-% \begin{equation}
-%     A_{GPCs}(\tau) = E_{s}(\tau) \times [\alpha_{s} B(\tau) + \beta_{s} G(\tau)]
-% \end{equation}
-
-% With $\alpha_{s} + \beta_{s} + \gamma_{s} = 1$ and $\alpha_{s}, \beta_{s}, \gamma_{s} \geq 0$.
-
 \subsection*{Cumulative Emissions}
 
 The cumulative emissions $C(t)$ for a user across a collection of owned adresses $S$ up to time $\tau$ is:
@@ -451,25 +458,109 @@ The cumulative emissions $C(t)$ for a user across a collection of owned adresses
     C(t) = \sum_{s \in S} \int_{0}^{t} A_s(\tau) d\tau
 \end{equation}
 
-This aggregates the attributed emissions across chains over time. The next section details the data sources used for each model components deined in the present section.
-
+This aggregates the attributed emissions across chains over time.
 
 \section{Data Sources and Collection}
-IN A TABLE
 
-Btcoin
-- Emissions: CCRI and Digiconomist
-- Transaction numbers: blockchair API
-- Supply: blockchair API
-- Market Cap: Coingecko API
-- Fees: blockchair API
-- Users balance and transactions: ???
-Ethereum
-- Emissions: CCRI and Digiconomist
-- Transaction numbers: blockchair
-\section{Validation and Robustness Analysis}
+Aggregation of multiple datasources was necessary to build the emission attribution model. This section details the data sources used for each model component. Table \ref{tab:data_sources} provides an overview of the data sources used for each metric.
+
+\begin{table}[h!]
+    \centering
+    \caption{\textbf{Data Sources for Bitcoin and Ethereum Metrics}}
+    \begin{tabular}{|c|l|l|}
+        \hline
+        \textbf{Blockchain}       & \textbf{Time Serie}  & \textbf{Data Source}                                                                                          \\
+        \hline
+        \multirow{6}{*}{Bitcoin}  & Emission Rate        & CCRI\cite{ccriCryptocurrencySustainabilityAPI}, Digiconomist                                                  \\
+                                  & Transaction Numbers  & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                 \\
+                                  & Overall BTC Supply   & Blockchair API\cite{blockchairltdBlockchainAPIDocumentation}                                                  \\
+                                  & Market Cap. (USD)    & Coingecko API \cite{coingeckoltdCryptoAPIDocumentation}                                                       \\
+                                  & Average \ac{Tx} Fees & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                 \\
+                                  & ETH Price (USD)      & Google Finance python package\footnote{see \url{https://pypi.org/project/googlefinance/} \label{ft:gfinance}} \\
+        \hline
+        \multirow{6}{*}{Ethereum} & Emission Rate        & CCRI \cite{ccriCryptocurrencySustainabilityAPI}, Digiconomist                                                 \\
+                                  & Transaction Numbers  & Blockchair API \cite{etherscanltdAPIDocumentation}                                                            \\
+                                  & Overall ETH Supply   & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                 \\
+                                  & Market Cap. (USD)    & Coingecko API \cite{coingeckoltdCryptoAPIDocumentation}                                                       \\
+                                  & Network Gas Usage    & Etherscan API \cite{etherscanltdAPIDocumentation}                                                             \\
+                                  & BTC Price (USD)      & Google Finance python package\textsuperscript{\ref{ft:gfinance}}                                              \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+
+\section{Validation and Results Analysis}
+
+In order to inform the selection of emission attribution model for the Greenblocks platform, a comparison of the segregated (Balance, Transactions) and hybrid approaches was conducted. This section presents the methodology for generating realistic user profiles that were used to compare emission numbers.
+
 \subsection{Approach to Validation}
-\subsection{Sensitivity Analysis Design}
+
+The generation of synthetic data for this study was guided by the need to create representative profiles of typical users in the Ethereum and Bitcoin ecosystems. These profiles, also known as "personas," serve as archetypes to model real-world behavior patterns and investment strategies commonly observed among blockchain users. Table \ref{tab:persona_metrics} presents an overview of the numbers generated for each persona, Appendix \ref{appendix:user_personas} provides a detailed description of each entry and statistical methods used to generate the data.
+
+\textbf{User Personas} \\
+Day Trader: Individuals who engage in frequent buying and selling activities on both Bitcoin and Ethereum networks. They are highly active and contribute to a significant number of transactions. They are usually first adopters or early followers and have been on the networks for several years.
+
+The Hodler: Individuals who invest in cryptocurrency with a long-term perspective. They hold both Bitcoin and Ethereum and rarely engage in trading activities. These individuals are often early adopters of the technology and have been holding assets for several years.
+
+Institutional Investor: Large financial entities like hedge funds or mutual funds that make occasional but large transactions. They are relatively new to the cryptocurrency space compared to individual investors but hold significant assets in both Bitcoin and Ethereum.
+
+Retail Payment User: Individuals who use cryptocurrencies for regular small payments, such as for online purchases or transferring money. They are active on both Bitcoin and Ethereum networks and have been using cryptocurrencies for a few years.
+
+DAO Lending Protocol: This persona is specific to the Ethereum blockchain and primarily engages in smart contract interactions. Their behavior is characterized by regular high amount of gas spent and a high average balance.
+
+Occasional User: These individuals engage infrequently in the Bitcoin ecosystem. Their behavior is characterized by a low transaction count and a low average balance. They are relatively new to the ecosystem.
+
+Occasional User (PoS): This persona showcases a user who onboarded the Ethereum network after the transition to proof-of-stake in september 2022. As with the Bitcoin Occasional users, they are characterized by a low transaction count and a low average balance.
+
+
+\begin{table}[h]
+    \centering
+    \caption{User Persona Metrics for Bitcoin and Ethereum}
+    \label{tab:persona_metrics}
+    \centerline{
+        \begin{tabular}{lcccccc}
+            \toprule
+            Persona Name           & \textbf{First Seen} & \multicolumn{2}{c}{Bitcoin} & \multicolumn{3}{c}{Ethereum}                                            \\
+            \cmidrule(lr){3-4} \cmidrule(lr){5-7}
+                                   &                     & Av. Balance                 & Tx Count                     & Av. Balance & Gas Spent  & Balance (USD) \\
+            \midrule
+            Day Trader             & 2016-01-01          & $4.88e+01$                  & $2.07e+03$                   & $7.21e+02$  & $6.82e+07$ & $7.58e+05$    \\
+            Institutional Investor & 2018-01-01          & $1.83e+04$                  & $1.49e+03$                   & $5.84e+04$  & $4.95e+07$ & $1.05e+08$    \\
+            Occasional User        & 2020-11-27          & $0.03$                      & $2.50e+01$                   & --          & --         & --            \\
+            Retail Payment User    & 2017-01-01          & $6.72e+00$                  & $1.74e+03$                   & $3.30e+02$  & $6.46e+07$ & $3.84e+05$    \\
+            The Hodler             & 2015-01-01          & $3.06e+00$                  & $0.0$                        & $3.14e+02$  & $1.43e+06$ & $4.61e+05$    \\
+            DAO Lending Protocol   & 2020-01-01          & --                          & --                           & $5.65e+03$  & $3.24e+08$ & $1.06e+07$    \\
+            Occasional User (PoS)  & 2022-09-25          & --                          & --                           & $1.12e+00$  & $5.34e+06$ & $1.84e+03$    \\
+            \bottomrule
+        \end{tabular}
+
+    }
+
+
+\end{table}
+
+
+\section{Results Analysis}
+\centerline{
+    \begin{tabular}{lcccccc}
+        \toprule
+        \multirow{2}{*}{Persona Name} & \multicolumn{3}{c}{BTC} & \multicolumn{3}{c}{ETH}                                                                                     \\
+        \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+                                      & \textbf{Assets (t)}     & \textbf{Tx (t)}         & \textbf{Hybrid (t)} & \textbf{Assets (t)} & \textbf{Tx (t)} & \textbf{Hybrid (t)} \\
+        \midrule
+        Day Trader                    & $623$                   & $606$                   & $606$               & $211$               & $16$            & $20$                \\
+        Institutional Investor        & $323041$                & $563$                   & $7032$              & $8745$              & $11$            & $219$               \\
+        Occasional User               & $0.2$                   & $13$                    & $13$                & --                  & --              & --                  \\
+        Retail Payment User           & $91$                    & $580$                   & $570$               & $98$                & $14$            & $16$                \\
+        The Hodler                    & $38$                    & $0.00001$               & $0.75$              & $102$               & $0.32$          & $3$                 \\
+        DAO Lending Protocol          & --                      & --                      & --                  & $1089$              & $62$            & $86$                \\
+        Occasional User (PoS)         & --                      & --                      & --                  & $0.00001$           & $0.0002$        & $0.0002$            \\
+        \bottomrule
+    \end{tabular}
+
+}
+
 
 \chapter{Implementation: GreenBlocks Platform}
 \section{Overview}
@@ -499,6 +590,13 @@ Ethereum
 
 \chapter{Discussion}
 \section{Results and Analysis}
+
+
+
+\newpage
+
+
+
 \section{Comparative Analysis: Different User Profiles and Protocols}
 \begin{enumerate}
     \item Bitcoin holder
@@ -524,5 +622,32 @@ Ethereum
 
 \bibliography{bibliography.bib}
 
-
+\appendix
+\begin{landscape}
+    \section*{Appendix A: User Personas and Data Generation Strategies}
+    \label{appendix:user_personas}
+    \begin{table}[h]
+        \centering
+        \caption{Summary of User Personas and Data Generation Strategies for Ethereum and Bitcoin}
+        \centerline{
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \textbf{Persona}       & \textbf{Blockchain} & \textbf{Initial Investment (USD)} & \textbf{Data Generation Strategy}                                                                                                                                                            \\
+                \hline
+                The Hodler             & Ethereum / Bitcoin  & 1000                              & \begin{tabular}[c]{@{}c@{}} Rare transactions.\\ Transaction frequency is Poisson-distributed (mean=0.1).\\ Transaction amount scaled by 0.02\% of current balance.\end{tabular}             \\
+                \hline
+                Day Trader             & Ethereum / Bitcoin  & 2000                              & \begin{tabular}[c]{@{}c@{}} Frequent trades.\\ Transaction frequency influenced by market volatility.\\ Transaction amount in USD (mean=50).\end{tabular}                                    \\
+                \hline
+                Institutional Investor & Ethereum / Bitcoin  & 25000                             & \begin{tabular}[c]{@{}c@{}} Infrequent but large transactions.\\ Frequency slightly influenced by market volatility.\\ Transaction amount scaled by 0.5-2\% of current balance.\end{tabular} \\
+                \hline
+                Retail Payment User    & Ethereum / Bitcoin  & 500                               & \begin{tabular}[c]{@{}c@{}} Uses mainly for retail payments.\\ Transaction frequency is Poisson-distributed (mean=3).\\ Transaction amount in USD (mean=5).\end{tabular}                     \\
+                \hline
+                DAO Lending Protocol   & Ethereum            & 20000                             & \begin{tabular}[c]{@{}c@{}} Regular contract interactions.\\ Transaction frequency is Poisson-distributed (mean=0.5).\\ Transaction amount in USD (mean=500).\end{tabular}                   \\
+                \hline
+                Occasional User (PoS)  & Ethereum            & 700                               & \begin{tabular}[c]{@{}c@{}} Rare transactions.\\ Transaction frequency is Poisson-distributed (mean=0.1).\\ Transaction amount in USD (mean=10).\end{tabular}                                \\
+                \hline
+            \end{tabular}
+        }
+    \end{table}
+\end{landscape}
 \end{document}
