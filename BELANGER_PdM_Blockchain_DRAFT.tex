@@ -32,8 +32,8 @@
 \DeclareAcronym{VTC}{short = {VTC}, long = {Value-transfer chain}, pdfcomment = {Value-transfer chain}}
 
 \DeclareAcronym{GPC}{short = {GPC}, long = {General-purpose chain}, pdfcomment = {General-purpose chain}}
-\DeclareAcronym{ESG}{short = {ESG}, long = {Environmental Social \& Governance}, pdfcomment = {Environmental Social \& Governance}}
-
+%\DeclareAcronym{ESG}{short = {ESG}, long = {Environmental Social \& Governance}, pdfcomment = {Environmental Social \& Governance}}
+\DeclareAcronym{CCRI}{short={CCRI}, long={Crypto Carbon Ratings Institute}, pdfcomment = {Crypto Carbon Ratings Institute}}
 
 
 \parskip 2ex
@@ -49,17 +49,16 @@
 \includepdf[pages={1-2}]{cover.pdf}
 \section*{Abstract}
 \change{Put abstract in e4s template}
-\improvement{Is this too long?}
+\improvement{Too long}
 
 Executive summary.
-The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. A growing research corpus has established and compared the varying environmental footprints across blockchains, resulting from different consensus mechanisms and design choices. While the recent release of the first industry blockchain \acp{ESG} benchmark enables standardized comparisons between chains at an aggregate level, granular methodologies for user-level emissions accounting are still in infancy.
+The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. A growing research corpus has established and compared the varying environmental footprints across blockchains, resulting from different consensus mechanisms and design choices. While the recent release of the first industry blockchain ESG benchmark enables standardized comparisons between chains at an aggregate level, granular methodologies for user-level emissions accounting are still in their infancy. This thesis objective is to compare emissions attribution approaches in order to develop à proof-of-concept tool for user-level on-chain accounting and offsetting.
 
-Building upon state-of-the-art emissions acconuting research this thesis introduces an attribution model designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research, is the attempt to weigh responsibility factors based on the principle of proportional benefits. This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. We find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. This methodology allocates the overall chain emissions to specific users based on their interaction patterns. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters.
+Building upon state-of-the-art emissions acconuting research this thesis revises attribution models designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research, is the attempt to weigh responsibility factors based on the principle of proportional benefit (hybrid attribution). This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. Consistent to prior reseach, we find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. This methodology allocates the overall chain emissions to specific users based on their interaction patterns. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters. All in all, it is established that hybrid allocation methods are not sufficiently accurate to be used as a standalone attribution model. However, they can be used as a complementary approach to existing methodologies, providing a more nuanced perspective on the relative responsibility of users.
 
+Furthermore, a proof-of-concept tool (GreenBlocks) is built to showcase the attribution models, allowing users to estimate and offset their emissions through carbon credits. Based on the Ledger Live platform, this platform interacts seamlessly with leading blockchains and links with on-chain carbon market partners to retire offsets with maximal transparency.
 
-Furthermore, a proof-of-concept tool (GreenBlocks) is built to showcase the attribution model, allowing users to estimate and offset their emissions through carbon credits. Based on the Ledger Live platform, this platform interacts seamlessly with leading blockchains and links with on-chain carbon market partners to retire offsets with maximal transparency.
-
-Greenblocks provides transparent and personalized insights into blockchain emissions for end-users. By linking usage to quantified environmental impact, it promotes awareness. It enables offsets as a means for users to bear the actual costs behind the benefits they reap from using the technology. Moreover, it demonstrates the potential for on-chain data to be used as the foundation for an appropriately nuanced attribution of external costs in a system. Moving past rudimentary address metrics, more complex behaviors and benefits can be modeled, enabling the distribution of externalities like a Pigouvian tax. Thus, this thesis proposes a bottom-up, user-focused approach to align blockchain adoption with environmental sustainability. This is achieved by pioneering user-level footprint attribution, arising from the \textit{Benefiiciary pays principle}.
+Greenblocks provides transparent and personalized insights into blockchain emissions for end-users. By linking usage to quantified environmental impact, it promotes awareness. It enables offsets as a means for users to bear the actual costs behind the benefits they reap from using the technology. Moreover, it demonstrates the potential for on-chain data to be used as the foundation for an appropriately nuanced attribution of external costs in a system. Moving past rudimentary address metrics, more complex behaviors and benefits can be modeled, potentially  enabling the distribution of externalities like a Pigouvian tax. Thus, this thesis proposes a bottom-up, user-focused approach to align blockchain adoption with environmental sustainability. This is achieved by pioneering user-level footprint attribution, arising from the \textit{Benefiiciary pays principle}.
 
 
 \change{Add section on further opportunities for the blockchain-sustainability space}
@@ -84,7 +83,7 @@ The dominant network, Bitcoin, which utilizes a computationally-intensive proof-
 \subsubsection*{Limitations of current approaches}
 However, we must recognize the complexity and nuance when evaluating blockchain sustainability. Consensus protocols, design choices, and use cases vary greatly across different networks, leading to wide variability in energy needs and emissions. For instance, proof-of-stake networks like Cardano and Solana promise energy savings by factors of 1000x or more compared to proof-of-work \cite{kohliAnalysisEnergyConsumption2023}. Moreover, Ethereum recently completed its highly anticipated, technically and politically complex transition from proof-of-work to proof-of-stake, demonstrating that such migrations are viable for major networks. \cite{bloombergnewsEthereumMergeYour2022} The nascent field of blockchain sustainability analysis must evolve more granular, differentiated perspectives.
 
-Initial responses from the blockchain industry have focused on high-level aggregate comparisons and rankings between networks. For example, recent benchmarks like the Crypto Carbon Ratings Institute methodology provide standardized comparisons of the total lifecycle emissions across chains [5]. However, these overlook the diversity of users and fail to provide accountability at an individual level.
+Initial responses from the blockchain industry have focused on high-level aggregate comparisons and rankings between networks. For example, recent benchmarks like the \ac{CCRI} methodology provide standardized comparisons of the total lifecycle emissions across chains [5]. In parallel to this work the institute partnered with researchers in order to further develop attribution methodologies, this will be disucssed in the \textit{Previous Work section} \ref{ch:previous_work}. The CCRI However, these overlook the diversity of users and fail to provide accountability at an individual level.
 \todo{include CCRI work on emissions accounting}
 
 This poses a critical gap, especially as blockchain technology expands into mainstream adoption. We lack a methodology to attribute network-wide emissions to specific users based on their unique activity patterns and values. Such granular carbon accounting can raise awareness of individual impact and empower ethical participation.
@@ -115,6 +114,9 @@ Therefore, the overarching problem this thesis addresses is:
 
 "How can we design an attribution model that allocates the carbon emissions of any blockchain network to specific user entities or addresses in a transparent, accurate, and relevant manner based on their unique activity patterns?"
 
+\subsubsection{Carbon Offsets - The Voluntary Carbon Market}
+\textbf{Traditionnal Offsets - Limitations}
+\textbf{Bringing Offsets On-Chain - Opportunities }
 
 \section{Research Questions and Ojbectives}
 
@@ -148,7 +150,7 @@ TO COMPLETE
 \section{Structure of the Thesis}
 TO COMPLETE
 
-\chapter{Previous Work}
+\chapter{Previous Work} \label{ch:previous_work}
 
 \todo{Purpose and scope of literature review}
 
@@ -206,10 +208,9 @@ Ethereum's 2022 merge to PoS marked a sustainability milestone. De Vries (2022)\
 
 \section{Carbon Accounting - User-Level Emissions Attribution}
 
-
 Amid rising institutional concerns about cryptocurrencies' environmental impact, the Crypto Carbon Ratings Institute's (2023)\ revised white paper provides a timely, nuanced perspective. By thoroughly examining the carbon footprints of both PoW and PoS networks, the paper introduced in its most recent version an "hybrid allocation" approach for emissions accounting. This methodology recognizes that network energy use stems from both holdings and transactions.
 
-It expands on previous work by De Vries (2021) \cite{devriesTrueCostsDigital2021}, early attemps at an address balance emisssion attribution methdology for bitcoin. The CCRI's methodology now covers a wide range of networks, differentiating between PoS and PoW in the attribution strategy.
+It expands on previous work by De Vries (2021) \cite{devriesTrueCostsDigital2021}, early attemps at an address balance emisssion attribution methdology for bitcoin. The CCRI's methodology now covers a wide range of networks, differentiating between PoS and PoW in the attribution strategy. Specifically, they use a combination of the Cambridge Index \cite{neumuellerCambridgeBitcoinElectricity2021}, de Vries "Revisiting Btcoin's carbon footprint" \cite{devriesRevisitingBitcoinCarbon2022} and Gallersdörfer's work \cite{gallersdorferEnergyConsumptionCryptocurrencies2020} for PoW chains (Bitcoin, ETH PoW in our case). For PoS networks (ETH PoS in our case) the methdology is reported in their own \textit{ETH Merge Report}\cite{ETHMergeReport}, it expands on the work of Platt et al. (2021)\cite{plattEnergyFootprintBlockchain2021} and Ibanez et al. (2023)\cite{ibanezEnergyConsumptionProofStake2023}.
 
 \textbf{The Hybrid Allocation Approach}
 
@@ -392,7 +393,8 @@ Subsequently, \( \beta \) is:
 \subsubsection{Limitations}
 Using average relative changes over long intervals may fail to capture more nuanced shifts in user priorities over shorter timescales. This approach also assumes user behaviors are consistent across all blockchain users, whereas in reality different segments likely have distinct preferences. These limitations are discussed further in Section \ref{se:limitations}.
 
-
+The \textit{Beneficiary Pays} approach, that analyses proportional benefits has to be limited in its scope in order to be applicable. The complexity in this method scales exponentially, because for each horizontal use-case we find there is a collection of sub-benefits that could be weighted against each other to get the most exhaustive representation of user benefits. In this research we stayed at the first level of abstraction, only considering that the number of transaction (or gas spent) as a share of the networks total, was indicative of benefit to the end user. However, for instance, one could argue that the transaction use case of blockchains should be wegihted more granularily, being different for each transactions. One way to measure this benefit could be to look at each transactionnal volume or fees payed by the user (as a share of the total for a period). Account holdings on GPCs could also be analysed in a similar differentiated fashion. This would require a more granular data collection and analysis, but could be a valuable addition to the model.
+\improvement{link to future work and dealing with more complex behavioral data}
 
 
 
@@ -453,6 +455,18 @@ This aggregates the attributed emissions across chains over time. The next secti
 
 
 \section{Data Sources and Collection}
+IN A TABLE
+
+Btcoin
+- Emissions: CCRI and Digiconomist
+- Transaction numbers: blockchair API
+- Supply: blockchair API
+- Market Cap: Coingecko API
+- Fees: blockchair API
+- Users balance and transactions: ???
+Ethereum
+- Emissions: CCRI and Digiconomist
+- Transaction numbers: blockchair
 \section{Validation and Robustness Analysis}
 \subsection{Approach to Validation}
 \subsection{Sensitivity Analysis Design}
