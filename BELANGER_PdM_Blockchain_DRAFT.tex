@@ -9,6 +9,7 @@
 \usepackage{pdflscape}
 \usepackage{blindtext}
 \usepackage{parskip}
+\usepackage{tablefootnote}
 \usepackage{enumitem}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage[section]{placeins}
@@ -16,6 +17,7 @@
 \usepackage[english]{babel}
 \usepackage{pdfpages}
 \usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\usepackage{nameref}
 %\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
 %
 \interfootnotelinepenalty=10000
@@ -26,10 +28,11 @@
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange,#1]{#2}}
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 
-\usepackage{acro}
+\usepackage{enumitem}
+\usepackage[hyperref = true, only-used = false, list-style = longtable]{acro}
 \usepackage{pdfcomment}
 \usepackage{hyperref}
-
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
 \acsetup{
 	make-links 		= 	false,
 	pdfcomments/use		=	true,
@@ -100,7 +103,7 @@ Greenblocks provides transparent and personalized insights into blockchain emiss
 \section*{Acknowledgements}
 \tableofcontents
 
-
+\printacronyms
 
 \chapter{Introduction}
 
@@ -116,14 +119,18 @@ The dominant network, Bitcoin, which utilizes a computationally-intensive proof-
 \subsubsection*{Limitations of current approaches}
 However, we must recognize the complexity and nuance when evaluating blockchain sustainability. Consensus protocols, design choices, and use cases vary greatly across different networks, leading to wide variability in energy needs and emissions. For instance, proof-of-stake networks like Cardano and Solana promise energy savings by factors of 1000x or more compared to proof-of-work \cite{kohliAnalysisEnergyConsumption2023}. Moreover, Ethereum recently completed its highly anticipated, technically and politically complex transition from proof-of-work to proof-of-stake, demonstrating that such migrations are viable for major networks. \cite{bloombergnewsEthereumMergeYour2022} The nascent field of blockchain sustainability analysis must evolve more granular, differentiated perspectives.
 
-Initial responses from the blockchain industry have focused on high-level aggregate comparisons and rankings between networks. For example, recent benchmarks like the \ac{CCRI} methodology provide standardized comparisons of the total lifecycle emissions across chains [5]. In parallel to this work the institute partnered with researchers in order to further develop attribution methodologies, this will be disucssed in the \textit{Previous Work section} \ref{ch:previous_work}. The CCRI However, these overlook the diversity of users and fail to provide accountability at an individual level.
-\todo{include CCRI work on emissions accounting}
+Initial responses from the blockchain industry have focused on high-level aggregate comparisons and rankings between networks. For example, recent benchmarks like the \ac{CCRI} methodology provide standardized comparisons of the total lifecycle emissions across chains [5]. In parallel to this work the institute partnered with researchers in order to further develop attribution methodologies, this will be disucssed in the \textit{Previous Work section} \ref{ch:previous_work}. The CCRI however, adopted an opinionated approach to balancing weighing factors, and further research is needed to ensure if it is sound and if other approaches would better represent the nuances in emissions accounting and user behavior.
+\todo{include CCRI work on emissions accounting, revise paragraph}
 
-This poses a critical gap, especially as blockchain technology expands into mainstream adoption. We lack a methodology to attribute network-wide emissions to specific users based on their unique activity patterns and values. Such granular carbon accounting can raise awareness of individual impact and empower ethical participation.
+This poses a critical gap, especially as blockchain technology expands into mainstream adoption. We lack diversified methodologies to attribute network-wide emissions to specific users based on their unique activity patterns and values. Such granular carbon accounting can raise awareness of individual impact and empower ethical participation.
 
 \subsubsection*{Opportunities for user-level footprinting}
 
 To address this, the novel approach in this thesis involves an attribution model that weighs factors like asset holdings, transactions, and computations based on their estimated importance to users on each chain. By considering relative user perspectives, we can map emissions more accurately to individual entities like protocols, DAOs, or end-users. This unconventional yet powerful approach unlocks new potentials for transparency, responsibility, and sustainability.
+
+\subsubsection{Carbon Offsets - The Voluntary Carbon Market}
+\textbf{Traditionnal Offsets - Limitations}
+\textbf{Bringing Offsets On-Chain - Opportunities }
 
 \begin{figure}[hbt!]
     \centering
@@ -147,9 +154,6 @@ Therefore, the overarching problem this thesis addresses is:
 
 "How can we design an attribution model that allocates the carbon emissions of any blockchain network to specific user entities or addresses in a transparent, accurate, and relevant manner based on their unique activity patterns?"
 
-\subsubsection{Carbon Offsets - The Voluntary Carbon Market}
-\textbf{Traditionnal Offsets - Limitations}
-\textbf{Bringing Offsets On-Chain - Opportunities }
 
 \section{Research Questions and Ojbectives}
 
@@ -175,8 +179,21 @@ The main objectives of this work are:
     \item [The Future of Sustainability and Blockchain] \change{to complete}
 \end{description}
 
-\section{Scope and Limitations}
-TO COMPLETE
+\section{Scope of the thesis}
+
+\begin{description}
+    \item [Focus on Environmental Sustainability (CO2e emissions)]: Work has been done to establish blockchain footprints and impact of other axis like e waste \cite{devriesBitcoinGrowingEwaste2021} but the field is still nascent and data is not necessarily in a granular time-series format, essential for nuanced behavioral attribution. This thesis focuses on the most easily quantified \ac{ESG} issue, CO2e emissions, and leaves the door open for further research on other externalities (e-waste, water usage, biodiversity, social impact).
+    \item [Blockchain coverage]: Only Ethereum and Bitcoin to limit data collection. As described in \fullref{sec:blockchain_typology} this covers the two main types of blockchains by functionality. This also covers the two main consensus mechanisms, \ac{PoW} and ac{PoS}, with most other post-PoW mechanisms having same-scale environmental footprint than PoS. This is sufficient to demonstrate the model's feasibility and value. However, in accordance with Ledger's philosophy so support a wide range of blockchains, the model is designed to be extensible to other chains should the development of Greenblocks continues.
+    \item [Attribution Factors]: The model focuses on two main attribution parameters, infered from emissions causality pathways and benefits rendered to the user, \textit{asset balance} and \textit{transactional activity}, each weighed by factors that represent how much each parameter should contribute to overall emission attribution. A more granular separation of the sub-benefits could be conducted do derive more attribution parameters, however it would require exponential work an data modelling to estimate weight factors for each sub-benefits included in the formula. Moreover, since the hybrid approach was not chosen to combine all attribution factors in a single footprint number, a decision was made to keep high-level parameters (2)  and report these two numbers to the user. However, the model is designed to be extensible to other factors should the development of Greenblocks continues.
+    \item [Blockchain Emissions Data sources]: This work's scope is not to critique network level footprinting methologies. Following litterature review, the most recognized and granular emissions data sources were identified (2) and \ac{CCRI} data was selected for the final modeling (see in section \ref{sec:data_sources}). This study does not include further methodological analysis on network-level LCA and treats these data sources as ground truth. However, the model is designed to be extensible to accept combined emissions data from multiple sources should the development of Greenblocks continues.
+    \item [Selection of the attribution approach]: Since the live querying of blockchain-address data was only developped during the implementation phase, this work relies on synthetic user persona data to demonstrate and compare the attribution models. The synthetic data generation, using reprensentative statistical modeling is detailed in \fullref{sec:approach_validation}.
+    \item [Proof-of-concept Development]: Greenblocks in its current state is a proof-of-concept application, not a production-ready tool. The focus is on demonstrating the potential of automating blockchain user-data access, and what the user experience during review of the user's footprint and offsetting journey would look like.
+
+\end{description}
+
+
+-
+
 \todo{Focus on environmental sustainability, CO2e emissions. Not other externalities like e-waste, social impact, etc.}
 
 
@@ -290,7 +307,7 @@ By incorporating these perspectives, the model aims for a fair, customizable att
 
 \section{Background - Emission attribution considerations}
 
-\subsection{Blockchain Typology}
+\subsection{Blockchain Typology \label{sec:blockchain_typology}}
 Blockchains can be categorized into two main types based on their primary function and underlying mechanics:
 \improvement{this separation is also justified by the polluter and beneficiary pays framework. The limited ressource (blockspace) is shared differently for bitcoin and ethereum}
 
@@ -438,14 +455,6 @@ Subsequently, \( \beta \) is:
 \end{equation}
 
 
-\subsubsection{Limitations}
-Using average relative changes over long intervals may fail to capture more nuanced shifts in user priorities over shorter timescales. This approach also assumes user behaviors are consistent across all blockchain users, whereas in reality different segments likely have distinct preferences. These limitations are discussed further in Section \ref{se:limitations}.
-
-The \textit{Beneficiary Pays} approach, that analyses proportional benefits has to be limited in its scope in order to be applicable. The complexity in this method scales exponentially, because for each horizontal use-case we find there is a collection of sub-benefits that could be weighted against each other to get the most exhaustive representation of user benefits. In this research we stayed at the first level of abstraction, only considering that the number of transaction (or gas spent) as a share of the networks total, was indicative of benefit to the end user. However, for instance, one could argue that the transaction use case of blockchains should be wegihted more granularily, being different for each transactions. One way to measure this benefit could be to look at each transactionnal volume or fees payed by the user (as a share of the total for a period). Account holdings on GPCs could also be analysed in a similar differentiated fashion. This would require a more granular data collection and analysis, but could be a valuable addition to the model.
-\improvement{link to future work and dealing with more complex behavioral data}
-
-
-
 \subsection{Attributed Emissions}
 
 Multiplying chain emission rate \eqref{eq:emission_rate} with the sum of attribution parameters \eqref{eq:attribution_share_chain_type} and corresponding weights \eqref{eq:alpha_weight} and \eqref{eq:beta_weight}, we get the CO2e emissions \(A(\tau)\) attributed to an address on a given blockchain for the period $\tau$ general form:
@@ -475,30 +484,30 @@ The cumulative emissions $C(t)$ for a user across a collection of owned adresses
 
 This aggregates the attributed emissions across chains over time.
 
-\section{Data Sources and Collection}
+\section{Data Sources and Collection \label{sec:data_sources}}
 
 Aggregation of multiple datasources was necessary to build the emission attribution model. This section details the data sources used for each model component. Table \ref{tab:data_sources} provides an overview of the data sources used for each metric.
 
 \begin{table}[h!]
     \centering
-    \caption{\textbf{Data Sources for Bitcoin and Ethereum Metrics}}
+    \caption{\textbf{Data Sources for Bitcoin and Ethereum Metrics}\label{tab:data_sources}}
     \begin{tabular}{|c|l|l|}
         \hline
-        \textbf{Blockchain}       & \textbf{Time Serie}  & \textbf{Data Source}                                                                                          \\
+        \textbf{Blockchain}       & \textbf{Time Serie}  & \textbf{Data Source}                                                                                               \\
         \hline
-        \multirow{6}{*}{Bitcoin}  & Emission Rate        & CCRI\cite{ccriCryptocurrencySustainabilityAPI}, Digiconomist                                                  \\
-                                  & Transaction Numbers  & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                 \\
-                                  & Overall BTC Supply   & Blockchair API\cite{blockchairltdBlockchainAPIDocumentation}                                                  \\
-                                  & Market Cap. (USD)    & Coingecko API \cite{coingeckoltdCryptoAPIDocumentation}                                                       \\
-                                  & Average \ac{Tx} Fees & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                 \\
-                                  & ETH Price (USD)      & Google Finance python package\footnote{see \url{https://pypi.org/project/googlefinance/} \label{ft:gfinance}} \\
+        \multirow{6}{*}{Bitcoin}  & Emission Rate        & CCRI\cite{ccriCryptocurrencySustainabilityAPI}, Digiconomist                                                       \\
+                                  & Transaction Numbers  & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                      \\
+                                  & Overall BTC Supply   & Blockchair API\cite{blockchairltdBlockchainAPIDocumentation}                                                       \\
+                                  & Market Cap. (USD)    & Coingecko API \cite{coingeckoltdCryptoAPIDocumentation}                                                            \\
+                                  & Average \ac{Tx} Fees & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                      \\
+                                  & ETH Price (USD)      & Google Finance python package\tablefootnote{see \url{https://pypi.org/project/googlefinance/} \label{ft:gfinance}} \\
         \hline
-        \multirow{6}{*}{Ethereum} & Emission Rate        & CCRI \cite{ccriCryptocurrencySustainabilityAPI}, Digiconomist                                                 \\
-                                  & Transaction Numbers  & Blockchair API \cite{etherscanltdAPIDocumentation}                                                            \\
-                                  & Overall ETH Supply   & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                 \\
-                                  & Market Cap. (USD)    & Coingecko API \cite{coingeckoltdCryptoAPIDocumentation}                                                       \\
-                                  & Network Gas Usage    & Etherscan API \cite{etherscanltdAPIDocumentation}                                                             \\
-                                  & BTC Price (USD)      & Google Finance python package\textsuperscript{\ref{ft:gfinance}}                                              \\
+        \multirow{6}{*}{Ethereum} & Emission Rate        & CCRI \cite{ccriCryptocurrencySustainabilityAPI}, Digiconomist                                                      \\
+                                  & Transaction Numbers  & Blockchair API \cite{etherscanltdAPIDocumentation}                                                                 \\
+                                  & Overall ETH Supply   & Blockchair API \cite{blockchairltdBlockchainAPIDocumentation}                                                      \\
+                                  & Market Cap. (USD)    & Coingecko API \cite{coingeckoltdCryptoAPIDocumentation}                                                            \\
+                                  & Network Gas Usage    & Etherscan API \cite{etherscanltdAPIDocumentation}                                                                  \\
+                                  & BTC Price (USD)      & Google Finance python package\textsuperscript{\ref{ft:gfinance}}                                                   \\
         \hline
     \end{tabular}
 \end{table}
@@ -509,7 +518,7 @@ Aggregation of multiple datasources was necessary to build the emission attribut
 
 In order to inform the selection of emission attribution model for the Greenblocks platform, a comparison of the segregated (Balance, Transactions) and hybrid approaches was conducted. This section presents the methodology for generating realistic user profiles that were used to compare emission numbers.
 
-\subsection{Approach to Validation}
+\subsection{Approach to Validation \label{sec:approach_validation}}
 
 The generation of synthetic data for this study was guided by the need to create representative profiles of typical users in the Ethereum and Bitcoin ecosystems. These profiles, also known as "personas," serve as archetypes to model real-world behavior patterns and investment strategies commonly observed among blockchain users. Table \ref{tab:persona_metrics} presents an overview of the numbers generated for each persona, Appendix \ref{appendix:user_personas} provides a detailed description of each entry and statistical methods used to generate the data.
 
@@ -576,6 +585,17 @@ Occasional User (PoS): This persona showcases a user who onboarded the Ethereum 
 
 }
 
+\section{Limitations}
+
+\subsection{Using proportional benefits as a proxy for emissions responsibility}
+The \textit{Beneficiary Pays} approach, that analyses proportional benefits has to be limited in its scope in order to be applicable. The complexity in this method scales exponentially, because for each horizontal use-case we find there is a collection of sub-benefits that could be weighted against each other to get the most exhaustive representation of user benefits. In this research we stayed at the first level of abstraction, only considering that the number of transaction (or gas spent) as a share of the networks total, was indicative of benefit to the end user. However, for instance, one could argue that the transaction use case of blockchains should be wegihted more granularily, being different for each transactions. One way to measure this benefit could be to look at each transactionnal volume or fees payed by the user (as a share of the total for a period). Account holdings on GPCs could also be analysed in a similar differentiated fashion. This would require a more granular data collection and analysis, but could be a valuable addition to the model.
+\improvement{link to future work and dealing with more complex behavioral data}
+
+\subsection{Weighting Factors}
+Using average relative changes over long intervals may fail to capture more nuanced shifts in user priorities over shorter timescales. This approach also assumes user behaviors are consistent across all blockchain users, whereas in reality different segments likely have distinct preferences. These limitations are discussed further in Section \ref{se:limitations}.
+
+
+
 
 \chapter{Implementation: GreenBlocks Platform}
 \section{Overview}
@@ -605,6 +625,7 @@ Occasional User (PoS): This persona showcases a user who onboarded the Ethereum 
 
 \chapter{Discussion}
 \section{Results and Analysis}
+\section{Future Work}
 
 
 
