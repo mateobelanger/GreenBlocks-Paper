@@ -149,8 +149,7 @@ This poses a critical gap as blockchain technology expands into mainstream adopt
 
 \subsubsection*{Opportunities for user-level footprinting}
 
-To address this, the novel approach in this thesis involves an attribution model that weighs factors like asset holdings, transactions, and computations based on their estimated importance to users on each chain. We can map emissions more accurately by considering relative user perspectives to individual entities like protocols, DAOs, or end-users. This differs from traditional carbon footprint calculators (see Figure \ref{fig:carbon_footprint_calculator}), which rely on users' self-assessment of different categories of behaviors. This has apparent accuracy \& ergonomy issues that limit user engagement and hinder the footprint effectiveness on behavior change \cite{saloOpportunitiesLimitationsCarbon2019,mulrowStateCarbonFootprint2019}. Blockchain-based accounting, however, could vastly improve the estimation process and reduce friction in the tool's usage. First, it can be used to provide and track basic blockchain usage-related emissions, but this is primarily a proof-of-concept that could open further use cases. Provided that more real-world behavioral and general data sources become available on-chain (with sufficient privacy features), blockchain could become a key infrastructure in modeling complex systems to attribute non-chain-related emissions. Thus, our unconventional yet powerful approach unlocks new potential for transparency, responsibility, and sustainability in the blockchain space and beyond.
-
+To address this, the novel approach in this thesis involves an attribution model that weighs factors like asset holdings, transactions, and computations based on their estimated importance to users on each chain. We can map emissions more accurately by considering relative user perspectives to individual entities like protocols, DAOs, or end-users. This differs from traditional carbon footprint calculators (see Figure \ref{fig:carbon_footprint_calculator}), which rely on users' self-assessment of their own behaviors in different categories of activity. This has apparent accuracy \& ergonomy issues that limit user engagement and hinder the footprint effectiveness on behavior change \cite{saloOpportunitiesLimitationsCarbon2019,mulrowStateCarbonFootprint2019}.
 
 
 \begin{figure}[hbt!]
@@ -162,6 +161,7 @@ To address this, the novel approach in this thesis involves an attribution model
 
 \footnotetext{https://coolclimate.org/calculator}
 
+Blockchain-based accounting, however, have the potential vastly improve the estimation process and reduce friction in such tool's usage. Audit of behavior history is automated and objective, not self-assessed. Here, it may first be used to provide and track basic blockchain-usage related emissions. But this proof-of-concept opens up the perspective to further use cases. Provided that more real-world behavioral and general data sources become available on-chain (with sufficient privacy features), blockchain could become a key infrastructure in modeling complex systems, fairly redistributing non direct-chain-related externalitiess. Thus, this approach unlocks new potential for transparency, responsibility, and sustainability; in the blockchain space and beyond.
 
 As blockchain technology progresses into mainstream integration, the lack of transparency and accountability for emissions at an individual user level poses a critical gap. For example, retail investors drawn to crypto assets may be unaware of the passive environmental impacts associated with their portfolios over time. There is also an increasing offering of decentralized applications (web3) with usage beyond investing. Granular carbon accounting and attribution to individual wallets can raise awareness and enable offsetting as a means for users to take responsibility for their actions.
 
@@ -617,12 +617,16 @@ This study's synthetic data generation was guided by the need to create represen
 
 \section{Limitations}
 
-\subsection{Using proportional benefits as a proxy for emissions responsibility}
+\subsection*{Using proportional benefits as a proxy for emissions responsibility}
 The \textit{Beneficiary Pays} approach, which analyses proportional benefits, has to be limited in its scope to be applicable. The complexity in this method scales exponentially because, for each horizontal use case, we find a collection of sub-benefits that could be weighted against each other to get the most exhaustive representation of user benefits. In this research, we stayed at the first level of abstraction, only considering that the number of transactions (or gas spent) as a share of the network total was indicative of benefit to the end user. However, for instance, one could argue that the transaction use case of blockchains should be weighted more granularly, being different for each transaction. One way to measure this benefit could be to look at transactional volume or fees paid by the user (as a share of the total for a period). Account holdings on GPCs could also be analyzed in a similar differentiated fashion. This would require a more granular data collection and analysis but could be a valuable addition to the model.
 \improvement{link to future work and dealing with more complex behavioral data}
 
-\subsection{Weighting Factors}
+
+\subsection*{Weighting Factors}
 Using average relative changes over long intervals may fail to capture more nuanced shifts in user priorities over shorter timescales. This approach also assumes user behaviors are consistent across all blockchain users, whereas, in reality, different segments likely have distinct preferences. These limitations are discussed further in Section \ref{se:limitations}.
+
+\subsection*{Single Network Personas}
+
 
 
 
