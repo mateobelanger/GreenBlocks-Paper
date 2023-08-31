@@ -80,14 +80,14 @@
 \begin{document}
 
 \includepdf[pages={1-2}]{cover.pdf}
-\section*{Abstract}
+\section*{Executive summary}
 \change{Put abstract in e4s template}
 \improvement{Too long}
 
-Executive summary.
+
 The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. A growing research corpus has established and compared the varying environmental footprints across blockchains, resulting from different consensus mechanisms and design choices. While the recent release of the first industry blockchain ESG benchmark enables standardized comparisons between chains at an aggregate level, granular methodologies for user-level emissions accounting are still in their infancy. This thesis objective is to compare emissions attribution approaches in order to develop à proof-of-concept tool for user-level on-chain accounting and offsetting.
 
-Building upon state-of-the-art emissions acconuting research this thesis revises attribution models designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research, is the attempt to weigh responsibility factors based on the principle of proportional benefit (hybrid attribution). This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. Consistent to prior reseach, we find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. This methodology allocates the overall chain emissions to specific users based on their interaction patterns. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters. All in all, it is established that hybrid allocation methods are not sufficiently accurate to be used as a standalone attribution model. However, they can be used as a complementary approach to existing methodologies, providing a more nuanced perspective on the relative responsibility of users.
+Building upon state-of-the-art emissions acconuting research this thesis revises attribution models designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research, is the attempt to weigh responsibility factors based on the principle of proportional benefit \improvement{I should explain hybrid (2 parameters) attribution before introducing weights between them}. This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. This hybrid attribution allocates network emissions to specific users based on more complex interaction patterns. Consistent to prior reseach, we find that two generalizable categories of benefits emerge: the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters. All in all, it is established that hybrid allocation methods are not sufficiently accurate to be used as a standalone attribution model. However, they can be used as a complementary approaches to segregated, single parameter methodologies, providing a more nuanced perspective on the relative responsibility of users.
 
 Furthermore, a proof-of-concept tool (GreenBlocks) is built to showcase the attribution models, allowing users to estimate and offset their emissions through carbon credits. Based on the Ledger Live platform, this platform interacts seamlessly with leading blockchains and links with on-chain carbon market partners to retire offsets with maximal transparency.
 
@@ -188,8 +188,21 @@ TO COMPLETE
 \todo{Purpose and scope of literature review}
 
 \section{Blockchain Technology and Its Evolution}
+\todo{move to introduction}
+\subsection{Bitcoin and Proof-of-Work}
+"Bitcoin: A Peer-to-Peer Electronic Cash System", the mysterious whitepaper \cite{nakamotoBitcoinPeertopeerElectronic2008}, published under the pseudonym Satoshi Nakamoto in 2008, was the first to propose a fully decentralized electronic cash system that operates based on cryptographic proof, rather than trust in a stakeholder. It introduced the concept of proof-of-work mining, a system that timestamps transactions and secures the network using computational power, negating the need for centralized control.
 
-"Bitcoin: A Peer-to-Peer Electronic Cash System", the mysterious whitepaper \cite{nakamotoBitcoinPeertopeerElectronic2008}, published under the pseudonym Satoshi Nakamoto in 2008, was the first to propose a fully decentralized electronic cash system based on cryptographic proof instead of trust. It introduced the concept of proof-of-work mining to timestamp transactions and secure the network through computational power rather than centralized authorities. Proof-of-work was chosen to enable a distributed consensus mechanism and one-CPU-one-vote majority decision making resistant to sybil attacks. It also provides an economic incentive for miners to support the network. Overall, Bitcoin's proof-of-work system enabled the first widely adopted decentralized digital currency by solving the double-spend problem without requiring a trusted third party.\improvement{Reasons why proof-of-stake was chosen for bitcoin and why it works well. Reasons that prevented previous attempts to succeed.}
+At its core, Bitcoin pioneered the idea of a distributed ledger - a database replicated across a decentralized network of computers. The Bitcoin blockchain serves as an immutable, transparent ledger that records the history of all transactions. Crucially, updates to the ledger are governed by a consensus mechanism that allows the participants to agree on the state of the ledger without requiring a trusted third party.
+
+While conceptual foundations for distributed ledger technology preceded Bitcoin, earlier prototypes faced limitations in achieving decentralized consensus and widespread adoption. A significant roadblock was the susceptibility to Sybil attacks, where a single entity impersonates multiple identities to exert disproportionate control.
+
+\subsubsection{Why Proof-of-Work Enables Decentralized Consensus}
+
+Bitcoin broke through the Sybil attack barrier by requiring proof-of-work - expending computational power - to update the ledger. This means influencing the ledger is proportional to the amount of computing work contributed. A malicious entity can no longer dominate by simply impersonating multiple identities. Additionally, Bitcoin achieves byzantine fault tolerance - the ability for a distributed system to reach consensus despite malicious nodes - by economically disincentivizing attacks on the consensus process. Proof-of-work makes attacking the system prohibitively expensive, as the computing resources would be more profitably directed at honest participation. This mechanism ensures that decision-making power stays distributed across the network nodes, paving the way for robust decentralized consensus without a central authority.
+
+By leveraging proof-of-work to enable distributed nodes to reach consensus without a central authority, Bitcoin realized the long-standing promise of distributed ledger technology. For the first time, a decentralized peer-to-peer network could self-govern through an incentives system building an open consensus mechanism resistant to takeover. This solution enabled the emergence of Bitcoin as the first decentralized digital currency to gain real-world traction.
+
+\subsubsection{Ethereum and Smart Contracts}
 
 The Ethereum whitepaper\cite{buterinEthereumNextgenerationSmart}, published by Vitalik Buterin in 2013, proposed enhancements to allow decentralized applications beyond just currency. It introduced smart contracts, which are executable codes hosted on the blockchain that can encode complex logic and state. Along with a Turing-complete programming language to write smart contracts, this enabled arbitrary applications to be built on its decentralized infrastructure. Ethereum also improved upon Bitcoin's proof-of-work with proposed upgrades like GHOST and differentiated gas costs based on computation complexity. While Bitcoin demonstrated a currency application, Ethereum expanded the potential of blockchains to diverse sharing economies, financial services, identity systems and beyond. Moving past Bitcoin's singular focus, Ethereum highlighted how decentralized consensus mechanisms like blockchain could provide a foundation for customizable peer-to-peer applications. \improvement{Differences in design choices and features. Opportunities for scaling blockchains horizontally to more usecases. This is the inception of blockchain technology as an ubiquitous infrastructure.}
 
@@ -265,11 +278,13 @@ Moreover, the CCRI paper lacks a practical implementation of its methodology and
 
 \todo{Find where to include steps of the work. Interviews and data collection}
 
-As blockchain technology expands onto more use cases and scale in it adoption, quantifying and attributing associated carbon emissions transparently emerges as a valid need. While aggregate estimates provide high-level network overviews, they fail to offer accountability at an individual user level, posing a user education gap and potentially a product need.
+As blockchain technology expands onto more use cases and scale in it adoption, quantifying and attributing associated carbon emissions transparently emerges as a valid need. While aggregate estimates provide high-level network overviews, they fail to offer accountability at an individual user level, posing a user education gap and potentially a product need. In order to offer legimate and accurate user-level footprints, we first need to map the different approaches possible and compare them. This is the purpose of this chapter.
 
-This chapter introduces a novel methodology to attribute network emissions to specific blockchain addresses based on proportional benefits gained by users. By mapping network footprints to end-users, protocols, and DAOs, this framework enables entities to understand, report, and take action based on their responsibility in the overall emissions.
+This chapter first introduces a novel methodology to attribute network emissions to specific blockchain addresses based on proportional benefits gained by users. As with the new \ac{CCRI} hybrid allocation approach, by distributing network footprints to end-users, protocols, and DAOs, this framework enables entities to understand, report, and take action based on their nuanced responsibility in the overall emissions.
 
-The methodology is underpinned by ethical and economic theories suggesting emissions be allocated based on the proportional benefits users derive, both actively through transferring value and interacting, and passively from securing assets. Historical trends in activity metrics like fees and market value provide useful signals into evolving blockchain utility dynamics and user perceptions of value.
+This methodology is underpinned by ethical and economic theories suggesting emissions be allocated based on the proportional benefits users derive, both actively through transferring value and interacting, and passively from securing assets. Historical trends in activity metrics like fees and market value provide useful signals into evolving blockchain utility dynamics and user perceptions of value.
+
+In the results section, we compare the proposed methodologies using
 
 By incorporating these perspectives, the model aims for a fair, customizable attribution aligned with the real-world value users obtain from blockchain networks. The following sections detail this approach and rationale.
 
@@ -595,24 +610,6 @@ Occasional User (PoS): This persona showcases a user who onboarded the Ethereum 
 
 \newpage
 
-
-
-\section{Comparative Analysis: Different User Profiles and Protocols}
-\begin{enumerate}
-    \item Bitcoin holder
-    \item Bitcoin trader
-    \item Ethereum holder
-    \item Ethereum App user
-    \item Ethereum only since merge (or show all using a time-series on emissions)
-\end{enumerate}
-
-\section{Statistical Analysis}
-\todo{Statistical analysis of a random sample of addresses}
-\unsure{will it be possible to get a sample of bitcoin xpub. Otherwise focus on ethereum analaysis before \& post merge}
-
-\subsection{Validation and Sensitivity Analysis Results}
-\subsubsection{Validation Results}
-\subsubsection{Sensitivity Analysis Findings}
 
 \section{Limitations and Future Work} \label{se:limitations}
 \section{Further Opportunities for Blockchain and Sustainability}
