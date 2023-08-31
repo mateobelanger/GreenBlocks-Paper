@@ -18,6 +18,8 @@
 \usepackage{pdfpages}
 \usepackage{xargs}                      % Use more than one optional parameter in a new commands
 \usepackage{nameref}
+\usepackage[toc,page]{appendix}
+\usepackage{titlesec}
 %\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
 %
 \interfootnotelinepenalty=10000
@@ -295,7 +297,7 @@ Ethereum's 2022 merge to PoS marked a sustainability milestone. De Vries (2022)\
 
 \subsection{Traditional Individual Carbon Footprint \label{se:traditional_footprint}}
 
-As seen in figure \ref{fig:carbon_footprint_calculator}, traditional footprint calculators usually rely on users' self-assessment of different emissions categories. This has obvious limitations regarding ergonomy and induces friction in the footprinting process. Users must fill out a questionnaire to get their number, with the accuracy proportional to its length. Moreover, it is error prone as users over/underestimate or misremember previous behaviors. The friction in filling the form makes it unrealistic to use it regularly and, therefore, does not allow users to track their progress. This is a major limitation of behavior change. \todo{cite}. Blockchain data transparency and attribution make it possible to automate the process and vastly increase accuracy as it applies the same rules to everyone.
+As seen in figure \ref{fig:carbon_footprint_calculator}, traditional footprint calculators usually rely on users' self-assessment of different emissions categories. This has obvious limitations regarding ergonomy and induces friction in the footprinting process. Users must fill out a questionnaire to get their number, with the accuracy proportional to its length. Moreover, it is error prone as users over/underestimate or misremember previous behaviors. The friction in filling out the form makes it unrealistic to use it regularly and does not allow users to track their progress. This is a major limitation of behavior change. \todo{cite}. Blockchain data transparency and attribution make it possible to automate the process and vastly increase accuracy as it applies the same rules to everyone.
 
 \subsubsection{Carbon Offsets - The Voluntary Carbon Market}
 \subsubsection{Traditional Offsets - Limitations}
@@ -561,27 +563,14 @@ To inform the selection of an emission attribution model for the Greenblocks pla
 
 \subsection{Approach to Validation \label{sec:approach_validation}}
 
-This study's synthetic data generation was guided by the need to create representative profiles of typical users in the Ethereum and Bitcoin ecosystems. These profiles, also known as "personas," are archetypes to model real-world behavior patterns and investment strategies commonly observed among blockchain users. Table \ref{tab:persona_metrics} presents an overview of the numbers generated for each persona; appendix \ref{appendix:user_personas} provides a detailed description of each entry and statistical methods used to generate the data.
+This study's synthetic data generation was guided by the need to create representative profiles of typical users in the Ethereum and Bitcoin ecosystems. These profiles, also known as \textit{personas}, are archetypes to model real-world behavior patterns and investment strategies commonly observed among blockchain users. Table \ref{tab:persona_metrics} presents an overview of the numbers generated for each persona; appendix \ref{appendix:user_personas_desc} provides a detailed description of each entry and \ref{appendix:user_personas_table} describes statistical methods used to generate the data.
 
-\textbf{User Personas} \\
-Day Trader: Individuals who frequent buying and selling activities on Bitcoin and Ethereum networks. They are highly active and contribute to a significant number of transactions. They are usually first adopters or early followers and have been on the networks for several years.
 
-The Hodler: Individuals who invest in cryptocurrency with a long-term perspective. They hold both Bitcoin and Ethereum and rarely engage in trading activities. These individuals are often early adopters of the technology and have held crypto assets for several years.
-
-Institutional Investor: Large financial entities like hedge funds or mutual funds that make occasional but large transactions. They are relatively new to the cryptocurrency space compared to individual investors but hold significant assets in both Bitcoin and Ethereum.
-
-Retail Payment User: Individuals using cryptocurrencies for regular small payments, such as online purchases or transferring money. They are active on Bitcoin and Ethereum networks and have used cryptocurrencies for a few years.
-
-DAO Lending Protocol: This persona is specific to the Ethereum blockchain and primarily engages in smart contract interactions. Their behavior is characterized by a regular high amount of gas spent and a high average balance.
-
-Occasional User: These individuals engage infrequently in the Bitcoin ecosystem. A low transaction count and a low average balance characterize their behavior. They are relatively new to the ecosystem.
-
-Occasional User (PoS): This persona showcases a user who onboarded the Ethereum network after transitioning to proof-of-stake in September 2022. As with the Bitcoin Occasional users, they are characterized by a low transaction count and a low average balance.
 
 
 \begin{table}[h]
     \centering
-    \caption{User Persona Metrics for Bitcoin and Ethereum}
+    \caption{User Persona Metrics for Bitcoin and Ethereum Networks}
     \label{tab:persona_metrics}
     \centerline{
         \begin{tabular}{lcccccc}
@@ -681,11 +670,35 @@ Using average relative changes over long intervals may fail to capture more nuan
 
 \bibliography{bibliography.bib}
 
+\newgeometry{textwidth=6in,textheight=8.5in}
+
 \appendix
+\titleformat{\chapter}[display]
+{\normalfont\large\bfseries}% <- font for label "Appendix A", default \huge
+{\chaptertitlename\ \thechapter}
+{10pt}
+{\large}% <- font for title, default \Huge
+
+\chapter{Appendix A: User Personas Descriptions \label{appendix:user_personas_desc}}
+
+\textbf{Day Trader}: Individuals who frequent buying and selling activities on Bitcoin and Ethereum networks. They are highly active and contribute to a significant number of transactions. They are usually first adopters or early followers and have been on the networks for several years.
+
+\textbf{The Hodler}: Individuals who invest in cryptocurrency with a long-term perspective. They hold both Bitcoin and Ethereum and rarely engage in trading activities. These individuals are often early adopters of the technology and have held crypto assets for several years.
+
+\textbf{Institutional Investor}: Large financial entities like hedge funds or mutual funds that make occasional but large transactions. They are relatively new to the cryptocurrency space compared to individual investors but hold significant assets in both Bitcoin and Ethereum.
+
+\textbf{Retail Payment User}: Individuals using cryptocurrencies for regular small payments, such as online purchases or transferring money. They are active on Bitcoin and Ethereum networks and have used cryptocurrencies for a few years.
+
+\textbf{DAO Lending Protocol}: This persona is specific to the Ethereum blockchain and primarily engages in smart contract interactions. Their behavior is characterized by a regular high amount of gas spent and a high average balance.
+
+\textbf{Occasional User}: These individuals engage infrequently in the Bitcoin ecosystem. A low transaction count and a low average balance characterize their behavior. They are relatively new to the ecosystem.
+
+\textbf{Occasional User (PoS)}: This persona showcases a user who onboarded the Ethereum network after transitioning to proof-of-stake in September 2022. As with the Bitcoin Occasional users, they are characterized by a low transaction count and a low average balance.
+
 \begin{landscape}
-    \section*{Appendix A: User Personas and Data Generation Strategies}
+    \chapter*{User Personas and Data Generation Strategies}
     \improvement{add specific numbers for generation strategies}
-    \label{appendix:user_personas}
+    \label{appendix:user_personas_table}
     \begin{table}[h]
         \centering
         \caption{Summary of User Personas and Data Generation Strategies for Ethereum and Bitcoin}
