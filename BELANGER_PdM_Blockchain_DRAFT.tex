@@ -88,19 +88,16 @@
 \begin{document}
 
 \includepdf[pages={1-2}]{cover.pdf}
-\section*{Executive summary}
-\change{Put abstract in e4s template}
-\improvement{Too long}
 
+% The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. A growing research corpus has established and compared the varying environmental footprints across blockchains, resulting from different consensus mechanisms and design choices. While the recent release of the first industry blockchain ESG benchmark enables standardized comparisons between chains at an aggregate level, granular methodologies for user-level emissions accounting are still in their infancy. This thesis compares emissions attribution approaches to develop a proof-of-concept tool for user-level on-chain accounting and offsetting.
 
-The advent of blockchain technology has raised concerns about its high energy use and carbon emissions. This is partly due to the current dominance of proof-of-work-driven Bitcoin, the first network to gain widespread adoption and media coverage. A growing research corpus has established and compared the varying environmental footprints across blockchains, resulting from different consensus mechanisms and design choices. While the recent release of the first industry blockchain ESG benchmark enables standardized comparisons between chains at an aggregate level, granular methodologies for user-level emissions accounting are still in their infancy. This thesis compares emissions attribution approaches to develop a proof-of-concept tool for user-level on-chain accounting and offsetting.
+% This thesis revises attribution models designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research is the attempt to weigh responsibility factors based on balancing the principles of proportional benefit (Beneficiary Pays Principle) and direct responsibility (Polluter Pays Principle). This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities.
 
-Building upon state-of-the-art emissions accounting research, this thesis revises attribution models designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research is the attempt to weigh responsibility factors based on the principle of proportional benefit \improvement{I should explain hybrid (2 parameters) attribution before introducing weights between them}. This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities. This hybrid attribution allocates network emissions to specific users based on more complex interaction patterns. Consistent with prior research, two generalizable categories of benefits emerge the Transactional use case (benefits from active transacting or interacting) and the Asset-Securing use case (benefits from passively holding or securing assets). Key parameters such as asset balance, signed transactions, and gas expenditure are used as representative indicators of benefiting from a network use case. The evolutions of network-specific transaction fees and market capitalization are used to derive weight for these parameters. All in all, it is established that hybrid allocation methods are not sufficiently accurate to be used as a standalone attribution model. However, they can be used as complementary approaches to segregated, single-parameter methodologies, providing a more nuanced perspective on the relative responsibility of users.
+% Consistent with prior research, two generalizable categories of action-benefits emerge;  benefits from active transacting, and benefits from passively securing assets. The evolutions of network-specific transaction fees and market capitalization are used to weight each action-benefits in the attribution formula. All in all, it is established that hybrid attribution methods are not sufficiently accurate to be used as a standalone attribution model. However, the defined parameters can be used as separated approaches, resulting in two distinct footprint metrics. This was found to provide the most nuanced yet actionable perspective on the relative responsibility of users.
 
-Furthermore, a proof-of-concept tool (GreenBlocks) is built to showcase the attribution models, allowing users to estimate and offset their emissions through carbon credits. Based on the Ledger Live platform, this platform interacts seamlessly with leading blockchains and links with on-chain carbon market partners to retire offsets with maximal transparency.
+% Furthermore, a proof-of-concept tool (GreenBlocks) is built to showcase the attribution models, allowing users to estimate and offset their emissions through carbon credits. Based on the Ledger Live platform, this platform interacts seamlessly with leading blockchains and links with on-chain carbon market partners to retire offsets with maximal transparency.
 
-Greenblocks provides transparent and personalized insights into blockchain emissions for end-users. By linking usage to quantified environmental impact, it promotes awareness. It enables offsets as a means for users to bear the actual costs behind the benefits they reap from using the technology. Moreover, it demonstrates the potential for on-chain data to be used as the foundation for an appropriately nuanced attribution of external costs in a system. Moving past rudimentary address metrics, more complex behaviors and benefits can be modeled, potentially enabling the distribution of externalities like a Pigouvian tax. Thus, this thesis proposes a bottom-up, user-focused approach to align blockchain adoption with environmental sustainability. This is achieved by furthering user-level footprint attribution, arising from the \textit{Benefiiciary pays principle}.
-
+% Greenblocks provides transparent and personalized insights into blockchain emissions for end-users. It enables offsets as a means for users to bear the actual costs behind the benefits they reap from using the technology. Moreover, it demonstrates the potential for on-chain data to be used as the foundation for an appropriately nuanced attribution of external costs in any system. Moving past rudimentary address metrics, more complex behaviors and benefits can be modeled, enabling the fair distribution of externalities.
 
 \newpage
 \section*{Acknowledgements}
@@ -294,6 +291,9 @@ Ethereum's 2022 merge to PoS marked a sustainability milestone. De Vries (2022)\
 
 \section{Carbon Accounting - User-Level Emissions Attribution}
 
+\subsection{The Polluter \& Beneficiary Pays Principles}
+
+{\large{TODO}}\todo{TODO}
 
 \subsection{Traditional Individual Carbon Footprint \label{se:traditional_footprint}}
 
@@ -316,7 +316,7 @@ It expands on previous work by De Vries (2021) \cite{devriesTrueCostsDigital2021
 
 \textbf{The Hybrid Allocation Approach}
 
-The "hybrid allocation" approach is a significant contribution, merging holding-based and transaction-based emissions accounting for a comprehensive view of blockchains' environmental impact. For PoW chains, the relationship between block rewards and transaction fees is used to weigh both variables in the attribution formula. According to the authors, this proportion "determines the distribution of the electricity consumption between holding and transactions executed." For PoS chains, the marginal power demand resulting from processing transactions is used as a share of total demand.\todo{Reread and check with framework version slides if it is also the case} Real-world data sources like CBECI and their own CCRI-API back this methodology.
+The "hybrid allocation" approach is a significant contribution, merging holding-based and transaction-based emissions accounting for a comprehensive view of blockchains' environmental impact. For PoW chains, the relationship between block rewards and transaction fees is used to weigh both variables in the attribution formula. According to the authors, this proportion "determines the distribution of the electricity consumption between holding and transactions executed." For PoS chains, the marginal power demand resulting from processing transactions is used as a share of total demand Real-world data sources like CBECI and their own CCRI-API back this methodology.
 
 
 \textbf{Bringing Offsets On-Chain - Opportunities}
@@ -334,15 +334,16 @@ While aligning with the CCRI's recent approach to hybrid attribution, this resea
 
 Moreover, the CCRI paper lacks a practical implementation of its methodology and beyond user-example results. This thesis addresses this gap by building a proof-of-concept application to demonstrate the attribution model's feasibility and value.
 
+    {\large{TO CONTINUE}} \todo{TO CONTINUE}
 
 \chapter{Methodology: User-Level Emissions Attribution Model}
 \section{Overview \label{se:methodology_overview}}
 
 \todo{Find where to include steps of the work. Interviews and data collection}
 
-As blockchain technology expands onto more use cases and scales in its adoption, quantifying and attributing associated carbon emissions transparently emerges as a valid need. While aggregate estimates provide high-level network overviews, they fail to offer individual user-level accountability, posing a user education gap and potentially a product need. We first need to map and compare the possible approaches to display legitimate and accurate user-level footprints in the PoC.
+This chapter maps and compares the possible approaches ensuring display of legitimate, nuanced and actionnable user-level footprints in the PoC.
 
-First, a typology of blockchains is proposed to enable the proper selection of metrics relevant to networks' distinctive characteristics. Then it is shown that using stakeholders' active behavior (sending transactions) as the sole attribution parameter does not lead to a fair share of responsibility for the network's environmental externalities. This leads to the definition of a second parameter based on passive behavior (holding assets). To combine the parameters in a single footprint, we introduce a novel methodology to attribute network emissions to addresses based on proportional benefits gained by users. As with the new \ac{CCRI} hybrid allocation approach, by distributing network footprints to end-users, protocols, and DAOs, this framework enables entities to understand, report, and take action based on their nuanced responsibility in the overall emissions.
+First, a typology of blockchains is proposed to enable the proper selection of metrics relevant to networks' distinctive characteristics. Then it is shown that using stakeholders' active behavior (sending transactions) as the sole attribution parameter does not lead to a fair share of responsibility for the network's environmental externalities. This leads to the definition of a second parameter based on passive behavior (holding assets). To combine the parameters in a single footprint, we introduce a novel methodology to attribute network emissions to addresses based on proportional benefits gained by users.
 
 This methodology is underpinned by ethical and ecological theories suggesting externalities be allocated based on the proportional benefits stakeholders gain from presence in a system. Historical trends in network metrics like fees and market value provide proper signals into evolving blockchain utility dynamics and user perceptions of value.
 
@@ -360,7 +361,7 @@ Blockchains can be categorized into two main types based on their primary functi
     \item[\ac{GPC}] Chains that allow the deployment of smart contracts and decentralized applications (dApps) in addition to value transfer (e.g. Ethereum, Cardano, Solana). On these networks, transactions and computations are quantified using a metric called gas\footnote{See: https://ethereum.org/en/developers/docs/gas/}. This concept was introduced by Vitalik Buterin in Ethereum's initial whitepaper \cite{buterinEthereumNextgenerationSmart} as a means to disincentivize computationally intensive smart contracts that could clog the network. Gas puts a cost on network utilization for activities like executing code, storing data, or transferring tokens based on their computation complexity. This makes it more costly to interact with complex applications and prevents situations that would halt the network like an infinite loop in a smart contract.
 \end{description}
 
-Due to these fundamental differences, GPCs and VTCs require distinct approaches for carbon accounting. On VTCs, the limited block space is the bottleneck for transactions. Hence, users conducting more transactions take up a greater share of blockspace and have higher responsibility for the chain's emissions. On GPCs, gas expenditure more accurately reflects utilization and impact on the network's computation and storage load. Users spending more gas have a greater share of responsibility by consuming more of the network's resources and throughput capacity.
+Due to these fundamental differences, GPCs and VTCs require distinct approaches for carbon accounting. On VTCs, the limited block space is the bottleneck for transactions. Hence, users conducting more transactions take up a greater share of blockspace and have higher responsibility for the chain's emissions. On GPCs, gas expenditure more accurately reflects utilization and impact on the network's computation and storage load. Users spending more gas have a greater share of responsibility by consuming more of the network's resources and throughput capacity. This distinction follows both the \textit{Polluter Pays} and \textit{Beneficiary Pays} principles as direct responsibility and benefits are aligned.
 
 Existing studies have estimated blockchain emissions using aggregate network energy use or miner rewards \cite{devriesCryptocurrenciesRoadSustainability2022,devriesRevisitingBitcoinCarbon2022,neumuellerCambridgeBitcoinElectricity2021,mcdonaldEthereumEmissionsBottomup2022}. However, these top-down approaches fail to capture user behavior and responsibility. Our methodology addresses this limitation through a transparent attribution model tailored to GPCs and VTCs using usage factors like gas and transactions. The following sections detail this framework.
 
@@ -368,6 +369,10 @@ Existing studies have estimated blockchain emissions using aggregate network ene
 \improvement{To review!! Add share infrastructure metaphor. Introduce polluter/benef pays from the litt review.}
 The Need for Proportional Benefit Attribution
 Carbon emissions from blockchain operations should be tied to direct causative actions (polluter pays principle) and the benefits derived from these actions (beneficiary pays principle). The synthesis of the polluter pays and beneficiary pays principles results in a more nuanced understanding of emission responsibility.
+
+    {\large{YOOOO}}
+
+This thesis revises attribution models designed to map the carbon footprint of blockchain at a user-responsibility level. Novel to this research is the attempt to weigh responsibility factors based on balancing the principles of proportional benefit (Beneficiary Pays Principle) and direct responsibility (Polluter Pays Principle). This approach exploits the inherent transparency of blockchain data to capture the relative value, specific to each network, that users place on different blockchain functionalities.
 
 \subsubsection*{Transactional Activities}
 
@@ -615,6 +620,10 @@ This study's synthetic data generation was guided by the need to create represen
 
 }
 
+
+As with the new \ac{CCRI} hybrid allocation approach, by distributing network footprints to end-users, protocols, and DAOs, this framework enables entities to understand, report, and take action based on their nuanced responsibility in the overall emissions.
+
+
 \section{Limitations}
 
 \subsection*{Using proportional benefits as a proxy for emissions responsibility}
@@ -671,6 +680,7 @@ Using average relative changes over long intervals may fail to capture more nuan
 
 \chapter{Conclusion}
 
+As blockchain technology expands onto more use cases and scales in its adoption, quantifying and attributing associated carbon emissions transparently emerges as a valid need. While aggregate estimates provide high-level network overviews, they fail to offer individual user-level accountability, posing a user education gap and potentially a product need.
 
 \bibliography{bibliography.bib}
 
