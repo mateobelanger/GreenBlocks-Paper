@@ -534,7 +534,7 @@ This aggregates the attributed emissions across chains over time.
 
 \section{Data Sources and Collection \label{sec:data_sources}}
 
-The aggregation of multiple data sources was necessary to build the emission attribution model. This section details the data sources used for each model component. Table \ref{tab:data_sources} provides an overview of the data sources used for each metric.
+The aggregation of multiple data sources was necessary to build the emission attribution model. This section details the data sources used for each model component. Table \ref{tab:data_sources} provides an overview of the data sources used for each metric. A Python implementation of the emissions attribution model was utilized for the data extraction, aggregation, and cleaning process required for the results analysis. Python was also leveraged to generate the synthetic user data used for comparing the attribution models.
 
 \begin{table}[h!]
     \centering
@@ -571,54 +571,23 @@ To inform the selection of an emission attribution model for the Greenblocks pla
 This study's synthetic data generation was guided by the need to create representative profiles of typical users in the Ethereum and Bitcoin ecosystems. These profiles, also known as \textit{personas}, are archetypes to model real-world behavior patterns and investment strategies commonly observed among blockchain users. Table \ref{tab:persona_metrics} presents an overview of the numbers generated for each persona; appendix \ref{appendix:user_personas_desc} provides a detailed description of each entry and \ref{appendix:user_personas_table} describes statistical methods used to generate the data.
 
 
+\input{tables/user_persona_metrics.tex}
 
 
-\begin{table}[h]
-    \centering
-    \caption{User Persona Metrics for Bitcoin and Ethereum Networks}
-    \label{tab:persona_metrics}
-    \centerline{
-        \begin{tabular}{lcccccc}
-            \toprule
-            Persona Name           & \textbf{First Seen} & \multicolumn{2}{c}{Bitcoin} & \multicolumn{3}{c}{Ethereum}                                            \\
-            \cmidrule(lr){3-4} \cmidrule(lr){5-7}
-                                   &                     & Av. Balance                 & Tx Count                     & Av. Balance & Gas Spent  & Balance (USD) \\
-            \midrule
-            Day Trader             & 2016-01-01          & $4.88e+01$                  & $2.07e+03$                   & $7.21e+02$  & $6.82e+07$ & $7.58e+05$    \\
-            Institutional Investor & 2018-01-01          & $1.83e+04$                  & $1.49e+03$                   & $5.84e+04$  & $4.95e+07$ & $1.05e+08$    \\
-            Occasional User        & 2020-11-27          & $0.03$                      & $2.50e+01$                   & --          & --         & --            \\
-            Retail Payment User    & 2017-01-01          & $6.72e+00$                  & $1.74e+03$                   & $3.30e+02$  & $6.46e+07$ & $3.84e+05$    \\
-            The Hodler             & 2015-01-01          & $3.06e+00$                  & $0.0$                        & $3.14e+02$  & $1.43e+06$ & $4.61e+05$    \\
-            DAO Lending Protocol   & 2020-01-01          & --                          & --                           & $5.65e+03$  & $3.24e+08$ & $1.06e+07$    \\
-            Occasional User (PoS)  & 2022-09-25          & --                          & --                           & $1.12e+00$  & $5.34e+06$ & $1.84e+03$    \\
-            \bottomrule
-        \end{tabular}
+From the table \ref{tab:persona_metrics}
 
-    }
+To reduce varyation and to be able to better compare between the two chains, personas present on both chains were generated with the same distribution of first seen dates. In the same idea, similar statistical distributions were used, albeit not identical. Complex modeling based on token price evolution, market volatility and differentiated behavior was used to model each persona. A notable difference is the Ethereum Occasional User that was chosen to have appeared only after the transition to PoS, we expect fairly low emissions across all methodologies in his case even though he interacts a lot with the chain. This should contrast with the Occasional User on Bitcoin.
+To note, institutional investor to showcase regular interactions and very high secured asets.
+
+% For example, the Institutional Investor holds over $105 million USD worth of both BTC and ETH across its long history with blockchain, so its sizeable transactions are bound to have significant environmental impact. In contrast, the recent Occasional User (PoS) has low transaction counts and balances since joining after Ethereum's transition to Proof-of-Stake (PoS) in September 2022. This offers insight into how new energy-efficient protocols may attract users with smaller carbon footprints.
+
+% The Retail Payment User is also intriguing despite its relatively small cryptocurrency holdings, as it has spent a substantial amount of gas (64,578,113) on frequent smaller transactions. Meanwhile, the Ethereum-exclusive DAO Lending Protocol has the highest gas expenditure (323,839,691) of all personas. Given recent Ethereum sustainability measures, analyzing behavior of Ethereum-specific personas like this one could reveal how protocol changes affect emissions.
+
+% Overall, these selected elements provide interesting focal points for understanding the relationship between user behavior and the environmental impact of blockchain activities. The diversity of user histories, portfolios, and activities represented by the personas offer promising avenues for analysis.
 
 
-\end{table}
+\input{tables/user_persona_emissions.tex}
 
-
-\section{Results Analysis}
-\centerline{
-    \begin{tabular}{lcccccc}
-        \toprule
-        \multirow{2}{*}{Persona Name} & \multicolumn{3}{c}{BTC} & \multicolumn{3}{c}{ETH}                                                                                     \\
-        \cmidrule(lr){2-4} \cmidrule(lr){5-7}
-                                      & \textbf{Assets (t)}     & \textbf{Tx (t)}         & \textbf{Hybrid (t)} & \textbf{Assets (t)} & \textbf{Tx (t)} & \textbf{Hybrid (t)} \\
-        \midrule
-        Day Trader                    & $623$                   & $606$                   & $606$               & $211$               & $16$            & $20$                \\
-        Institutional Investor        & $323041$                & $563$                   & $7032$              & $8745$              & $11$            & $219$               \\
-        Occasional User               & $0.2$                   & $13$                    & $13$                & --                  & --              & --                  \\
-        Retail Payment User           & $91$                    & $580$                   & $570$               & $98$                & $14$            & $16$                \\
-        The Hodler                    & $38$                    & $0.00001$               & $0.75$              & $102$               & $0.32$          & $3$                 \\
-        DAO Lending Protocol          & --                      & --                      & --                  & $1089$              & $62$            & $86$                \\
-        Occasional User (PoS)         & --                      & --                      & --                  & $0.00001$           & $0.0002$        & $0.0002$            \\
-        \bottomrule
-    \end{tabular}
-
-}
 
 
 As with the new \ac{CCRI} hybrid allocation approach, by distributing network footprints to end-users, protocols, and DAOs, this framework enables entities to understand, report, and take action based on their nuanced responsibility in the overall emissions.
@@ -633,6 +602,7 @@ The \textit{Beneficiary Pays} approach, which analyses proportional benefits, ha
 
 \subsection*{Weighting Factors}
 Using average relative changes over long intervals may fail to capture more nuanced shifts in user priorities over shorter timescales. This approach also assumes user behaviors are consistent across all blockchain users, whereas, in reality, different segments likely have distinct preferences. These limitations are discussed further in Section \ref{se:limitations}.
+
 
 \subsection*{Single Network Personas}
 
