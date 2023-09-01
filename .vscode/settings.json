@@ -1,0 +1,9 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "latex",
+            "scheme": "file",
+            "pattern": "BELANGER_PdM_Blockchain_DRAFT.tex"
+        }
+    ]
+}
