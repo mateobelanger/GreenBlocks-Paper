@@ -40,6 +40,7 @@
 
 #### Methodology Process:
 
+1. Emission Attribution Module
 - Review litterature for existing blockchain accounting methodologies
 - Iterate on the development of  the attribution model by interviewing experts in the field
 - Implement and compare the models on realistic user data
@@ -53,3 +54,19 @@
       comparison --> generate(generate realistic user data)
 
 ```
+
+2. Proof-of-concept WebApp
+
+- Connect with third party data providers:
+    - Emissions data (CCRI HTTP API)
+    - Blockchain user data (Alchemy SDK)
+    - Blockchain network data (Blockchair HTTP API)
+
+- Build reporting frontend:
+    - Wallet sign-in
+    - User metrics reporting (usage & footprint)
+- Build offsetting frontend:
+    - Integration with Klima offsetting flow
+    - 1-click buy of Klima token + offset
+
+- Host frontend and backend on cloud server
